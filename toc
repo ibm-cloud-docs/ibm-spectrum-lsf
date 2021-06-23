@@ -1,0 +1,51 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="ibm-spectrum-lsf" category="compute" audience="software" href="/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial" path="ibm-spectrum-lsf"}
+IBM Spectrum LSF
+
+    {: .navgroup id="learn"}
+    getting-started.md
+    about.md
+    deployment-values.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    {: .topicgroup}
+    Setting up the CLI and API
+        setting-up-cli.md
+        setting-up-api.md
+
+    creating-workspace.md
+    generating-plan.md
+    applying-plan.md
+    destroying-resources.md
+    deleting-workspace.md
+    retrieving-action-logs.md
+    updating-variables.md
+
+    {:. topicgroup}
+    Managing worker nodes
+        update-max-nodes.md
+        update-idle-time.md
+        adding-profile-types.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    /docs/schematics/schematics-schematics-cli-reference
+    [IBM Cloud Schematics API](https://cloud.ibm.com/apidocs/schematics)
+    /docs/schematics/schematics-schematics-sdks
+    [Best practices for IBM Spectrum LSF](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=best-practices-tips)
+    [Configuring auto scaling or resource connector for IBM Cloud](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=providers-configuring-cloud-gen-2-lsf-resource-connector)
+  
+    {: .topicgroup}
+    Hybrid connectivity
+        install-vpn-hpc-cluster.md
+        data-management.md
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    faq.md
+    troubleshooting.md
+    getting-help.md
+    {: .navgroup-end}
