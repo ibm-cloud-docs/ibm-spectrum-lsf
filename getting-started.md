@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-06-23"
 
 keywords: 
 
@@ -51,7 +51,7 @@ Create an SHH key in your {{site.data.keyword.cloud_notm}} account. This is your
 {: #create-custom-image}
 {: step}
 
-Create a custom image with your OS/LSF and required application binary files. For more information, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). {{site.data.keyword.cloud_notm}} provides a pre-built image with CentOS and RHEL and the following packages to get you started quickly. If this list of packages is good enough for your workloads, you do not need to create your own custom image. 
+Create a custom image with your OS/LSF and required application binary files. For more information, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). {{site.data.keyword.cloud_notm}} provides a pre-built image with CentOS and RHEL to help you get started quickly. The image names are `hpcc-lsf10-cent77-jun0421-v5` and `hpcc-lsf10-rhel77-jun0421-v5`, respectively. In addition to the base operating systems, the images also include some commonly used software packages. If the following list of packages is good enough for your workloads, you do not need to create your own custom image: 
   * GNU compilers for C, C++, Fortran (gcc, gcc-c++, gcc-gfortran)
   * Open MPI (openMPI)
 
