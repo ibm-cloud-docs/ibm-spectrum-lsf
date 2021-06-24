@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-06-24"
 
 keywords: 
 
@@ -64,3 +64,9 @@ You can even remove `-A` by adding "ForwardAgent yes" to `.ssh/config`.
 {: faq}
 
 The maximum number of worker nodes that are supported for the deployment value `worker_node_max_count` is 500 (see [Deployment values](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values)). The `worker_node_min_count` variable specifies the number of worker nodes that are provisioned at the time the cluster is created, which will exist throughout the life of the cluster. The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it's recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it's recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster.
+
+## Why are there two different resource group parameters that can be specified in the IBM Cloud catalog tile?
+{: #resource-group-parameters}
+{: faq}
+
+The first resource group parameter entry in the **Configure your workspace** section in the {{site.data.keyword.cloud_notm}} catalog applies to the resource group where the {{site.data.keyword.bpshort}} workspace is provisioned on your {{site.data.keyword.cloud_notm}} account. The value for this parameter can be different than the one used for the second entry in the **Parameters with default values** section in the catalog. The second entry applies to the resource group where VPC resources are provisioned. As specified in the description for this second `resource_group` parameter, note that only the default resource group is supported for use of the LSF Resource Connector auto-scaling feature.
