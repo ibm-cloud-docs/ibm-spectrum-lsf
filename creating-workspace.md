@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-06-24"
 
 keywords: 
 
@@ -39,7 +39,7 @@ With {{site.data.keyword.bplong}} workspaces, you can manage the Terraform-based
     * Specify the **Name** for your {{site.data.keyword.bpshort}} workspace
     * Select a **Resource group**
     * Define any **Tags** that you want to associate with the resources provisioned through the offering. The tags can later be used to query the resources in the {{site.data.keyword.cloud_notm}} console.
-4. In the _Set the deployment values_ section, specify the values for the three required properties: `api_key`, `ssh_key_name`, and `lsf_cluster_license`.
+4. In the _Set the deployment values_ section, specify the values for the three required properties: `api_key`, `ssh_key_name`, and `lsf_license_confirmation`.
 5. Expand the _Parameters with default values_ section, and review it to determine whether you need to override any of the default values provided for the configuration properties.
 6. Review and accept the **{{site.data.keyword.spectrum_full_notm}}** license terms and conditions in the order summary.
 7. Click **Install**. The {{site.data.keyword.bpshort}} workspace is created with the name you specified. You can see the list of workspaces in _View the existing installations_. If the workspace creation is successful, the _Apply Plan_ action is started to trigger the deployment of the respective {{site.data.keyword.vpc_short}} resources in your {{site.data.keyword.cloud_notm}} account that are linked with the `api_key`. 
