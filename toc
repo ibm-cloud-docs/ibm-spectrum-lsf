@@ -41,6 +41,8 @@ IBM Spectrum LSF
     {: .topicgroup}
     Hybrid connectivity
         install-vpn-hpc-cluster.md
+        direct-link.md
+        setting-up-multi-cluster-job-forwarding.md
         data-management.md
     {: .navgroup-end}
 
