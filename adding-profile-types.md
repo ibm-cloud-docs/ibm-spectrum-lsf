@@ -24,7 +24,7 @@ subcollection: ibm-spectrum-lsf
 
 Complete the following steps to add compute profile types when worker nodes are automatically added by the resource connector.
 
-For users only need to add multiple profiles, step 1 is sufficient and restart mbatchd is enough, The rest of steps are for submitting a job to a specific by tagging the vm with templateID as a string resource.
+For users who only need to add multiple profiles, step 1 is sufficient and restart mbatchd is enough, The rest of steps are for submitting a job to a specific by tagging the vm with templateID as a string resource.
 {: note}
 
 1. Add a new template section to the templates list. Review the values for all of the properties to ensure that they map to the correct VPC configuration. Update the file `ibmcloudgen2_templates.json` in `$LSF_ENDIR/resource_connector/ibmcloudgen2/conf`. A typical HPC cluster that is installed on {{site.data.keyword.cloud_notm}} would have this file in `/opt/ibm/lsf/conf/resource_connector/ibmcloudgen2/conf`. See the following sample content for an example:
