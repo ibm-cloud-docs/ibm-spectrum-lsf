@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-08-02"
 
 keywords: 
 
@@ -24,7 +24,10 @@ subcollection: ibm-spectrum-lsf
 
 Complete the following steps to add compute profile types when worker nodes are automatically added by the resource connector.
 
-1. Update the file `ibmcloudgen2_templates.json` in `$LSF_ENDIR/resource_connector/ibmcloudgen2/conf`. A typical HPC cluster that is installed on {{site.data.keyword.cloud_notm}} would have this file in `/opt/ibm/lsf/conf/resource_connector/ibmcloudgen2/conf`. See the following sample content for an example:
+Also, please note: For users only need to add multiple profiles, step 1 is sufficient and restart mbatchd is enough, The rest of steps are for submitting a job to a specific by tagging the vm with templateID as a string resource.
+{: note}
+
+1. Add a new template section to the templates list. Review the values for all of the properties to make sure that they map to the correct VPC configuration. Update the file `ibmcloudgen2_templates.json` in `$LSF_ENDIR/resource_connector/ibmcloudgen2/conf`. A typical HPC cluster that is installed on {{site.data.keyword.cloud_notm}} would have this file in `/opt/ibm/lsf/conf/resource_connector/ibmcloudgen2/conf`. See the following sample content for an example:
 
     ```
     {
@@ -38,38 +41,39 @@ Complete the following steps to add compute profile types when worker nodes are 
     "ncpus": ["Numeric", "1"],
     "mem": ["Numeric", "1024"],
     "icgen2host": ["Boolean", "1"]
+    "templateID": ["String", "<TemplateID>"]
     },
     "imageId": "<IMAGE_ID>",
     "subnetId": "<SUBNET_ID>",
-    "vpcId": "<VPC_ID">,
+    "vpcId": "<SUBNET_ID>",
     "vmType": "cx2-2x4",
     "securityGroupIds": ["<SECURITY_GROUP_ID>"],
     "sshkey_id": "<SSH_KEY_ID>",
     "region": "us-south",
-    "zone": "us-south-2"
+    "zone": "us-south-1"
+    "userData": "<TemplateID>"
     }
     ]
     }
     ```
     {: screen}
 
-2. Add a new template section to the templates list. Review the values for all of the properties to make sure that they map to the correct VPC configuration.
-3. Run the following command to restart the `mbatchd` process and apply the changes:
+Please use a valid value for Template ID. A '-' (hypen) cant be used in templateId when using it as a string resource.
+User may see this error:
+Error in select section: Operator "-" cannot be used with type , to get type . Job not submitted.
+{: note}
 
-    ```
-    badmin mbdrestart
-    ```
-    {: pre}
+2. When the template is added, you can use the `lsf.shared` file to map the new template to a specific job. The `lsf.shared` file is located in `$LSF_ENVDIR` (same location as `lsf.conf`). In a typical installation, this would be found in the `/opt/ibm/lsf/conf` folder. Add _templateId_ as a resource in the resource section in the `lsf.shared` file. For example, **templateID String () () (template ID for the external hosts)**.
 
-4. When the template is added, you can use the `lsf.shared` file to map the new template to a specific job. The `lsf.shared` file is located in `$LSF_ENVDIR` (same location as `lsf.conf`). In a typical installation, this would be found in the `/opt/ibm/lsf/conf` folder. Add _templateId_ as a resource in the resource section in the `lsf.shared` file. For example, **templateID String () () (template ID for the external hosts)**.
-5. Add the following section to `user_data.sh` to let the virtual machines add _templateId_ as `LSF_LOCAL_RESOURCES`.
+3. Add the following section to `user_data.sh` to let the virtual machines add _templateId_ as `LSF_LOCAL_RESOURCES`.
 
     ```
     if [ -n "$template_id" ]; then
-    sed -i "s/(LSF_LOCAL_RESOURCES=.)"/\1 [resourcemap $template_idtemplateID]"/" $LSF_CONF_FILE
+    sed -i "s/\(LSF_LOCAL_RESOURCES=.*\)\"/\1 [resourcemap $template_id*templateID]\"/" $LSF_CONF_FILE
     echo "update LSF_LOCAL_RESOURCES in $LSF_CONF_FILE successfully, add [resourcemap ${template_id}*templateID]" >> $logfile
     else
     echo "templateID doesn't exist in environment variable" >> $logfile
+    fi
     ```
     {: screen}
 
@@ -83,10 +87,16 @@ Complete the following steps to add compute profile types when worker nodes are 
     ```
     {: screen}
 
-6. You can submit the change by using the -R option. See the following example:
+4. Run the following commands to restart the processes and apply the changes:
+     ```
+     $lsadmin reconfig
+     $badmin mbdrestart
+      ```
+
+5. You can submit the change by using the -R option. See the following example where "Template2" is an example value for Template ID:
 
     ```
-    bsub -R “templateId=Template-2” sleep 1000
+    bsub -R “templateId=Template2” sleep 1000
     ```
     {: pre}
 
