@@ -7,6 +7,8 @@ IBM Spectrum LSF
     {: .navgroup id="learn"}
     getting-started.md
     about.md
+    considerations-for-HPC-cluster-compute-types.md
+    hpc-cluster-tutorial.md
     deployment-values.md
     {: .navgroup-end}
 
