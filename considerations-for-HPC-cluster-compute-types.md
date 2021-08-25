@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-20"
+lastupdated: "2021-08-25"
 
 keywords: 
 
@@ -74,8 +74,6 @@ Scalable MPI jobs can be set up that require multiple virtual machines that are 
 {: #electronic-design-automation}
 
 IBM Systems and IBM Research work in this industry domain have successfully used IBM Cloud for such workloads. You can see in the graph below that displays a scale test for up to 30K cores. To showcase how our cloud zones can be used as a single data center, we built a large HPC cluster aggregating the resources across three IBM Cloud locations. The setup also leverages IBM Spectrum Scale as a scratch-based high performing file system along with IBM Spectrum LSF for HPC cluster configuration. We have used BX2-48x192 for IBM Spectrum LSF worker nodes and MX2d-16x128 for storage nodes under the IBM Spectrum Scale.
-
-IBM Systems and IBM Research work in this industry domain have successfully used IBM Cloud for such workloads. Below is the graph that displays a scale test for up to 30K cores.
 
 ![EDA-diagram](images/Electronic-Design-Automation.png){:caption="Figure 1. EDA diagram}
 
