@@ -82,10 +82,6 @@ Follow these steps for SSH key:
 5. Add name (e.g. po-ibm-ssh-key), select Default group, region, tags, and description
 6. Copy the public key and paste it in the ``public_key`` field (e.g.: contents in .ssh/id_rsa.pub)
 7. Click on ***Add SSH Key***
-8. Regarding ``hyperthreading_enabled``:
-You can enable hyper-threading in the worker nodes of the cluster by setting this value to true (default). Otherwise, hyper-threading will be disabled.
-9. Regarding ``vpc_name``:
-You can use an existing VPC in which the cluster resources will be provisioned. If no value is given, then a new VPC will be provisioned for the cluster.
 
 ## API key
 {: #hpc-api-key}
