@@ -45,7 +45,7 @@ Generate an API key for your {{site.data.keyword.cloud_notm}} account where the 
 {: #create-ssh-key}
 {: step}
 
-Create an SHH key in your {{site.data.keyword.cloud_notm}} account. This is your SSH key that you will use to access the LSF cluster. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+Create an SSH key in your IBM Cloud account. This is your SSH key that you will use to access the LSF cluster. Ensure the SSH key is present in the same resource group and region where the cluster is being provisioned. We support passing comma separated multiple SSH keys, if the cluster needs multiple SSH keys. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
 ## Create custom image
 {: #create-custom-image}
