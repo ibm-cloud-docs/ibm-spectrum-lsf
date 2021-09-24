@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-02"
+lastupdated: "2021-09-24"
 
 keywords: 
 
@@ -35,6 +35,6 @@ The offering enables the initial Spectrum LSF-based HPC cluster creation. Any up
 ## Architecture diagram
 {: #architecture-diagram}
 
-![Architecture diagram](images/hpcccluster_schematics_arch.svg){:caption="Figure 1. Architecture diagram of an {{site.data.keyword.spectrum_full_notm}} cluster on {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
+![Architecture diagram](images/hpccluster_lsf_schematics_architecture_09-22-21.png){:caption="Figure 1. Architecture diagram of an {{site.data.keyword.spectrum_full_notm}} cluster on {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
 
