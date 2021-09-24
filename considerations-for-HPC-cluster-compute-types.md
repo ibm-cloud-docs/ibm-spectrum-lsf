@@ -46,7 +46,7 @@ To address this range of characteristics,  IBM Cloud provides various VPC virtu
 *  Memory intensive configurations that provide 8 to 28 GB memory per core and a network of 2 to 80 Gbps. 
 
 
-For more information, explore [Instance profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles)
+For more information, explore [Instance profiles](/docs/vpc?topic=vpc-profiles)
 
 For all the configurations the range of core count is 2 - 128 per virtual machine. There is a special Ultra High Memory virtual machine type which might be applicable for workloads that require more memory per core. This type can go up to 200 cores and as high as 28 GB per core. 
 
