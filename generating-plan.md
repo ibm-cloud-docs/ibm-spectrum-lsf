@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-09-24"
 
 keywords: 
 
@@ -33,7 +33,7 @@ After you've created your workspace, you need to generate a plan to validate all
 {: ui}
 
 1. In the {{site.data.keyword.cloud}} console, after the workspace is created, you can review the properties and the variables that are associated with that workspace by using the _Settings_ tab. You can review all the values, make changes if applicable, and click **Generate plan**. 
-2. When you click **Generate plan**, a new log is generated that can be viewed in the _Activity_ tab by clicking **View log**. 
+2. When you click **Generate plan**, a new log is generated that can be viewed in the Jobs tab by clicking **Jobs**. 
 3. Review the log file for any errors, fix the properties, and regenerate the plan by clicking **Generate plan** again.
 
 ## Next steps
