@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-26"
+lastupdated: "2021-09-24"
 
 keywords: 
 
@@ -45,13 +45,13 @@ Generate an API key for your {{site.data.keyword.cloud_notm}} account where the 
 {: #create-ssh-key}
 {: step}
 
-Create an SSH key in your IBM Cloud account. This is your SSH key that you will use to access the LSF cluster. Ensure the SSH key is present in the same resource group and region where the cluster is being provisioned. We support passing comma separated multiple SSH keys, if the cluster needs multiple SSH keys. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+Create an SSH key in your IBM Cloud account. This is your SSH key that you will use to access the LSF cluster. Ensure the SSH key is present in the same resource group and region where the cluster is being provisioned. We support passing comma separated multiple SSH keys, if the cluster needs multiple SSH keys. For more information, see [Managing SSH keys](/docs/vpc?topic=vpc-managing-ssh-keys).
 
 ## Create custom image
 {: #create-custom-image}
 {: step}
 
-Create a custom image with your OS/LSF and required application binary files. For more information, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). {{site.data.keyword.cloud_notm}} provides a pre-built image with CentOS and RHEL to help you get started quickly. The image names are `hpcc-lsf10-cent77-jun0421-v5` and `hpcc-lsf10-rhel77-jun0421-v5`, respectively. In addition to the base operating systems, the images also include some commonly used software packages. If the following list of packages is good enough for your workloads, you do not need to create your own custom image: 
+Create a custom image with your OS/LSF and required application binary files. For more information, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). {{site.data.keyword.cloud_notm}} provides a pre-built image with CentOS and RHEL to help you get started quickly. The image names are `hpcc-lsf10-cent77-jul2221-v6` and `hpcc-lsf10-rhel77-jul2221-v6`, respectively. In addition to the base operating systems, the images also include some commonly used software packages. If the following list of packages is good enough for your workloads, you do not need to create your own custom image: 
   * GNU compilers for C, C++, Fortran (gcc, gcc-c++, gcc-gfortran)
   * Open MPI (openMPI)
 
