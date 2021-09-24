@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-09"
+lastupdated: "2021-09-24"
 
 keywords: 
 
@@ -40,7 +40,7 @@ For users who only need to add multiple profiles, step 1 is sufficient and resta
     "ncores": ["Numeric", "1"],
     "ncpus": ["Numeric", "1"],
     "mem": ["Numeric", "1024"],
-    "icgen2host": ["Boolean", "1"]
+    "icgen2host": ["Boolean", "1"],
     "templateID": ["String", "<TemplateID>"]
     },
     "imageId": "<IMAGE_ID>",
@@ -50,7 +50,7 @@ For users who only need to add multiple profiles, step 1 is sufficient and resta
     "securityGroupIds": ["<SECURITY_GROUP_ID>"],
     "sshkey_id": "<SSH_KEY_ID>",
     "region": "us-south",
-    "zone": "us-south-1"
+    "zone": "us-south-1",
     "userData": "<TemplateID>"
     }
     ]
