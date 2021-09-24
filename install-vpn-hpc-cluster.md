@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-09-24"
 
 keywords: 
 
@@ -158,3 +158,9 @@ Run the following commands to update the security groups:
 {: #step-5-configure-vpn-environment}
 
 Typical VPN configurations require `${peer_address}`, `${peer_cidr}`, `${local_cidr}`, `${preshared_key}`, and `${public_ip}` assigned to the VPN gateway. For more details on configuring your VPN, see [Connecting to your on-premises network](/docs/vpc?topic=vpc-vpn-onprem-example).
+
+## Next steps
+{: #next-steps-vpn-environment}
+
+After you've configured your local VPN environment, you are ready to set up the multi-cluster and job forwarding. For more information, see [Setting up multi-cluster and job forwarding using {{site.data.keyword.spectrum_short}}](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-set-up-multi-cluster-job-forwarding).
+
