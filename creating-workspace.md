@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-24"
+lastupdated: "2021-09-24"
 
 keywords: 
 
@@ -174,41 +174,52 @@ logging.basicConfig()
 logging.root.setLevel(logging.NOTSET)
 logging.basicConfig(level=logging.NOTSET)
 
-authenticator = IAMAuthenticator('<ibmcloud-api-key>')
+authenticator = IAMAuthenticator('')
 
 schematics_service = SchematicsV1(authenticator = authenticator)
 
 schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')
 
-workspace_variable_request_model = {}
-workspace_variable_request_model['name'] = 'variable_name1'
-workspace_variable_request_model['value'] = 'variable_value1'
-
 template_source_data_request_model = {}
-template_source_data_request_model['env_values'] = [{ 'Environment': 'hpc-dev' }]
+template_source_data_request_model['env_values'] = [
+{
+"name": "TF_CLI_ARGS_plan",
+"value": "-parallelism=250",
+},
+{
+"name": "TF_CLI_ARGS_apply",
+"value": "-parallelism=250"
+}
+]
 template_source_data_request_model['folder'] = ''
-template_source_data_request_model['type'] = 'terraform_v0.13'
-template_source_data_request_model['variablestore'] = [workspace_variable_request_model]
+template_source_data_request_model['type'] = 'terraform_v0.14.11'
+template_source_data_request_model['variablestore'] = [
+{
+"name": "ssh_key_name",
+"value": "lsf-bcc-key",
+},
+{
+"name": "lsf_license_confirmation",
+"value": "true"
+}]
 
 template_repo_request_model = {}
-template_repo_request_model['url'] = '<GitHub repo https URL>'
+template_repo_request_model['url'] = 'https://github.com/IBM-Cloud/hpc-cluster-lsf'
 
 logging.info("Started Creating Schematic Workspace")
 
 workspace_response = schematics_service.create_workspace(
-    description="<optional workspace description>", 
-    name="<workspace-name>",
-    template_data=[template_source_data_request_model],
-    template_repo=template_repo_request_model,
-    type=['terraform_v0.13'],
-    location="us-south",
-    resource_group="Default",
-    tags=["<optional tags>"]
+description="HPC Cluster schematic workspace using API",
+name="Sample Schematic API workspace",
+template_data=[template_source_data_request_model],
+template_repo=template_repo_request_model,
+type=['terraform_v0.14.11'],
+location="us-south",
+resource_group="Default",
+tags=[""]
 ).get_result()
 
 print(json.dumps(workspace_response, indent = 2))
-
-logging.info("Completed Creating Schematic Workspace") 
 ```
 {: codeblock}
 
@@ -222,82 +233,84 @@ The following Python response is a generic example for reference.
 ```python
 INFO:root:Started Creating Schematic Workspace
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): iam.cloud.ibm.com:443
-DEBUG:urllib3.connectionpool:https://iam.cloud.ibm.com:443 "POST /identity/token HTTP/1.1" 200 986
+DEBUG:urllib3.connectionpool:https://iam.cloud.ibm.com:443 "POST /identity/token HTTP/1.1" 200 1086
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): us.schematics.cloud.ibm.com:443
-DEBUG:urllib3.connectionpool:https://us.schematics.cloud.ibm.com:443 "POST /v1/workspaces HTTP/1.1" 201 1904
+DEBUG:urllib3.connectionpool:https://us.schematics.cloud.ibm.com:443 "POST /v1/workspaces HTTP/1.1" 201 1974
+INFO:root:Completed Creating Schematic Workspace
 {
-  "id": "myworkspace-123456",
-  "name": "myworkspace",
-  "type": [
-    "terraform_v0.13"
-  ],
-  "description": "This is a workspace created with the API",
-  "resource_group": "aa11bb22aa11bb22",
-  "location": "us-south",
-  "tags": [],
-  "created_at": "2019-11-06T16:19:32.352418401Z",
-  "created_by": "user@company.com",
-  "status": "ACTIVE",
-  "workspace_status_msg": {
-    "status_code": "",
-    "status_msg": ""
-  },
-  "workspace_status": {
-    "frozen": false,
-    "locked": false
-  },
-  "template_repo": {
-    "url": "https://github.com/myorg/myrepo"
-  },
-  "template_data": [
-    {
-      "id": "a123456",
-      "folder": ".",
-      "type": "terraform_v0.13",
-      "values_url": "https://schematics.cloud.ibm.com/v1/workspaces/myworkspace-123456/template_data/a123456/values",
-      "values": "",
-      "values_metadata": [
-        {
-          "name": "variable1",
-          "type": "string"
-        },
-        {
-          "name": "variable2",
-          "type": "string"
-        }
-      ],
-      "variablestore": [
-        {
-          "name": "variable1",
-          "secure": false,
-          "value": "value1",
-          "type": "",
-          "description": ""
-        },
-        {
-          "name": "variable2",
-          "secure": false,
-          "value": "value2",
-          "type": "",
-          "description": ""
-        }
-      ]
-    }
-  ],
-  "runtime_data": [
-    {
-      "id": "a123456",
-      "engine_name": "terraform",
-      "engine_version": "v0.13",
-      "state_store_url": "https://schematics.cloud.ibm.com/v1/workspaces/myworkspace-123456/runtime_data/a123456/state_store",
-      "log_store_url": "https://schematics.cloud.ibm.com/v1/workspaces/myworkspace-123456/runtime_data/a123456/log_store"
-    }
-  ],
-  "shared_data": {
-    "resource_group_id": ""
-  },
-  "updated_at": "0001-01-01T00:00:00Z",
-  "last_health_check_at": "0001-01-01T00:00:00Z"
+"id": "us-south.workspace.Sample-Schematic-API-workspace.341cedd5",
+"name": "Sample Schematic API workspace",
+"crn": "crn:v1:bluemix:public:schematics:us-south:a/77efe1030c00b5c89cfd08648d3480bf:6f457fa4-4c59-4a8d-be69-483f16f8f200:workspace:us-south.workspace.Sample-Schematic-API-workspace.341cedd5",
+"type": [
+"terraform_v0.14.11"
+],
+"description": "HPC Cluster schematic workspace using API",
+"resource_group": "Default",
+"location": "us-south",
+"tags": [
+""
+],
+"created_at": "2021-09-15T13:01:19.944980389Z",
+"created_by": "xxxxxx",
+"status": "DRAFT",
+"failure_reason": "",
+"workspace_status_msg": {
+"status_code": "",
+"status_msg": ""
+},
+"workspace_status": {
+"frozen": false,
+"locked": false
+},
+"template_repo": {
+"url": "https://github.com/IBM-Cloud/hpc-cluster-lsf",
+"commit_id": "",
+"full_url": "https://github.com/IBM-Cloud/hpc-cluster-lsf",
+"has_uploadedgitrepotar": false
+},
+"template_data": [
+{
+"id": "3e68db7f-0bea-4d",
+"folder": "",
+"compact": false,
+"type": "terraform_v0.14.11",
+"values_url": "https://us.schematics.cloud.ibm.com/v1/workspaces/us-south.workspace.Sample-Schematic-API-workspace.341cedd5/template_data/3e68db7f-0bea-4d/values",
+"values": "",
+"variablestore": [
+{
+"name": "ssh_key_name",
+"secure": false,
+"value": "lsf-bcc-key",
+"type": "",
+"description": ""
+},
+{
+"name": "lsf_license_confirmation",
+"secure": false,
+"value": "true",
+"type": "",
+"description": ""
+}
+],
+"has_githubtoken": false
+}
+],
+"runtime_data": [
+{
+"id": "3e68db7f-0bea-4d",
+"engine_name": "terraform",
+"engine_version": "v0.14.11",
+"state_store_url": "https://us.schematics.cloud.ibm.com/v1/workspaces/us-south.workspace.Sample-Schematic-API-workspace.341cedd5/runtime_data/3e68db7f-0bea-4d/state_store",
+"log_store_url": "https://us.schematics.cloud.ibm.com/v1/workspaces/us-south.workspace.Sample-Schematic-API-workspace.341cedd5/runtime_data/3e68db7f-0bea-4d/log_store"
+}
+],
+"shared_data": {
+"resource_group_id": ""
+},
+"applied_shareddata_ids": null,
+"updated_at": "0001-01-01T00:00:00Z",
+"last_health_check_at": "0001-01-01T00:00:00Z",
+"cart_id": ""
 }
  INFO:root:Completed Creating Schematic Workspace
 ```
