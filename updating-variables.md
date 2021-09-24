@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-09-24"
 
 keywords: 
 
@@ -152,7 +152,7 @@ class HPCCEnvironmentValues:
           "name": "ssh_key_name",
           "value": "<ssh-key-name>",
           "type": "string",
-          "description":"SSH key for connection to the cluster. See: https://cloud.ibm.com/docs/vpc?topic=vpc-ssh-keys"
+          "description":"SSH key for connection to the cluster. See explanation here: /docs/vpc?topic=vpc-ssh-keys"
         },
         {
           "name": "api_key",
