@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-09-24"
 
 keywords: 
 
@@ -35,9 +35,9 @@ Before you perform the actions to destroy the resources, you must first ensure t
 {: #destroy-resources-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console on the **Schematics > Workspaces** page, select **Actions > Delete** to delete all of the related VPC resources that were deployed as part of that workspace.
-2. If you select the option to delete resources, decide whether you want to delete all of them. This action cannot be undone. 
-3. Confirm the action by entering the workspace name in the text box and click **Delete**.
+1. In the {{site.data.keyword.cloud_notm}} console on the **Schematics > Workspaces** page, select **Actions > Destroy** to delete all of the related VPC resources that were deployed as part of that workspace.
+2. If you select the option to destroy resources, decide whether you want to destroy all of them. This action cannot be undone. 
+3. Confirm the action by entering the workspace name in the text box and click **Destroy**.
 
 ## Destroying resources using the CLI
 {: #deleting-resources-cli}
