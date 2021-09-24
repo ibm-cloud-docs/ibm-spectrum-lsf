@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-01"
+lastupdated: "2021-09-24"
 
 keywords: 
 
@@ -125,9 +125,9 @@ This example assumes that the on-premises cluster labeled with "OnPremiseCluster
 
 For more information, check out the following {{site.data.keyword.spectrum_full_notm}} documentation:
 
-* [{{site.data.keyword.spectrum_full_notm}} multi-cluster capability](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=lsf-multicluster-capability){: external}
-* [Set common ports](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=overview-set-common-ports){: external}
-* [Enable queues for the LSF multi-cluster capability](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=queues-enable-multicluster){: external}
-* [Using the {{site.data.keyword.spectrum_full_notm}} Resource Connector](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=lsf-resource-connnector){: external}
-* [{{site.data.keyword.spectrum_full_notm}} Data Manager](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=lsf-data-manager){: external}
+* [{{site.data.keyword.spectrum_full_notm}} multi-cluster capability](/docs/en/spectrum-lsf/10.1.0?topic=lsf-multicluster-capability){: external}
+* [Set common ports](/docs/en/spectrum-lsf/10.1.0?topic=overview-set-common-ports){: external}
+* [Enable queues for the LSF multi-cluster capability](/docs/en/spectrum-lsf/10.1.0?topic=queues-enable-multicluster){: external}
+* [Using the {{site.data.keyword.spectrum_full_notm}} Resource Connector](/docs/en/spectrum-lsf/10.1.0?topic=lsf-resource-connnector){: external}
+* [{{site.data.keyword.spectrum_full_notm}} Data Manager](/docs/en/spectrum-lsf/10.1.0?topic=lsf-data-manager){: external}
 
