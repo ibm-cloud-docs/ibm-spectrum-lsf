@@ -2,7 +2,7 @@
 
 copyright: 
   years: 2021
-lastupdated: "2021-08-26"
+lastupdated: "2021-09-24"
 
 keywords: architecture overview, cluster access, hpc cluster
 
@@ -140,11 +140,11 @@ Here is a list of parameters you can configure for your VPC cluster:
 
 3. Edit the region to where you want your cluster to be created
 
-    Refer [here](https://cloud.ibm.com/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region) to see the complete list of regions.
+    Refer [here](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region) to see the complete list of regions.
 
 4. Edit the zone based on the selected region: ``zone``
 
-    Refer [here](https://cloud.ibm.com/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region#get-zones-using-the-cli) to see the complete list of zones per region.
+    Refer [here](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region#get-zones-using-the-cli) to see the complete list of zones per region.
 
 5. Edit and add the custom image with LSF: ``image_name``
 
@@ -158,6 +158,24 @@ Here is a list of parameters you can configure for your VPC cluster:
 
     You can limit access to your cluster by specifying a list of IP addresses (or CIDR blocks) separated by a comma in this parameter. Only the ssh connections from these addresses can access your HPC cluster.
 
+8. ``hyperthreading_enabled``
+You can enable hyper-threading in the worker nodes of the cluster by setting this value to true (default). Otherwise, hyper-threading will be disabled.
+
+9. ``vpc_name``
+You can use an existing VPC in which the cluster resources will be provisioned. If no value given, then a new VPC will be provisioned for the cluster.
+
+10. ``vpn_enabled``
+You can deploy a VPN gateway for VPC in the cluster. By default, the value is set to false.
+
+11. ``vpn_peer_cidrs``
+Comma separated list of peer CIDRs (e.g., 192.168.0.0/24) to which the VPN will be connected.
+
+12. ``vpn_peer_address``
+The peer public IP address to which the VPN will be connected.
+
+13. ``vpn_preshared_key``
+The pre-shared key for the VPN.
+
 ### Parameters for auto-scaling
 {: #hpc-cluster-auto-scaling-parameters}
 {: step}
@@ -170,12 +188,12 @@ Here is a list of parameters you can configure for your VPC cluster:
 {: #hpc-cluster-instance-profiles-deployment-parameters}
 {: step}
 
-You can control the instance profile for each instance type via ``xxx_node_instance_type`` parameters. The management nodes are where the main LSF daemons would be running. You need to select ones with more compute power if you plan to run jobs using 100+ nodes. The worker nodes are the ones where the workload execution takes place and choice should be made according to the characteristic of workloads. The storage node is the one to manage the NFS filesystem for your HPC cluster. The login instance is served as a jump host, so you can just pick the smallest profile. Learn more at [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles).
+You can control the instance profile for each instance type via ``xxx_node_instance_type`` parameters. The management nodes are where the main LSF daemons would be running. You need to select ones with more compute power if you plan to run jobs using 100+ nodes. The worker nodes are the ones where the workload execution takes place and choice should be made according to the characteristic of workloads. The storage node is the one to manage the NFS filesystem for your HPC cluster. The login instance is served as a jump host, so you can just pick the smallest profile. Learn more at [Instance Profiles](/docs/vpc?topic=vpc-profiles).
 
 ## Parameters for block volumes
 {: #hpc-cluster-block-volume-parameters}
 
-You can configure the storage capacity and throughput using the ``volume_xxx`` parameters. The value for the ``volume_profile`` parameter can be either general-purpose and custom. When ``general-purpose`` is used, IOPS will be determined by the cloud infrastructure and the ``volume_iops`` parameter does not have any effect. If you want to customize the IOPS, you would need to use custom for ``volume_profiles`` and set up the IOPS via ``volume_iops`` based on the capacity specified in ``volume_capacity``. The detail about this can be found [here](https://cloud.ibm.com/docs/vpc?topic=vpc-block-storage-profiles&interface=ui).
+You can configure the storage capacity and throughput using the ``volume_xxx`` parameters. The value for the ``volume_profile`` parameter can be either general-purpose and custom. When ``general-purpose`` is used, IOPS will be determined by the cloud infrastructure and the ``volume_iops`` parameter does not have any effect. If you want to customize the IOPS, you would need to use custom for ``volume_profiles`` and set up the IOPS via ``volume_iops`` based on the capacity specified in ``volume_capacity``. The detail about this can be found [here](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui).
 
 ## Accessing the HPC cluster
 {: #hpc-cluster-access}
@@ -218,3 +236,9 @@ The difference of nodes that were created by the auto-scaling function will be d
 There are two options to add additional software packages in the cluster for your workload. You can install the additional software in the NFS shared filesystem (i.e.: /home/lsfadmin/shared from the LSF master), which will be visible to all compute nodes. The files you add to the NSF shared filesystem are stored in the block storage attached to the storage node. Those data will be lost when the entire VPC cluster is being destroyed. Please remember to save the data you want to keep before you destroy the cluster.
 
 The other option is to build your own custom image on top of the default image used by the HPC Cluster solution. The creation of the custom image has to be prepared before you create a HPC cluster. When a new custom image is created in VPC, there is a name associated with this image. You need to use this name in the ***image_name*** parameter. Please refer to [Extend base image and create a new custom image](https://github.ibm.com/hybrid-cloud-infrastructure-research/tracker/wiki/Extend-base-image-and-create-a-new-custom-image) for how to prepare a new custom image.
+
+## (Optional) Setting up hybrid connectivity
+
+If you want to setup a hybrid connectivity environment using VPN please use the instruction for [Installing a VPN to an HPC cluster](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-install-vpn-hpc-cluster).
+
+Or if you would like to use Direct Link please use the instructions for [Installing Direct Link to an HPC cluster](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-installing-direct-link-cluster)
