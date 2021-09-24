@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-09-24"
 
 keywords: 
 
@@ -32,9 +32,8 @@ After you destroy all associated VPC resources, if you don't need the workspace 
 {: #delete-workspace-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console on the **Schematics > Workspaces** page, select **Actions > Delete** to delete all of the related VPC resources that were deployed as part of that workspace.
-2. You can choose to **Delete workspace** or **Delete all associated resources** or both.
-3. Confirm the action by entering the workspace name in the text box and click **Delete**.
+1. In the {{site.data.keyword.cloud_notm}} console on the **Schematics > Workspaces** page, select **Actions > Delete workspace** to delete the schematics workspace.
+2. Confirm the action by entering the workspace name in the text box and click **Delete workspace**.
 
 ## Deleting a workspace using the CLI
 {: #delete-workspace-cli}
