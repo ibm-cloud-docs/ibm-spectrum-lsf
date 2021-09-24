@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-24"
+lastupdated: "2021-09-24"
 
 keywords: 
 
@@ -31,6 +31,18 @@ The following Spectrum LSF programs are included:
 * IBM Spectrum LSF Standard Edition
 * IBM Spectrum LSF License Scheduler
 * IBM Spectrum LSF Data Manager
+
+## What locations are available for deploying VPC resources?
+{: #locations-vpc-resources}
+{: faq}
+
+Available regions and zones for deploying VPC resources, and a mapping of those to city locations and data centers can be found in [Locations for resource deployment](https://test.cloud.ibm.com/docs/overview?topic=overview-locations){: external}.
+
+## What permissions do I need in order to create a cluster using the offering?
+{: #permissions-cluster-offering}
+{: faq}
+
+Instructions for setting the appropriate permissions for IBM Cloud services that are used by the offering to create a cluster can be found in [Granting user permissions for VPC resources, Managing user access for Schematics, Assigning access to Secrets Manager](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources&locale=en).
 
 ## How do I SSH among nodes?
 {: #ssh-among-nodes}
@@ -63,6 +75,8 @@ You can even remove `-A` by adding "ForwardAgent yes" to `.ssh/config`.
 {: #worker-nodes}
 {: faq}
 
+Prior to deploying a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](https://test.cloud.ibm.com/docs/vpc?topic=vpc-quotas)).
+
 The maximum number of worker nodes that are supported for the deployment value `worker_node_max_count` is 500 (see [Deployment values](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values)). The `worker_node_min_count` variable specifies the number of worker nodes that are provisioned at the time the cluster is created, which will exist throughout the life of the cluster. The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it's recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it's recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster.
 
 ## Why are there two different resource group parameters that can be specified in the IBM Cloud catalog tile?
@@ -70,3 +84,15 @@ The maximum number of worker nodes that are supported for the deployment value `
 {: faq}
 
 The first resource group parameter entry in the **Configure your workspace** section in the {{site.data.keyword.cloud_notm}} catalog applies to the resource group where the {{site.data.keyword.bpshort}} workspace is provisioned on your {{site.data.keyword.cloud_notm}} account. The value for this parameter can be different than the one used for the second entry in the **Parameters with default values** section in the catalog. The second entry applies to the resource group where VPC resources are provisioned. As specified in the description for this second `resource_group` parameter, note that only the default resource group is supported for use of the LSF Resource Connector auto-scaling feature.
+
+## Where are the Terraform files used by the IBM Spectrum LSF tile located?
+{: #terraform-file-location}
+{: faq}
+
+The Terraform-based templates can be found in this [GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf).
+
+## Where can I find the custom image name to image id mappings for each cloud region?
+{: #custom-image-mappings}
+{: faq}
+
+The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf).
