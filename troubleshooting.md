@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-02"
+lastupdated: "2021-09-24"
 
 keywords: 
 
@@ -176,8 +176,5 @@ After reconfiguring the volume profile, capacity, or IOPS, your workspace needs 
 
 You need to destroy your existing resources and try applying the change again. Your data on the storage node will be deleted if you destroy your existing resources.
 {: tsResolve}
-
-
-
 
 
