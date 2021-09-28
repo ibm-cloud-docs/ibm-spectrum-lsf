@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-24"
+lastupdated: "2021-09-27"
 
 keywords: 
 
@@ -26,15 +26,7 @@ The following example is a guide on how to set up the multi-cluster and job forw
 
 This example assumes that the on-premises cluster labeled with "OnPremiseCluster" uses a subnet `192.168.0.0/24` and its master uses `192.168.0.4` (on-premise-master). The cloud cluster labeled with "HPCCluster" uses a subnet `10.244.128.0/24` and its master uses `10.244.128.37` (icgen2host-10-244-128-37). Both of the configuration directories are in `/opt/ibm/lsf/conf`, but you can change the directory depending on your cluster configuration.
 
-1. Ensure that the MTU size can enable packets to go through the internet. If you have master candidates at your cluster, keep a large MTU for the performance and functions of master communications. The master and every candidate need to be configured like the following:
-
-    ```
-    $ sudo ip link set mtu 1500 dev eth0
-    $ sudo ip route add {master candidate/master IP} dev eth0 mtu 9000 
-    ```
-    {: codeblock}
-
-2. The following is an example of the `/etc/hosts` file for the cloud cluster. You need to make sure that the host names for the LSF masters are DNS-resolveable.
+1. The following is an example of the `/etc/hosts` file for the cloud cluster. You need to make sure that the host names for the LSF masters are DNS-resolveable.
 
     ```
     ...
@@ -52,8 +44,7 @@ This example assumes that the on-premises cluster labeled with "OnPremiseCluster
     10.244.128.37 icgen2host-10-244-128-37 #added
     ```
     {: codeblock}
-
-3. Both clusters need to recognize each other, so you need to modify `/opt/ibm/lsf/conf/lsf.shared`. This configuration file should be identical in both clusters.
+2. Both clusters need to recognize each other, so you need to modify `/opt/ibm/lsf/conf/lsf.shared`. This configuration file should be identical in both clusters.
 
     ```
     ...
@@ -66,7 +57,7 @@ This example assumes that the on-premises cluster labeled with "OnPremiseCluster
     ```
     {: codeblock}
 
-4. The two clusters are configured to have different `lsb.queues` files. In the cloud cluster, you need to append the following lines to `/opt/ibm/lsf/conf/lsbatch/HPCCluster/configdir/lsb.queues` to register a receive queue:
+3. The two clusters are configured to have different `lsb.queues` files. In the cloud cluster, you need to append the following lines to `/opt/ibm/lsf/conf/lsbatch/HPCCluster/configdir/lsb.queues` to register a receive queue:
 
     ```
     ...
@@ -93,14 +84,14 @@ This example assumes that the on-premises cluster labeled with "OnPremiseCluster
     ```
     {: codeblock}
 
-5. Restart both clusters by running the following command:
+4. Restart both clusters by running the following command:
 
     ```
     $ lsfrestart
     ```
     {: codeblock}
 
-6. After you restart both clusters, you can now forward jobs from on-premises to the cloud. At your on-premises cluster, you can test the following job:
+5. After you restart both clusters, you can now forward jobs from on-premises to the cloud. At your on-premises cluster, you can test the following job:
 
     ```
     $ bsub -q send_q sh -c 'echo $HOSTNAME > /home/lsfadmin/shared/mc-test.txt'
