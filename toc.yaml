@@ -1,0 +1,73 @@
+toc:
+  properties:
+    subcollection: ibm-spectrum-lsf
+    category: compute
+    audience: software
+    href: /ibm-spectrum-lsf
+    console-page: /catalog/content/ibm-spectrum-lsf
+    path: ibm-spectrum-lsf
+    label: IBM Spectrum LSF
+  entries: 
+  - navgroup: 
+      id: learn
+      topics:
+      - getting-started.md
+      - about.md
+      - considerations-for-HPC-cluster-compute-types.md
+      - deployment-values.md 
+  - navgroup: 
+      id: tutorial
+      topics: 
+      - hpc-cluster-tutorial.md
+  - navgroup: 
+      id: howto
+      topics:
+      - topicgroup: 
+          label: Setting up the CLI and API
+          topics: 
+          - setting-up-cli.md
+          - setting-up-api.md
+      - creating-workspace.md
+      - generating-plan.md
+      - applying-plan.md
+      - destroying-resources.md
+      - deleting-workspace.md
+      - retrieving-action-logs.md
+      - updating-variables.md
+      - topicgroup:
+          label: Managing worker nodes
+          topics:
+          - update-max-nodes.md
+          - update-idle-time.md
+          - adding-profile-types.md
+  - navgroup:
+      id: reference
+      topics:
+      - topicgroup:
+           label: IBM Cloud Schematics CLI
+           topics: 
+           - /schematics/schematics-schematics-cli-reference
+           - /schematics/schematics-cli_version-releases
+      - link:
+          label: IBM Cloud Schematics API
+          href: https://cloud.ibm.com/apidocs/schematics
+      - /schematics/schematics-schematics-sdks
+      - link: 
+          label: Best practices for IBM Spectrum LSF
+          href: https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=best-practices-tips
+      - link:
+          label: Configuring auto scaling or resource connector for IBM Cloud
+          href: https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=providers-configuring-cloud-gen-2-lsf-resource-connector
+      - topicgroup:
+          label: Hybrid connectivity 
+          topics: 
+          - install-vpn-hpc-cluster.md
+          - direct-link.md
+          - setting-up-multi-cluster-job-forwarding.md
+          - data-management.md
+  - navgroup:
+      id: help
+      topics: 
+      - faq.md
+      - troubleshooting.md
+      - getting-help.md
