@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-09-24"
+  years: 2021, 2022
+lastupdated: "2022-01-28"
 
 keywords: 
 
@@ -24,140 +24,49 @@ subcollection: ibm-spectrum-lsf
 
 You can enable a VPN gateway to your HPC cluster. The following figure is an example of a VPN deployment.
 
-![Architecture diagram for VPN deployment](images/hpcc_vpn-diagram.svg){:caption="Figure 1. VPN deployment example" caption-side="bottom"}
+![Architecture diagram for VPN deployment](images/hpcc_vpn.png){:caption="Figure 1. VPN deployment example" caption-side="bottom"}
 
-This example links a VPN gateway to the subnet for LSF nodes. By doing this, local clients can directly access them with private IP addresses (for example, 192.168.3.236 to 10.244.0.21). This documentation gives a step-by-step guide to create the example deployment with the {{site.data.keyword.cloud}} CLI. You can also use the {{site.data.keyword.cloud_notm}} console to create the same deployment. For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway).
-
-This example assumes four environmental variables. You need to configure these variables according to your environment:
-
-```
-$ cluster_prefix=hpcc-test
-$ peer_address=60.150.xxx.yyy
-$ peer_cidr=192.168.3.0/24
-$ preshared_key=fPKIv3PshWAwOaAN
-```
-{: screen}
+This example links a VPN gateway to the subnet for LSF nodes. By doing this, local clients can directly access them with private IP addresses (for example, 192.168.3.236 to 10.244.0.21). This documentation gives a step-by-step guide to create the example deployment.
 
 ## Before you begin
 {: #before-you-begin}
 
-Before you begin, make sure to install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli).
+Before you begin, make sure to complete the steps for [getting started with IBM Spectrum LSF](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial). Also, you need to know a public IP address of your local VPN server, a local CIDR accessing to the VPN environment, and a preshared key to authenticate your VPN connection. The preshared key can be any random string.
 
-## Step 1. Log in to the IBM Cloud CLI
-{: #step-1-log-in}
+## Step 1. Configure VPN deployment variables
+{: #step-1-construct-lsf}
 
-Log in to the {{site.data.keyword.cloud_notm}} CLI by running the following command:
+Set VPN deployment variables when you [create your workspace](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace). In addition to essential variables to construct your cluster (for example, `api_key`), you need to set `vpn_enabled` to be `true`, and then, specify `vpn_peer_address`, `vpn_peer_cidrs`, and `vpn_preshared_key` to be identical to the public IP address for your local VPN server, a local CIDR accessing to the VPN environment, and a preshared key. In the example architecture, set `vpn_peer_address` to be `60.150.xxx.yyy`, and `vpn_peer_cidrs` to be `192.168.3.0/24`.
 
-```
-ibmcloud login
-```
-{: pre}
+## Step 2. Apply a plan
+{: #step-2-apply-a-plan}
 
-## Step 2. Retrieve subnet ID and local CIDR
-{: #step-2-retrieve-subnet-cidr}
-
-Run the following command to retrieve your subnet ID and local CIDR:
+[Apply a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan) to build your cluster with a VPN gateway. After a while, {{site.data.keyword.bpshort}} logs show you essential information to configure your local VPN environment. In the CLI, run the following command to check your log files:
 
 ```
-ibmcloud is subnets
+ibmcloud schematics logs --id <WORKSPACE_ID>
 ```
 {: pre}
 
 **Example response:**
 
 ```
-ID                                          Name                     Status      Subnet          CIDR
-02e7-97f3883f-6abe-45b0-9296-f4810606791d   hpcc-test-login-subnet   available   10.244.0.0/28   ...
-02e7-d5e5523f-462e-4608-904f-a24fa9c4be69   hpcc-test-subnet         available   10.244.0.16/28  ...
+ 2021/09/21 06:04:49 Terraform apply | Outputs:
+ 2021/09/21 06:04:49 Terraform apply | 
+ 2021/09/21 06:04:49 Terraform apply | ssh_command = "ssh -J root@162.133.xxx.yy root@10.244.0.21"
+ 2021/09/21 06:04:49 Terraform apply | vpc_name = "symphony-test-vpc --  - raaa-lbbbbbbb-cccc-dddd-eeee-ffffffffffff"
+ 2021/09/21 06:04:49 Terraform apply | vpn_config_info = "IP: 162.133.aaa.bbb, CIDR: 10.244.0.16/28, UDP ports: 500, 4500"
+ 2021/09/21 06:04:49 Command finished successfully.
+ 2021/09/21 06:04:54 Done with the workspace action
 ```
 {: screen}
 
-This example uses the ID and subnet CIDR for `hpcc-test-subnet`.
+Alternatively, you can use the {{site.data.keyword.cloud_notm}} console to check the log files. They show a line `vpn_config_info =...`, which contains the VPN public IP (`162.133.aaa.bbb`), the connected CIDR (`10.244.0.16/28`), and used UDP ports.
 
-## Step 3. Create and configure a VPN gateway
-{: #step-3-create-configure-vpn-gateway}
+## Step 3. Configure your local VPN environment
+{: #step-3-configure-vpn-environment}
 
-Run the following commands to create and configure a VPN gateway:
-
-1. 
-    ```
-    ibmcloud is vpn-gateway-create hpcc-test-vpn $subnet_id --mode policy
-    ```
-    {: pre}
-
-    **Example response:**
-
-    ```
-    ID                02e7-9d88c7d7-f2b1-4362-b9b8-65c370490f73   
-    Name              hpcc-test-vpn
-    ....
-    ```
-    {: screen}
-2. 
-    ```
-    vpn_id=02e7-9d88c7d7-f2b1-4362-b9b8-65c370490f73
-    ibmcloud is vpn-gateway-connection-create hpcc-test-vpn-con ${vpn_id} ${peer_address}
-    ```
-    {: pre}
-
-    You need to wait for a while until a public IP is assigned to the gateway.
-
-3. 
-    ```
-    ibmcloud is vpn-gateways
-    ```
-    {: pre}
-
-    **Example response:**
-
-    ```
-    ID                                          Name               Status        Mode     Subnet             Public IP            ...
-    02e7-9d88c7d7-f2b1-4362-b9b8-65c370490f73   hpcc-test-vpn      available     policy   hpcc-test-subnet   162.133.aaa.bbb      ...
-    ```
-    {: screen}
-
-4. 
-    ```
-    public_ip=162.133.aaa.bbb
-    ```
-    {: pre}
-
-## Step 4. Update security groups
-{: #step-4-update-security-groups}
-
-Run the following commands to update the security groups:
-
-1. 
-    ```
-    ibmcloud is security-groups
-    ```
-    {: pre}
-
-    **Example response:**
-
-    ```
-    ID                                          Name                                ...
-    r022-0423ac3e-c982-47db-a68d-e121754aad0d   hpcc-test-login-sg                  ...
-    r022-f7352a96-c939-44a7-9250-c84789009693   hpcc-test-sg                        ...
-    ```
-    {: screen}
-
-2. 
-    ```
-    sg_id=r022-f7352a96-c939-44a7-9250-c84789009693
-    ibmcloud is security-group-rule-add ${sg_id} inbound udp --port-min 500 --port-max 500 --remote ${peer_address}
-    ibmcloud is security-group-rule-add ${sg_id} inbound udp --port-min 4500 --port-max 4500 --remote ${peer_address}
-    ibmcloud is security-group-rule-add ${sg_id} inbound all --remote ${peer_cidr}
-    ```
-    {: pre}
-
-    You need to allow inbound traffic to establish VPN connections (allow UDP 500 and 4500 for `${peer_address}`). Also, inbound traffic from `${peer_cidr}` needs to be allowed.
-    {: note}
-
-## Step 5. Configure your local VPN environment
-{: #step-5-configure-vpn-environment}
-
-Typical VPN configurations require `${peer_address}`, `${peer_cidr}`, `${local_cidr}`, `${preshared_key}`, and `${public_ip}` assigned to the VPN gateway. For more details on configuring your VPN, see [Connecting to your on-premises network](/docs/vpc?topic=vpc-vpn-onprem-example).
+Typical VPN configurations require a public IP address for the local VPN server, a local CIDR, preshared key, a peer IP address, and a peer CIDR. In the previous example, you first need to configure your local VPN server with public IP address, local CIDR, and preshared key, which are identical to what you specified for `vpn_peer_address`, `vpn_peer_cidr`, and `vpn_preshared_key` at Step 1. Then, your local VPN configuration needs to add a peer IP address to be `162.133.aaa.bbb` and a peer CIDR to be `10.244.0.16/28` according to the output of Step 2. Finally, UDP ports 500 and 4500 must be accessible from the VPN gateway on {{site.data.keyword.cloud_notm}} by configuring your local network devices (for example, routers). For more information on configuring your VPN, see [Connecting to your on-premises network](/docs/vpc?topic=vpc-vpn-onprem-example).
 
 ## Next steps
 {: #next-steps-vpn-environment}
