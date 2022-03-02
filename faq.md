@@ -36,7 +36,7 @@ The following Spectrum LSF programs are included:
 {: #locations-vpc-resources}
 {: faq}
 
-Available regions and zones for deploying VPC resources, and a mapping of those to city locations and data centers can be found in [Locations for resource deployment](https://test.cloud.ibm.com/docs/overview?topic=overview-locations){: external}.
+Available regions and zones for deploying VPC resources, and a mapping of those to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ## What permissions do I need in order to create a cluster using the offering?
 {: #permissions-cluster-offering}
@@ -75,7 +75,7 @@ You can even remove `-A` by adding "ForwardAgent yes" to `.ssh/config`.
 {: #worker-nodes}
 {: faq}
 
-Prior to deploying a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](https://test.cloud.ibm.com/docs/vpc?topic=vpc-quotas)).
+Prior to deploying a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
 
 The maximum number of worker nodes that are supported for the deployment value `worker_node_max_count` is 500 (see [Deployment values](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values)). The `worker_node_min_count` variable specifies the number of worker nodes that are provisioned at the time the cluster is created, which will exist throughout the life of the cluster. The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it's recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it's recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster.
 
@@ -89,10 +89,10 @@ The first resource group parameter entry in the **Configure your workspace** sec
 {: #terraform-file-location}
 {: faq}
 
-The Terraform-based templates can be found in this [GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf).
+The Terraform-based templates can be found in this [GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external}.
 
 ## Where can I find the custom image name to image id mappings for each cloud region?
 {: #custom-image-mappings}
 {: faq}
 
-The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf).
+The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external}.
