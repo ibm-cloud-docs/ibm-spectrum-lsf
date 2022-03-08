@@ -16,7 +16,7 @@ subcollection: ibm-spectrum-lsf
 {:external: target="_blank" .external}
 {:pre: .pre}
 {:tip: .tip}
-{:note .note}
+{:note: .note}
 {:important: .important}
 
 # Considerations for HPC cluster compute types
@@ -45,7 +45,7 @@ To address this range of characteristics, {{site.data.keyword.cloud}} provides v
 * Compute-intensive configurations that provide 2 GB memory per core and a network of 4 - 80 Gbps
 * Memory-intensive configurations that provide 8 - 28 GB memory per core and a network of 2 - 80 Gbps
 
-For more information, see [Instance profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles).
+For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles).
 
 For all of the configurations, the range of core count is 2 - 128 per virtual machine. There is a special ultra high memory virtual machine type that might be applicable for workloads that require more memory per core. This type can go up to 200 cores and as high as 28 GB per core. 
 
