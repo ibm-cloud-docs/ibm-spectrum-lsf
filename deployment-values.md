@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-09-24"
+  years: 2021, 2022
+lastupdated: "2022-03-08"
 
 keywords: 
 
@@ -16,7 +16,7 @@ subcollection: ibm-spectrum-lsf
 {:external: target="_blank" .external}
 {:pre: .pre}
 {:tip: .tip}
-{:note .note}
+{:note: .note}
 {:important: .important}
 {:table: .aria-labeledby="caption"}
 
@@ -25,8 +25,8 @@ subcollection: ibm-spectrum-lsf
 
 The following deployment values can be used to configure the {{site.data.keyword.spectrum_short}} cluster instance on {{site.data.keyword.cloud}}:
 
-NOT_SET refers to empty value in catalog tile. If you are using other modes like CLI, API or schematic UI directly to provision the hpc cluster, leave the values empty.
-{:note .note}
+NOT_SET refers to an empty value in the {{site.data.keyword.cloud_notm}} catalog tile. If you are using other modes like CLI, API, or Schematics UI directly to provision the HPC cluster, leave the values empty.
+{: note}
 
 | Value | Description | Is it required? | Default value |
 | ----- | ----------- | --------------- | ------------ |
@@ -50,7 +50,7 @@ NOT_SET refers to empty value in catalog tile. If you are using other modes like
 | `vpc_name` | Name of an existing VPC in which the cluster resources will be deployed. If no value is given, then a new VPC will be provisioned for the cluster.  [Learn more](/docs/vpc?topic=vpc-creating-a-vpc-using-cli). | false | _NOT_SET_ |
 | `vpn_enabled` | Set the value as true to deploy a VPN gateway for VPC in the cluster.| false | false |
 | `vpn_peer_address` | The peer public IP address to which the VPN will be connected. | false | _NOT_SET_ |
-| `vpn_peer_cidrs` | Comma separated list of peer CIDRs (e.g., 192.168.0.0/24) to which the VPN will be connected. | false | _NOT_SET_ |
+| `vpn_peer_cidrs` | Comma-separated list of peer CIDRs (for example, 192.168.0.0/24) to which the VPN will be connected. | false | _NOT_SET_ |
 | `vpn_preshared_key` | The pre-shared key for the VPN | false | _NOT_SET_ |
 | `worker_node_instance_type` | Specify the virtual server instance profile type to be used to create the worker nodes for the {{site.data.keyword.spectrum_short}} cluster. The worker nodes are the ones where the workload execution takes place and the choice should be made according to the characteristics of the workloads. For choices on profile types, see [Instance profiles](/docs/vpc?topic=vpc-profiles). | No | bx2-4x16 |
 | `worker_node_max_count` | The maximum number of worker nodes that should be added to the {{site.data.keyword.spectrum_short}} cluster. This limits the number of machines that can be added to the {{site.data.keyword.spectrum_short}} cluster when auto scaling configuration is used. This property can be used to manage the cost associated with the {{site.data.keyword.spectrum_short}} cluster instance. Enter a value in the range 1 - 500. | No | 10 |

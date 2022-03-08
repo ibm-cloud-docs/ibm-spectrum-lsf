@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-09-24"
+  years: 2021, 2022
+lastupdated: "2022-03-08"
 
 keywords: 
 
@@ -16,7 +16,7 @@ subcollection: ibm-spectrum-lsf
 {:external: target="_blank" .external}
 {:pre: .pre}
 {:tip: .tip}
-{:note .note}
+{:note: .note}
 {:important: .important}
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
@@ -26,7 +26,7 @@ subcollection: ibm-spectrum-lsf
 # Destroying resources
 {: #deleting-resources}
 
-If you don't need the Spectrum LSF cluster and want to destroy all of its associated VPC resources, you can remove them from your {{site.data.keyword.cloud}} account.
+If you don't need the {{site.data.keyword.spectrum_short}} cluster and want to destroy all of its associated VPC resources, you can remove them from your {{site.data.keyword.cloud}} account.
 
 Before you perform the actions to destroy the resources, you must first ensure that no worker nodes created by the {{site.data.keyword.spectrum_short}} auto scaling feature still exist. The total number of worker nodes in the cluster should be equal to the value you specified for `worker_node_min_count`.
 {: important}

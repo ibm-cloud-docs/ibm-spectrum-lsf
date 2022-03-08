@@ -59,9 +59,9 @@ With a dedicated or stand-alone cluster on the cloud, your data is resident in t
 ## Additional resources
 {: #additional-resources}
 
-* For more information on how to configure and handle issues with data management, see [Four Hybrid Cloud Data Management Challenges](https://www.datacenterknowledge.com/cloud/four-hybrid-cloud-data-management-challenges){: external}
-* For more information on setting up a {{site.data.keyword.spectrum_short}} multicluster configuration, see [{{site.data.keyword.spectrum_full_notm}} multicluster capability](/docs/en/spectrum-lsf/10.1.0?topic=lsf-multicluster-capability){: external}
-* For more information on setting up a {{site.data.keyword.spectrum_short}} data manager configuration, see [{{site.data.keyword.spectrum_full_notm}} Data Manager](/docs/en/spectrum-lsf/10.1.0?topic=lsf-data-manager){: external}
-* For more information on how to use the IBM Aspera plug-in with {{site.data.keyword.spectrum_short}}, see [Configuring IBM Aspera as a data transfer tool](/docs/en/spectrum-lsf/10.1.0?topic=transfer-configuring-aspera-as-data-tool){: external}
-* For more information about using {{site.data.keyword.cos_full_notm}}, see [Getting started with {{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage)
-* For more information on how to use `s3fs` interface with {{site.data.keyword.cos_full_notm}}, see [Mounting a bucket using `s3fs`](/docs/cloud-object-storage?topic=cloud-object-storage-s3fs)
+* For more information on how to configure and handle issues with data management, see [Four Hybrid Cloud Data Management Challenges](https://www.datacenterknowledge.com/cloud/four-hybrid-cloud-data-management-challenges){: external}.
+* For more information on setting up a {{site.data.keyword.spectrum_short}} multicluster configuration, see [{{site.data.keyword.spectrum_full_notm}} multicluster capability](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=lsf-multicluster-capability){: external}.
+* For more information on setting up a {{site.data.keyword.spectrum_short}} data manager configuration, see [{{site.data.keyword.spectrum_full_notm}} Data Manager](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=lsf-data-manager){: external}.
+* For more information on how to use the IBM Aspera plug-in with {{site.data.keyword.spectrum_short}}, see [Configuring IBM Aspera as a data transfer tool](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=transfer-configuring-aspera-as-data-tool){: external}.
+* For more information about using {{site.data.keyword.cos_full_notm}}, see [Getting started with {{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
+* For more information on how to use `s3fs` interface with {{site.data.keyword.cos_full_notm}}, see [Mounting a bucket using `s3fs`](/docs/cloud-object-storage?topic=cloud-object-storage-s3fs).

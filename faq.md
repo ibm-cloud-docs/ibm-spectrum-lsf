@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-09-24"
+  years: 2021, 2022
+lastupdated: "2022-03-08"
 
 keywords: 
 
@@ -16,7 +16,7 @@ subcollection: ibm-spectrum-lsf
 {:external: target="_blank" .external}
 {:pre: .pre}
 {:tip: .tip}
-{:note .note}
+{:note: .note}
 {:important: .important}
 {:faq: data-hd-content-type='faq'}
 
@@ -27,10 +27,10 @@ subcollection: ibm-spectrum-lsf
 {: #my-faq-packages}
 {: faq}
 
-The following Spectrum LSF programs are included:
-* IBM Spectrum LSF Standard Edition
-* IBM Spectrum LSF License Scheduler
-* IBM Spectrum LSF Data Manager
+The following {{site.data.keyword.spectrum_short}} programs are included:
+* {{site.data.keyword.spectrum_full_notm}} Standard Edition
+* {{site.data.keyword.spectrum_full_notm}} License Scheduler
+* {{site.data.keyword.spectrum_full_notm}} Data Manager
 
 ## What locations are available for deploying VPC resources?
 {: #locations-vpc-resources}
@@ -42,7 +42,7 @@ Available regions and zones for deploying VPC resources, and a mapping of those 
 {: #permissions-cluster-offering}
 {: faq}
 
-Instructions for setting the appropriate permissions for IBM Cloud services that are used by the offering to create a cluster can be found in [Granting user permissions for VPC resources, Managing user access for Schematics, Assigning access to Secrets Manager](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources&locale=en).
+Instructions for setting the appropriate permissions for {{site.data.keyword.cloud_notm}} services that are used by the offering to create a cluster can be found in [Granting user permissions for VPC resources](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources), [Managing user access for Schematics](/docs/schematics?topic=schematics-access), and [Assigning access to Secrets Manager](/docs/secrets-manager?topic=secrets-manager-assign-access).
 
 ## How do I SSH among nodes?
 {: #ssh-among-nodes}
@@ -75,7 +75,7 @@ You can even remove `-A` by adding "ForwardAgent yes" to `.ssh/config`.
 {: #worker-nodes}
 {: faq}
 
-Prior to deploying a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
+Before deploying a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
 
 The maximum number of worker nodes that are supported for the deployment value `worker_node_max_count` is 500 (see [Deployment values](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values)). The `worker_node_min_count` variable specifies the number of worker nodes that are provisioned at the time the cluster is created, which will exist throughout the life of the cluster. The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it's recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it's recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster.
 
@@ -91,7 +91,7 @@ The first resource group parameter entry in the **Configure your workspace** sec
 
 The Terraform-based templates can be found in this [GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external}.
 
-## Where can I find the custom image name to image id mappings for each cloud region?
+## Where can I find the custom image name to image ID mappings for each cloud region?
 {: #custom-image-mappings}
 {: faq}
 
