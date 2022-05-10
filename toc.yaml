@@ -14,7 +14,8 @@ toc:
       - getting-started.md
       - about.md
       - considerations-for-HPC-cluster-compute-types.md
-      - deployment-values.md 
+      - deployment-values.md
+      - release-notes.md
   - navgroup: 
       id: tutorial
       topics: 
