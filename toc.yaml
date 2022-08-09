@@ -41,6 +41,12 @@ toc:
           - update-max-nodes.md
           - update-idle-time.md
           - adding-profile-types.md
+      - using-dedicated-hosts.md
+      - topicgroup:
+           label: Using IBM Spectrum Scale
+           topics: 
+           - using-spectrum-scale-storage.md
+           - accessing-gui.md
   - navgroup:
       id: reference
       topics:
