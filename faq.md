@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-08"
+lastupdated: "2022-08-09"
 
 keywords: 
 
@@ -96,3 +96,25 @@ The Terraform-based templates can be found in this [GitHub repository](https://g
 {: faq}
 
 The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external}.
+
+## Which Spectrum LSF and Spectrum Scale versions are used in cluster nodes deployed with this offering?
+{: #versions-used}
+{: faq}
+
+Cluster nodes that are deployed with this offering include {{site.data.keyword.spectrum_full_notm}} 10.1 Standard Edition plus Data Manager plus License Scheduler. See the following for a brief description of each of those programs: [{{site.data.keyword.spectrum_full_notm}} 10 family of products](https://www.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/4/897/ENUS220-174/index.html&lang=en&request_locale=en){: external}
+
+If the cluster uses {{site.data.keyword.scale_short}} storage, the storage nodes include {{site.data.keyword.scale_full_notm}} 5.1.3.1 software. For more information, see the [{{site.data.keyword.scale_full_notm}}](https://www.ibm.com/docs/en/spectrum-scale/5.1.3){: external} product documentation.
+
+## How many compute worker and storage nodes can I deploy in my Spectrum LSF cluster through this offering when `spectrum_scale` is enabled?
+{: #how-many-nodes-deployed}
+{: faq}
+
+Before you deploy a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
+
+The maximum number of compute nodes that are supported for the deployment value `total_compute_cluster_instances` is 64. The maximum number of storage nodes that are supported for the deployment value `total_storage_cluster_instances` is 18.
+
+## Why can't I disable hyper threading?
+{: #disable-hyper-threading}
+{: faq}
+
+Hyper threading is used on Intel&reg; microprocessors, which allows a single microprocessor to act like two separate processors to the operating system. With the latest release of {{site.data.keyword.scale_short}} that's accessible by {{site.data.keyword.spectrum_short}} compute nodes, the automation code uses the RHEL 8.4 custom image version (see [Release notes](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-release-notes&interface=ui#ibm-spectrum-lsf-aug0922). An issue with that image version has been identified that impacts being able to disable hyper threading. When the issue is resolved, there will be an update to this feature. 
