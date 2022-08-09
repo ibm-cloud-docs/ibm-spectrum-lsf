@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-09-24"
+  years: 2021, 2022
+lastupdated: "2022-08-09"
 
 keywords: 
 
@@ -85,8 +85,8 @@ You entered a value other than "true" for the property `lsf_license_confirmation
 
 The property `lsf_license_confirmation` only accepts "true" as a valid value. A "true" value indicates that you have agreed to one of the following two conditions:
 
-  1. If you are deploying a production cluster, you have confirmed with your business team that you have enough licenses to deploy the {{site.data.keyword.spectrum_full_notm}} on {{site.data.keyword.cloud_notm}} and that these licenses are covered for use under the International Program License Agreement (IPLA).
-  2. You are deploying an evaluation cluster with {{site.data.keyword.spectrum_full_notm}} on {{site.data.keyword.cloud_notm}} and agree to abide by the International License Agreement for Evaluation of Program (ILAE).
+1. If you are deploying a production cluster, you have confirmed with your business team that you have enough licenses to deploy the {{site.data.keyword.spectrum_full_notm}} on {{site.data.keyword.cloud_notm}} and that these licenses are covered for use under the International Program License Agreement (IPLA).
+2. You are deploying an evaluation cluster with {{site.data.keyword.spectrum_full_notm}} on {{site.data.keyword.cloud_notm}} and agree to abide by the International License Agreement for Evaluation of Program (ILAE).
 
 IBM terms of software use for both IPLA and ILAE can be found [here](https://www-03.ibm.com/software/sla/sladb.nsf/sla/bla){: external}.
 
@@ -177,4 +177,62 @@ After reconfiguring the volume profile, capacity, or IOPS, your workspace needs 
 You need to destroy your existing resources and try applying the change again. Your data on the storage node will be deleted if you destroy your existing resources.
 {: tsResolve}
 
+## Why does cluster creation fail with SSH issues?
+{: #troubleshoot-topic-10}
+{: troubleshoot}
+{: support}
 
+You are receiving the following error messages when the Ansible provisioner tries to set up the {{site.data.keyword.scale_short}} function on the worker and storage node resources:
+
+* `msg": "Failed to connect to the host via ssh, Connection closed by UNKNOWN port 65535", "unreachable": true}`
+* `Error: Failed to connect to the host via ssh: Connection timed out during banner exchange", "unreachable`
+{: tsSymptoms}
+
+While {{site.data.keyword.bpshort}} deploys the infrastructure resources, the automation code is configured with a few Ansible playbooks, which are required to set up the {{site.data.keyword.scale_short}} function on the virtual server instance nodes with the help of the Ansible provisioner. When the Ansible provisioner tries to SSH to these nodes to se the {{site.data.keyword.scale_short}} feature, the nodes go to an `unreachable` state. 
+{: tsCauses}
+
+To fix the issue, you can:
+1. Try to destroy the resources from the workspace and deploy again.
+2. If this issue is observed on all of the deployments, raise a support issue with the {{site.data.keyword.cloud_notm}} support team to investigate if there is an infrastructure issue. 
+3. If there are no issues with the infrastructure, report this issue to the automation team who can investigate further.
+{: tsResolve}
+
+## Why do I see resource errors due to authentication or timeout issues?
+{: #troubleshoot-topic-11}
+{: troubleshoot}
+{: support}
+
+You are receiving the following error messages during the creation of any specific resource:
+
+* `Error: An error occurred while performing the ‘authenticate’ step: Post “https://iam.cloud.ibm.com/identity/token”: context deadline exceeded (Client.Timeout exceeded while awaiting headers)`
+* `Error: timeout while waiting for state to become 'done, ' (last state: 'provisioning', timeout: 10m0s)`
+{: tsSymptoms}
+
+While {{site.data.keyword.bpshort}} deploys the infrastructure resources, it authenticates with {{site.data.keyword.cloud_notm}} through API calls. If there are too many requests through the API to the cloud environment, {{site.data.keyword.bpshort}} won't be able to authenticate and could error out with the authentication error.
+{: tsCauses}
+
+To fix either issue (resource failing due to authentication error or the timeout error), destroy the resources from the {{site.data.keyword.bpshort}} workspace and retry deploying the resources. 
+{: tsResolve}
+
+## Limitation of available profiles for dedicated hosts
+{: #troubleshoot-topic-12}
+{: troubleshoot}
+{: support}
+
+The offering automatically selects instance profiles for dedicated hosts to be the same prefix (for example, bx2 and cx2) as ones for worker instances (`worker_node_instance_type`). However, available instance prefixes can be limited, depending on your target region. If you use dedicated hosts, check `ibmcloud target -r {region_name}` and `ibmcloud is dedicated-host-profiles` to see whether your `worker_node_instance_type` has the available prefix for your target region.
+
+## Why am I receiving an error with the provided `ssh_key_name` value?
+{: #troubleshoot-topic-13}
+{: troubleshoot}
+{: support}
+
+You are receiving the following error when you try to generate or apply a plan on {{site.data.keyword.bpshort}} workspace: `failed due to "Error: No SSH Key found with name <KEY_NAME>".`
+{: tsSymptoms}
+
+Terraform could not find the given SSH key names that are provided by you.
+{: tsCauses}
+
+1. Check whether the given SSH key is present in the current region where the cluster is being provisioned. If the given SSH key is not present, create the SSH key in the current region.
+2. While configuring multiple SSH keys, ensure that there is no white space added before or after the SSH key names.
+3. If you are using multiple SSH keys, check whether a comma (,) is used as a delimiter between the SSH keys and that there is no white space added before or after the SSH key.
+{: tsResolve}
