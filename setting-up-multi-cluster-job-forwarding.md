@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-08"
+lastupdated: "2022-09-29"
 
 keywords: 
 
@@ -16,7 +16,7 @@ subcollection: ibm-spectrum-lsf
 {:external: target="_blank" .external}
 {:pre: .pre}
 {:tip: .tip}
-{:note .note}
+{:note: .note}
 {:important: .important}
 
 # Setting up multi-cluster and job forwarding using Spectrum LSF
@@ -24,9 +24,9 @@ subcollection: ibm-spectrum-lsf
 
 The following example is a guide on how to set up the multi-cluster and job forwarding using {{site.data.keyword.spectrum_short}}. This example explains common situations where a cluster is on-premises and another is in the cloud.
 
-This example assumes that the on-premises cluster labeled with "OnPremiseCluster" uses a subnet `192.168.0.0/24` and its master uses `192.168.0.4` (on-premise-master). The cloud cluster labeled with "HPCCluster" uses a subnet `10.244.128.0/24` and its master uses `10.244.128.37` (icgen2host-10-244-128-37). Both of the configuration directories are in `/opt/ibm/lsf/conf`, but you can change the directory depending on your cluster configuration.
+This example assumes that the on-premises cluster labeled with "OnPremiseCluster" uses a subnet `192.168.0.0/24` and its management host uses `192.168.0.4` (on-premise-management). The cloud cluster labeled with "HPCCluster" uses a subnet `10.244.128.0/24` and its management host uses `10.244.128.37` (icgen2host-10-244-128-37). Both of the configuration directories are in `/opt/ibm/lsf/conf`, but you can change the directory depending on your cluster configuration.
 
-1. The following is an example of the `/etc/hosts` file for the cloud cluster. You need to make sure that the host names for the LSF masters are DNS-resolveable.
+1. The following is an example of the `/etc/hosts` file for the cloud cluster. You need to make sure that the host names for the LSF management hosts are DNS-resolveable.
 
     ```
     ...
@@ -34,11 +34,11 @@ This example assumes that the on-premises cluster labeled with "OnPremiseCluster
     10.244.128.62 icgen2host-10-244-128-62
     10.244.128.63 icgen2host-10-244-128-63
 
-    192.168.0.4 on-premise-master   # added
+    192.168.0.4 on-premise-management   # added
     ```
     {: codeblock}
 
-    For the on-premises `/etc/hosts` file, make sure to add the information about the master node in the cloud cluster:
+    For the on-premises `/etc/hosts` file, make sure to add the information about the management host in the cloud cluster:
 
     ```
     10.244.128.37 icgen2host-10-244-128-37 #added
@@ -52,7 +52,7 @@ This example assumes that the on-premises cluster labeled with "OnPremiseCluster
     Begin Cluster
     ClusterName        Servers                       # Keyword             # modified
     HPCCluster         (icgen2host-10-244-128-37)    # modified
-    OnPremiseCluster   (on-premise-master)           # modified
+    OnPremiseCluster   (on-premise-management)       # modified
     End Cluster
     ...
     ```
@@ -108,7 +108,7 @@ This example assumes that the on-premises cluster labeled with "OnPremiseCluster
 
     ```
     JOBID   USER      STAT   QUEUE    FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
-    304     lsfadmin  DONE   recv_q   on-premise-master@OnPremiseCluster:911 icgen2host-10-244-128-39 sh -c 'echo $HOSTNAME > /home/lsfadmin/shared/mc-test.txt' Jun 17 02:27
+    304     lsfadmin  DONE   recv_q   on-premise-management@OnPremiseCluster:911 icgen2host-10-244-128-39 sh -c 'echo $HOSTNAME > /home/lsfadmin/shared/mc-test.txt' Jun 17 02:27
     ```
     {: screen}
 

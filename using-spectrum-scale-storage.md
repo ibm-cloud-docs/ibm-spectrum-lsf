@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-09"
+lastupdated: "2022-09-29"
 
 keywords: 
 
@@ -74,14 +74,14 @@ Complete the following steps to check the {{site.data.keyword.scale_short}} file
     ```
     {: codeblock}
 
-5. Log in to the LSF master node by using SSH:
+5. Log in to the LSF management host by using SSH:
 
     ```
     ssh -J root@52.116.122.64 root@10.240.128.41
     ```
     {: codeblock}
 
-6. Display the `gpfs` cluster setup on the compute nodes, which include the master, master candidate, and worker nodes:
+6. Display the `gpfs` cluster setup on the compute nodes, which include the management host, management host candidate, and worker nodes:
 
     ```
     /usr/lpp/mmfs/bin/mmlscluster

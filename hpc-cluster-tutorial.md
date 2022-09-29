@@ -1,8 +1,8 @@
 ---
 
 copyright: 
-  years: 2021
-lastupdated: "2021-12-01"
+  years: 2021, 2022
+lastupdated: "2022-09-29"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -42,7 +42,7 @@ subcollection: ibm-spectrum-lsf
 
 The HPC cluster consists of a login node, a storage node where the block storage volume is attached, 1 - 3 LSF management nodes, and a number of LSF worker nodes.
 
-* The login node is served as a jump host and it is the only node that has the public IP address. Other nodes have only private IP addresses and the only way to reach these nodes is through the login node. You can log in to the primary LSF management node (or LSF master) and do most of the operations from the LSF master. By default, `lsfadmin` is the only user ID created on the cluster. The SSH passwordless setup is configured between the LSF master and workers. You can reach any other worker node with the `lsfadmin` user ID from the LSF primary.
+* The login node is served as a jump host and it is the only node that has the public IP address. Other nodes have only private IP addresses and the only way to reach these nodes is through the login node. You can log in to the primary LSF management host and do most of the operations from the LSF management host. By default, `lsfadmin` is the only user ID created on the cluster. The SSH passwordless setup is configured between the LSF management host and workers. You can reach any other worker node with the `lsfadmin` user ID from the LSF primary.
 
 * The worker node can be a static resource. In this case, its lifecycle is managed by Schematics. You can request a number of static worker nodes, and these workers remain available in the LSF cluster until a Schematics-destroy action is performed. The LSF resource connector function creates extra workers when there is not enough capacity to run jobs and destroys workers when the demands decrease. The lifecycle of these dynamic workers is managed by the LSF resource connector. Wait until these dynamic resources are returned to the cloud before you destroy the entire VPC cluster through Schematics.
 
@@ -153,11 +153,11 @@ To access your HPC cluster, complete the following steps:
 
 2. Copy `ssh-command` to access your cluster.
 
-    * `ssh -J root@ip-jumphost lsfadmin@ip-masternode`
+    * `ssh -J root@ip-jumphost lsfadmin@ip-managementhost`
 
-    * The `ip-jumphost` is `public`, while the `ip-master node`is not.
+    * The `ip-jumphost` is `public`, while the `ip-managementhost`is not.
 
-    * `-J flag`: Connects to the jump-host and establishes a TCP forwarding to the ultimate destination (master node).
+    * `-J flag`: Connects to the jump-host and establishes a TCP forwarding to the ultimate destination (management host).
 
 ## Auto scaling
 {: #hpc-cluster-auto-scaling}
@@ -204,7 +204,7 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
 {: #customize-hpc-cluster-workloads}
 {: step}
 
-You have two options to add software packages in the cluster for your workload. You can install the additional software in the NFS shared file system (for example, `/home/lsfadmin/shared` from the LSF master), which is visible to all compute nodes. The files that you add to the NSF shared file system are stored in the block storage that is attached to the storage node. The data is lost when the entire HPC cluster is being destroyed. Remember to save the data that you want to keep before you destroy the cluster.
+You have two options to add software packages in the cluster for your workload. You can install the additional software in the NFS shared file system (for example, `/home/lsfadmin/shared` from the LSF management), which is visible to all compute nodes. The files that you add to the NSF shared file system are stored in the block storage that is attached to the storage node. The data is lost when the entire HPC cluster is being destroyed. Remember to save the data that you want to keep before you destroy the cluster.
 
 The other option is to build your own custom image on top of the default image used by the HPC cluster solution. The creation of the custom image must be prepared before you create an HPC cluster. When a new custom image is created in VPC, a name is associated with this image. You need to use this name in the `image_name` parameter. For more information, see [Extend base image and create a new custom image](https://github.ibm.com/hybrid-cloud-infrastructure-research/tracker/wiki/Extend-base-image-and-create-a-new-custom-image).
 
