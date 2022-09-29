@@ -3,7 +3,7 @@
 copyright:
   years: 2022
 
-lastupdated: "2022-08-09"
+lastupdated: "2022-09-29"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -22,6 +22,16 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.spectrum_full}} that are grouped by date.
 {: shortdesc}
+
+## September 2022
+{: #ibm-spectrum-lsf-sept22}
+
+### 29 September 2022
+{: #ibm-spectrum-lsf-sept2922}
+{: release-note}
+
+Intel&reg; MPI Library for Intel&reg; oneAPI support
+:   You now have the option to use the Intel&reg; MPI Library for Intel&reg; oneAPI as an alternative to the use of OpenMPI.
 
 ## August 2022
 {: #ibm-spectrum-lsf-aug22}

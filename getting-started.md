@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-09"
+lastupdated: "2022-09-29"
 
 keywords: 
 
@@ -55,6 +55,7 @@ Create a custom image with your OS/LSF and required application binary files. Fo
 
 * GNU compilers for C, C++, Fortran (gcc, gcc-c++, gcc-gfortran)
 * Open MPI (openMPI)
+* [Intel&reg; MPI Library for Intel&reg; oneAPI](https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-mpi-for-linux/top.html){: external}
 
 ## Gather LSF entitlement information
 {: #gather-lsf-entitlement-information}
