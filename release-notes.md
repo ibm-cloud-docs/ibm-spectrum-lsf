@@ -33,7 +33,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 Updated {{site.data.keyword.spectrum_short}} and {{site.data.keyword.scale_short}} default images
 :   New default images were created for {{site.data.keyword.spectrum_short}} and {{site.data.keyword.scale_short}} along with their corresponding deployment value names. For {{site.data.keyword.spectrum_short}}, the `image_name` deployment value was updated to `hpcc-lsf10-scale5131-rhel84-2-0-5`, which replaced the previous default image `hpcc-lsf10-scale5131-rhel84-092122-v2`. 
 
-For {{site.data.keyword.scale_short}}, the `scale_storage_image_name` deployment value was updated to `hpcc-scale5131-rhel84`, which replaced the previous default image `hpcc-scale5131-rhel84-jun0122-v1`. For more information, see [Deployment values](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values).
+:   For {{site.data.keyword.scale_short}}, the `scale_storage_image_name` deployment value was updated to `hpcc-scale5131-rhel84`, which replaced the previous default image `hpcc-scale5131-rhel84-jun0122-v1`. For more information, see [Deployment values](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values).
 
 ## September 2022
 {: #ibm-spectrum-lsf-sept22}
