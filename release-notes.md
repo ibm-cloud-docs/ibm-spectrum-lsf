@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2022
+  years: 2022, 2023
 
-lastupdated: "2022-09-29"
+lastupdated: "2023-01-20"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -22,6 +22,18 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.spectrum_full}} that are grouped by date.
 {: shortdesc}
+
+## January 2023
+{: #ibm-spectrum-lsf-jan23}
+
+### 20 January 2023
+{: #ibm-spectrum-lsf-jan2023}
+{: release-note}
+
+Updated {{site.data.keyword.spectrum_short}} and {{site.data.keyword.scale_short}} default images
+:   New default images were created for {{site.data.keyword.spectrum_short}} and {{site.data.keyword.scale_short}} along with their corresponding deployment value names. For {{site.data.keyword.spectrum_short}}, the `image_name` deployment value was updated to `hpcc-lsf10-scale5131-rhel84-2-0-5`, which replaced the previous default image `hpcc-lsf10-scale5131-rhel84-092122-v2`. 
+
+For {{site.data.keyword.scale_short}}, the `scale_storage_image_name` deployment value was updated to `hpcc-scale5131-rhel84`, which replaced the previous default image `hpcc-scale5131-rhel84-jun0122-v1`. For more information, see [Deployment values](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values).
 
 ## September 2022
 {: #ibm-spectrum-lsf-sept22}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-11-04"
+  years: 2021, 2023
+lastupdated: "2023-01-20"
 
 keywords: 
 
@@ -51,7 +51,7 @@ Create an SSH key in your IBM Cloud account. This is your SSH key that you will 
 {: #create-custom-image}
 {: step}
 
-Create a custom image with your OS/LSF and required application binary files. For more information, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). {{site.data.keyword.cloud_notm}} provides a pre-built image with RHEL to help you get started quickly. The image name is `hpcc-lsf10-scale5131-rhel84-092122-v2`. In addition to the base operating system, the image also includes some commonly used software packages. If the following list of packages is good enough for your workloads, you do not need to create your own custom image: 
+Create a custom image with your OS/LSF and required application binary files. For more information, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). {{site.data.keyword.cloud_notm}} provides a pre-built image with RHEL to help you get started quickly. The image name is `hpcc-lsf10-scale5131-rhel84-2-0-5`. In addition to the base operating system, the image also includes some commonly used software packages. If the following list of packages is good enough for your workloads, you do not need to create your own custom image: 
 
 * GNU compilers for C, C++, Fortran (gcc, gcc-c++, gcc-gfortran)
 * Open MPI (openMPI)
