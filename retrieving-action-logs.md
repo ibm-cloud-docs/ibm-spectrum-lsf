@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-09-24"
+  years: 2021, 2023
+lastupdated: "2023-01-30"
 
 keywords: 
 
@@ -71,6 +71,9 @@ logging.info("Completed Retrieving the Schematic logs")
 
 ## Example Python response
 {: #example-response-retrieve-action-logs}
+
+The Python response is a generic example. Versioning and deployment values are subject to change due to frequent code updates.
+{: note}
 
 ```python
 INFO:root:Started Retrieving the Schematic logs
