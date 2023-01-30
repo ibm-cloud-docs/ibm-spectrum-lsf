@@ -52,13 +52,13 @@ toc:
       topics:
       - topicgroup:
            label: IBM Cloud Schematics CLI
-           topics: 
-           - /schematics/schematics-schematics-cli-reference
-           - /schematics/schematics-cli_version-releases
+           topics:
+           - include: ../schematics/cli-reference.md
+           - include: ../schematics/cli-version-release.md
       - link:
           label: IBM Cloud Schematics API
           href: https://cloud.ibm.com/apidocs/schematics
-      - /schematics/schematics-schematics-sdks
+      - include: ../schematics/schematics-sdk.md
       - link: 
           label: Best practices for IBM Spectrum LSF
           href: https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=best-practices-tips
