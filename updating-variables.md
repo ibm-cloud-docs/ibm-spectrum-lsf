@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-09-24"
+  years: 2021, 2023
+lastupdated: "2023-01-31"
 
 keywords: 
 
@@ -122,69 +122,7 @@ class HPCCEnvironmentValues:
 ## `config.json` template file
 {: #template-file}
 
-```json
-{
-  "name": "Schematic Dev Workspace",
-  "type": [
-    "terraform_v0.13.7"
-  ],
-  "location": "us-south",
-  "description": "Schematic Dev Workspace",
-  "tags": [],
-  "template_repo": {
-    "url": "<GitHub repo URL",
-    "githubtoken": "<github-token>"
-  },
-  "template_data": [
-    {
-      "folder": ".",
-      "type": "terraform_v0.13.7",
-      "env_values":[
-      {
-        "VAR1":"<val1>"
-      },
-      {
-        "VAR2":"<val2>"
-      }
-      ],
-      "variablestore": [
-        {
-          "name": "ssh_key_name",
-          "value": "<ssh-key-name>",
-          "type": "string",
-          "description":"SSH key for connection to the cluster. See explanation here: /docs/vpc?topic=vpc-ssh-keys"
-        },
-        {
-          "name": "api_key",
-          "value": "<ibmcloud-api-key>",
-          "type": "string",
-          "secure": true
-        },
-    {
-          "name": "cluster_prefix",
-          "value": "<cluster-prefix>",
-          "type": "string",
-          "secure": false,
-         "description":"Prefix name. This name is also used as the prefix of all the VPC resources."
-        },
-        {
-          "name": "ls_entitlement",
-          "value": "<ls_entitlement-value>",
-          "type": "string",
-          "secure": true
-        },
-        {
-          "name": "lsf_entitlement",
-          "value": "<lsf_entitlement-value>",
-          "type": "string",
-          "secure": true
-        }
-      ]
-    }
-  ]
-}
-```
-{: codeblock}
+Use this template file in the public GitHub repository: [config.json](https://github.com/IBM-Cloud/hpc-cluster-lsf/blob/main/sample/configs/hpc_workspace_config.json){: external}
 
 ## Example Python response
 {: #example-python-response-update-variables}
