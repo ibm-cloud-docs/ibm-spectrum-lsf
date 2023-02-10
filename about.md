@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-09-29"
+  years: 2021, 2023
+lastupdated: "2023-02-10"
 
 keywords: 
 
@@ -29,7 +29,7 @@ subcollection: ibm-spectrum-lsf
 
 In addition, {{site.data.keyword.spectrum_full_notm}} provides two shared storage options for you to manage your application data: NFS on block storage or {{site.data.keyword.scale_short}}. The {{site.data.keyword.scale_short}} option specifically works with static compute nodes only and allows you to deploy a high-performance file system with your HPC cluster.
 
-The offering supports the bring-your-own-license (BYOL) model for {{site.data.keyword.spectrum_full_notm}} to deploy an HPC cluster on {{site.data.keyword.cloud_notm}}. Make sure that you have sufficient software licenses to deploy the required capacity on the {{site.data.keyword.cloud_notm}} cluster. For evaluation purposes, {{site.data.keyword.cloud_notm}} does enable limited access. Contact your {{site.data.keyword.cloud_notm}} sales or support team for evaluation licenses.
+The offering supports the bring-your-own-license (BYOL) model for [{{site.data.keyword.spectrum_full_notm}}](https://www.ibm.com/products/hpc-workload-management){: external} to deploy an HPC cluster on {{site.data.keyword.cloud_notm}}. Make sure that you have sufficient software licenses to deploy the required capacity on the {{site.data.keyword.cloud_notm}} cluster. For evaluation purposes, {{site.data.keyword.cloud_notm}} does enable limited access. Contact your {{site.data.keyword.cloud_notm}} sales or support team for evaluation licenses.
 
 {{site.data.keyword.spectrum_short}} enables all three interfaces: UI, API, and CLI. To use the API and CLI interfaces, the Terraform-based automation code is available in this [public GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external}.
 
