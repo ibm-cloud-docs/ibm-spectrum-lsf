@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2023
 
-lastupdated: "2023-01-20"
+lastupdated: "2023-03-24"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -22,6 +22,25 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.spectrum_full}} that are grouped by date.
 {: shortdesc}
+
+## March 2023
+{: #ibm-spectrum-lsf-mar23}
+
+### 24 March 2023
+{: #ibm-spectrum-lsf-mar2423}
+{: release-note}
+
+LSF Application Center support
+:   An option has been added to install the LSF Application Center module, which provides cluster users and administrators with an easy-to-use interface for job submission and monitoring.
+
+Added LSF license check
+:   The solution now automatically checks for a valid LSF license that is associated with `ibm_customer_number`, which has been added as a required variable.
+
+Updated login node and NFS storage node stock images
+:   An update was made to use a RHEL 8.6 stock image instead of a CentOS 7 stock image for the login node and the NFS storage node.
+
+Custom image support
+:   Documentation and scripts to make it easier for users to create and use their own custom images for LSF worker and {{site.data.keyword.scale_short}} storage nodes are now included in the solution.
 
 ## January 2023
 {: #ibm-spectrum-lsf-jan23}

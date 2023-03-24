@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-02-10"
+lastupdated: "2023-03-24"
 
 keywords: 
 
@@ -33,6 +33,8 @@ The offering supports the bring-your-own-license (BYOL) model for [{{site.data.k
 
 {{site.data.keyword.spectrum_short}} enables all three interfaces: UI, API, and CLI. To use the API and CLI interfaces, the Terraform-based automation code is available in this [public GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external}.
 
+{{site.data.keyword.spectrum_full_notm}} also offers the [LSF Application Center](https://www.ibm.com/docs/en/slac/10.2.0){: external}, which provides a flexible, easy-to-use interface for cluster users and administrators. Available as an add-on module to {{site.data.keyword.spectrum_full_notm}}, the LSF Application Center enables users to interact with intuitive, self-documenting, standardized interfaces. You can access the LSF Application Center through the [GUI](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui), and you can also access the API calls with [Python](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-access-rest-api-calls-pacclient) and [`curl`](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-access-rest-api-calls-curl).
+
 The offering enables the initial Spectrum LSF-based HPC cluster creation. Any updates that are needed post-deployment regarding LSF configuration or setup should be performed by using LSF tools and commands. If you use the {{site.data.keyword.bpshort}} interface to make changes to configuration properties and reapply those changes, you can cause disruptions to the running {{site.data.keyword.spectrum_short}} cluster. Restoring it back to a working state might not be easy.
 {: important}
 
@@ -40,4 +42,5 @@ The offering enables the initial Spectrum LSF-based HPC cluster creation. Any up
 {: #architecture-diagram}
 
 ![Architecture diagram](images/hpccluster_lsf_schematics_architecture_09-22-21.svg){:caption="Figure 1. Architecture diagram of an {{site.data.keyword.spectrum_full_notm}} cluster on {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
+
 

@@ -1,8 +1,8 @@
 ---
 
 copyright: 
-  years: 2021, 2022
-lastupdated: "2022-09-29"
+  years: 2021, 2023
+lastupdated: "2023-03-24"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -98,7 +98,7 @@ Complete the following steps to create and configure an HPC cluster from the {{s
 
     ![HPC Cluster solution page](images/hpc_catalog.png){: caption="HPC cluster solution page"}
 
-2. In the **Set the deployment values** section, supply the required values: `api_key`, `lsf_license_confirmation`, and `ssh_key_name`. 
+2. In the **Set the deployment values** section, supply the required values: `api_key`, `ibm_customer_number`, `remote_allowed_ips`, `ssh_key_name`, and `zone`. 
 
 3. After you confirm with the license agreement, you can use the default values for other parameters and click **Install**. The HPC cluster is created and completed within 5 minutes with the default configuration.
 
@@ -115,7 +115,6 @@ See the following table for a list of parameters that you can configure for your
 | `management_node_count` | You can have up to three management nodes in the cluster. If you want failover support that is provided by LSF, you need to specify the value to be larger than one. In this case, when the primary management node is down, one of the candidate management nodes become the primary and your cluster remains functional without interruption. |
 | `region` | Edit the region where you want your cluster to be created. To get a full list of regions, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region). |
 | `resource_group` | The resource group name from your {{site.data.keyword.cloud_notm}} account where the VPC resources are deployed. |
-| `ssh_allowed_ips` | You can limit access to your cluster by specifying a list of IP addresses (or CIDR blocks) separated by a comma in this parameter. Only the SSH connections from these addresses can access your HPC cluster. | 
 | `vpc_name` | You can use an existing VPC in which the cluster resources are provisioned. If no value given, then a new VPC is provisioned for the cluster. |
 | `vpn_enabled` | You can deploy a VPN gateway for VPC in the cluster. By default, the value is set to false. |
 | `vpn_peer_address` | The peer public IP address to which the VPN is connected. |
@@ -204,7 +203,7 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
 {: #customize-hpc-cluster-workloads}
 {: step}
 
-You have two options to add software packages in the cluster for your workload. You can install the additional software in the NFS shared file system (for example, `/home/lsfadmin/shared` from the LSF management), which is visible to all compute nodes. The files that you add to the NSF shared file system are stored in the block storage that is attached to the storage node. The data is lost when the entire HPC cluster is being destroyed. Remember to save the data that you want to keep before you destroy the cluster.
+You have two options to add software packages in the cluster for your workload. You can install the additional software in the NFS shared file system (for example, `/home/lsfadmin/shared` from the LSF management host), which is visible to all compute nodes. The files that you add to the NSF shared file system are stored in the block storage that is attached to the storage node. The data is lost when the entire HPC cluster is being destroyed. Remember to save the data that you want to keep before you destroy the cluster.
 
 The other option is to build your own custom image on top of the default image used by the HPC cluster solution. The creation of the custom image must be prepared before you create an HPC cluster. When a new custom image is created in VPC, a name is associated with this image. You need to use this name in the `image_name` parameter. For more information, see [Extend base image and create a new custom image](https://github.ibm.com/hybrid-cloud-infrastructure-research/tracker/wiki/Extend-base-image-and-create-a-new-custom-image).
 

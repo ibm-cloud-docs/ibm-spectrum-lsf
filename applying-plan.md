@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-09-24"
+  years: 2021, 2023
+lastupdated: "2023-03-24"
 
 keywords: 
 
@@ -67,7 +67,7 @@ ibmcloud schematics logs --id <WORKSPACE_ID>
 ```
 {: screen}
 
-After the plan is successfully applied, it generates an `sshcommand` in the _Outputs_ section in the Terraform code. You can use this command to log in to the {{site.data.keyword.spectrum_short}} cluster. If you specified IP addresses for `ssh_allowed_ips` property only, those IP address machines would be able to use this SSH command.
+After the plan is successfully applied, it generates an `sshcommand` in the _Outputs_ section in the Terraform code. You can use this command to log in to the {{site.data.keyword.spectrum_short}} cluster. You can run this SSH command successfully only from systems whose IP addresses were specified in `remote_allowed_ips`. 
 
 ## Applying a plan using the API
 {: #apply-plan-api}

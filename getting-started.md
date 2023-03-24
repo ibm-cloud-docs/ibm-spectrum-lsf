@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-20"
+lastupdated: "2023-03-24"
 
 keywords: 
 
@@ -45,17 +45,25 @@ Generate an API key for your {{site.data.keyword.cloud_notm}} account where the 
 {: #create-ssh-key}
 {: step}
 
-Create an SSH key in your IBM Cloud account. This is your SSH key that you will use to access the LSF cluster. Ensure that the SSH key is present in the same resource group and region where the cluster is being provisioned. You can use multiple comma-separated SSH keys, if the cluster needs multiple SSH keys. For more information, see [Managing SSH keys](/docs/vpc?topic=vpc-managing-ssh-keys).
+Create an SSH key in your {{site.data.keyword.cloud_notm}} account. This is your SSH key that you will use to access the LSF cluster. Ensure that the SSH key is present in the same resource group and region where the cluster is being provisioned. You can use multiple comma-separated SSH keys, if the cluster needs multiple SSH keys. For more information, see [Managing SSH keys](/docs/vpc?topic=vpc-managing-ssh-keys).
 
-## Create custom image
+## Create custom image(s)
 {: #create-custom-image}
 {: step}
 
-Create a custom image with your OS/LSF and required application binary files. For more information, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). {{site.data.keyword.cloud_notm}} provides a pre-built image with RHEL to help you get started quickly. The image name is `hpcc-lsf10-scale5131-rhel84-2-0-5`. In addition to the base operating system, the image also includes some commonly used software packages. If the following list of packages is good enough for your workloads, you do not need to create your own custom image: 
+The offering provides a default set of images that you can use for the nodes within your HPC cluster. However, if you would prefer to use your own custom images, documentation and scripts are provided to help you create them.
+
+**Worker Image**: The default image that is specified in `image_name` acts as the worker image. This image is used to create the LSF cluster nodes: management, management-candidates, and workers. In addition to the base operating system, the image includes some commonly used software packages:
 
 * GNU compilers for C, C++, Fortran (gcc, gcc-c++, gcc-gfortran)
 * Open MPI (openMPI)
 * [Intel&reg; MPI Library for Intel&reg; oneAPI](https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-mpi-for-linux/top.html){: external}
+
+If you prefer to create the worker custom image with your own settings and configurations, follow the instructions that are provided [here](https://github.com/IBM-Cloud/hpc-cluster-lsf/tree/main/custom-image/worker#readme){: external}.
+
+**Storage Image**: If you intend to use {{site.data.keyword.scale_short}} as shared storage for the cluster, the default image specified in `scale_storage_image_name` acts as the storage image. This image is used to create the {{site.data.keyword.scale_short}} storage cluster nodes. In addition to the base operating system, the image also includes the required {{site.data.keyword.scale_short}} software packages.
+
+If you prefer to create the storage custom image with your own settings and configurations, follow the instructions that are provided [here](https://github.com/IBM-Cloud/hpc-cluster-lsf/tree/main/custom-image/storage#readme){: external}.
 
 ## Gather LSF entitlement information
 {: #gather-lsf-entitlement-information}
@@ -67,7 +75,7 @@ The offering uses BYOL (Bring your own licenses) for {{site.data.keyword.spectru
 {: #getting-started-next-steps}
 {: step}
 
-After you've gathered the necessary input values to define your cluster configuration, you are ready to deploy your {{site.data.keyword.spectrum_full_notm}} cluster. The {{site.data.keyword.spectrum_short}}cluster can be deployed on {{site.data.keyword.cloud_notm}} by using the {{site.data.keyword.cloud_notm}} catalog, {{site.data.keyword.bpshort}} CLI, or the {{site.data.keyword.bpshort}} APIs. If you want to deploy your cluster by using the CLI or API, review the prerequisites for your interface of choice:
+After you've gathered the necessary input values to define your cluster configuration, you are ready to deploy your {{site.data.keyword.spectrum_full_notm}} cluster. The {{site.data.keyword.spectrum_short}} cluster can be deployed on {{site.data.keyword.cloud_notm}} by using the {{site.data.keyword.cloud_notm}} catalog, {{site.data.keyword.bpshort}} CLI, or the {{site.data.keyword.bpshort}} APIs. If you want to deploy your cluster by using the CLI or API, review the prerequisites for your interface of choice:
 
 * [Setting up the {{site.data.keyword.bplong_notm}} CLI](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-setting-up-cli)
 * [Setting up the {{site.data.keyword.bplong_notm}} API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-setting-up-api)

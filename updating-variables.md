@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-03-24"
 
 keywords: 
 
@@ -29,7 +29,7 @@ subcollection: ibm-spectrum-lsf
 3. Copy and paste the [`config.json` template file](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-update-variables#template-file) to a JSON file, for example `config.json`.
 4. Change the following parameters as part of the request:
   * Provide the `workspace ID w_id` generated in both the following functions: `schematic_obj.get_workspace(w_id="<w_id>)` and `schematic_obj.update_variables(w_id="<wi_id>")`.
-5. Make sure to update the required parameters, such as `api_key`, `ls_entitlement`, `lsf_entitlement`, `ssh_key_name`, `cluster_prefix` in the `config.json` file.
+5. Make sure to update the required parameters, such as `api_key`, `ibm_customer_number`, `remote_allowed_ips`, `ssh_key_name`, and `zone` in the `config.json` file.
 6. Run the Python script by using python3 to update the variables in the {{site.data.keyword.bpshort}} workspace in the {{site.data.keyword.cloud_notm}}.
 
 **Note**: The following parameters might not be required in `config.json` as the {{site.data.keyword.bpshort}} update variables API uses the `workspace ID w_id` to update the variables against that workspace.

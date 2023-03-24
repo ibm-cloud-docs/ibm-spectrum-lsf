@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-09-29"
+  years: 2021, 2023
+lastupdated: "2023-03-24"
 
 keywords: 
 
@@ -113,8 +113,16 @@ Before you deploy a cluster, it is important to ensure that the VPC resource quo
 
 The maximum number of compute nodes that are supported for the deployment value `total_compute_cluster_instances` is 64. The maximum number of storage nodes that are supported for the deployment value `total_storage_cluster_instances` is 18.
 
-## Why can't I disable hyper threading?
-{: #disable-hyper-threading}
+## Why is the CPU number displayed on an LSF worker node different than what is shown in the LSF Application Center GUI?
+{: #cpu-number-different-lsf-worker-nodes-and-application-center}
 {: faq}
 
-Hyper threading is used on Intel&reg; microprocessors, which allows a single microprocessor to act like two separate processors to the operating system. With the latest release of {{site.data.keyword.scale_short}} that's accessible by {{site.data.keyword.spectrum_short}} compute nodes, the automation code uses the RHEL 8.4 custom image version (see [Release notes](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-release-notes&interface=ui#ibm-spectrum-lsf-aug0922). An issue with that image version has been identified that impacts being able to disable hyper threading. When the issue is resolved, there will be an update to this feature. 
+The CPU column in the LSF Application Center GUI and the `ncpus` column when you run the `lscpu` command on an LSF worker node might not show the same value.
+
+The CPU column output that you get by running `lscpu | egrep 'Model name|Socket|Thread|NUMA|CPU(s)'` on an LSF worker node shows the number of CPU threads (not physical cores) on that compute instance.
+
+If `EGO_DEFINE_NCPUS=threads`, then “ncpus=number of processors x number of cores x number of threads” and the CPU column value in the LSF Application Center GUI will match what you see when running `lscpu` on an LSF worker node.
+
+If `EGO_DEFINE_NCPUS=cores`, then “ncpus=number of processors x number of cores” and the CPU column value in the LSF Application Center GUI will be half of what you see when running `lscpu` on an LSF worker node.
+
+For more information, see [ncpus calculation in LSF](https://www.ibm.com/support/pages/ncpus-calculation-lsf#:~:text=If%20EGO_DEFINE_NCPUS%3Dthreads%2C%20then%20ncpus,cores%20x%20number%20of%20threads){: external}.

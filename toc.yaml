@@ -47,6 +47,16 @@ toc:
            topics: 
            - using-spectrum-scale-storage.md
            - accessing-gui.md
+      - topicgroup:
+           label: Using LSF Application Center
+           topics:
+           - using-application-center.md
+           - accessing-lsf-gui.md
+           - topicgroup:
+                label: Accessing REST API calls
+                topics:
+                - accessing-rest-api-pacclient.md
+                - accessing-rest-api-curl.md
   - navgroup:
       id: reference
       topics:

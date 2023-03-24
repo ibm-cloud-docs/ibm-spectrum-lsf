@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-30"
+lastupdated: "2023-03-24"
 
 keywords: 
 
@@ -39,7 +39,7 @@ With {{site.data.keyword.bplong}} workspaces, you can manage the Terraform-based
     * Specify the **Name** for your {{site.data.keyword.bpshort}} workspace
     * Select a **Resource group**
     * Define any **Tags** that you want to associate with the resources provisioned through the offering. The tags can later be used to query the resources in the {{site.data.keyword.cloud_notm}} console.
-4. In the _Set the deployment values_ section, specify the values for the three required properties: `api_key`, `ssh_key_name`, and `lsf_license_confirmation`.
+4. In the _Set the deployment values_ section, specify the values for the required properties: `api_key`, `ibm_customer_number`, `remote_allowed_ips`, `ssh_key_name`, and `zone`.
 5. Expand the _Parameters with default values_ section, and review it to determine whether you need to override any of the default values provided for the configuration properties.
 6. Review and accept the **{{site.data.keyword.spectrum_full_notm}}** license terms and conditions in the order summary.
 7. Click **Install**. The {{site.data.keyword.bpshort}} workspace is created with the name you specified. You can see the list of workspaces in _View the existing installations_. If the workspace creation is successful, the _Apply Plan_ action is started to trigger the deployment of the respective {{site.data.keyword.vpc_short}} resources in your {{site.data.keyword.cloud_notm}} account that are linked with the `api_key`. 
@@ -70,7 +70,7 @@ ibmcloud schematics workspace new -f hpc_workspace_config.json --github-token GI
 ```
 {: pre}
 
-The `--github-token` parameter is optional and only needed if you are using a private GitHub repository. If you are using the [{{site.data.keyword.cloud_notm}} public GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external}, you do not need to provide it.
+The `--github-token` parameter is optional and only needed if you are using a private git repository. If you are using the [{{site.data.keyword.cloud_notm}} public GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external}, you do not need to provide it.
 {: note}
 
 ### Listing available workspaces
@@ -161,6 +161,9 @@ Before you get started, make sure that you've completed the prerequisites found 
 {: #example-request-create}
 {: api}
 
+The Python request is a generic example. Versioning and deployment values are subject to change due to frequent code updates. 
+{: note}
+
 ```python
 
 # Create a Schematics workspace using Python API
@@ -199,8 +202,8 @@ template_source_data_request_model['variablestore'] = [
 "value": "lsf-bcc-key",
 },
 {
-"name": "lsf_license_confirmation",
-"value": "true"
+"name": "ibm_customer_number",
+"value": ""
 }]
 
 template_repo_request_model = {}
@@ -227,7 +230,7 @@ print(json.dumps(workspace_response, indent = 2))
 {: #example-response-create}
 {: api}
 
-The Python response is a generic example. Versioning and deployment values are subject to change due to frequent code updates.
+The Python response is a generic example. Versioning and deployment values are subject to change due to frequent code updates. 
 {: note}
 
 ```python
@@ -285,9 +288,9 @@ INFO:root:Completed Creating Schematic Workspace
 "description": ""
 },
 {
-"name": "lsf_license_confirmation",
-"secure": false,
-"value": "true",
+"name": "ibm_customer_number",
+"secure": true,
+"value": "",
 "type": "",
 "description": ""
 }
