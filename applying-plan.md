@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-03-24"
+lastupdated: "2023-04-21"
 
 keywords: 
 
@@ -74,7 +74,7 @@ After the plan is successfully applied, it generates an `sshcommand` in the _Out
 {: api}
 
 1. To apply a plan by using the {{site.data.keyword.bplong_notm}} Python APIs, create a Python file and provide a name of your choice, for example, `schematics_apply_plan.py`.
-2. Copy and paste the [Apply a plan using {{site.data.keyword.bpshort}} Python API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan#example-request-apply) example request to your Python file.
+2. Copy and paste the [Apply a plan using {{site.data.keyword.bpshort}} Python API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan&interface=api#example-request-apply) example request to your Python file.
 3. Change the following parameters as part of the request:
   * Replace your {{site.data.keyword.cloud_notm}} API key to the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable.
   * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location that you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
