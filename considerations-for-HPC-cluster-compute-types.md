@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-02-04"
+  years: 2021, 2023
+lastupdated: "2023-04-21"
 
 keywords: 
 
@@ -99,7 +99,7 @@ As you can see, SNAP results show that bx2-8x32 provides more performance becaus
 
 ![EDA-diagram](images/DoE-Snap-Scaling.png){:caption="Figure 3. SNAP scaling diagram}
 
-![EDA-diagram](images/DoE-Cores.png){:caption="Figure 3. Quicksilver scaling diagram}
+![EDA-diagram](images/DoE-Cores.png){:caption="Figure 4. Quicksilver scaling diagram}
 
 Even though the scaling is not as good as the weather model, {{site.data.keyword.cloud_notm}} can scale up to thousands of cores reasonably with a linear curve.
 
