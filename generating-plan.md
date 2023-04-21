@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-03-24"
+lastupdated: "2023-04-21"
 
 keywords: 
 
@@ -40,7 +40,7 @@ After you've created your workspace, you need to generate a plan to validate all
 {: #next-steps-generate-ui}
 {: ui}
 
-After you've successfully generated a plan, you can begin [Applying a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan#apply-plan-ui) to deploy your {{site.data.keyword.cloud_notm}} resources to build a {{site.data.keyword.spectrum_short}} cluster instance.
+After you've successfully generated a plan, you can begin [Applying a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan&interface=ui) to deploy your {{site.data.keyword.cloud_notm}} resources to build a {{site.data.keyword.spectrum_short}} cluster instance.
 
 ## Generating a plan using the CLI
 {: #generate-plan-cli}
@@ -64,14 +64,14 @@ ibmcloud schematics logs --id <WORKSPACE_ID>
 {: #next-steps-generate-plan-cli}
 {: cli}
 
-After you've successfully generated a plan, you can begin [Applying a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan#apply-plan-cli) to deploy your {{site.data.keyword.cloud_notm}} resources to build a {{site.data.keyword.spectrum_short}} cluster instance.
+After you've successfully generated a plan, you can begin [Applying a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan&interface=cli) to deploy your {{site.data.keyword.cloud_notm}} resources to build a {{site.data.keyword.spectrum_short}} cluster instance.
 
 ## Generating a plan using the API
 {: #generate-plan-api}
 {: api}
 
 1. To generate a plan by using {{site.data.keyword.bplong_notm}} Python APIs, create a Python file and provide a name of your choice, for example, `schematics_generate_plan.py`.
-2. Copy and paste the [Generate a plan using {{site.data.keyword.bpshort}} Python API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan#example-request-generate) example request to your Python file.
+2. Copy and paste the [Generate a plan using {{site.data.keyword.bpshort}} Python API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan&interface=api#example-request-generate) example request to your Python file.
 3. Change the following parameters as part of the request:
   * Replace your {{site.data.keyword.cloud_notm}} API key to the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable.
   * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
@@ -152,4 +152,4 @@ INFO:root:Completed Generating Schematic Plan
 {: #next-steps-generate-plan-api}
 {: api}
 
-After you've successfully generated a plan, you can begin [Applying a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan#apply-plan-api) to deploy your {{site.data.keyword.cloud_notm}} resources to build a {{site.data.keyword.spectrum_short}} cluster instance.
+After you've successfully generated a plan, you can begin [Applying a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan&interface=api) to deploy your {{site.data.keyword.cloud_notm}} resources to build a {{site.data.keyword.spectrum_short}} cluster instance.
