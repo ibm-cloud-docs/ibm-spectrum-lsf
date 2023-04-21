@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-04-06"
+lastupdated: "2023-04-21"
 
 keywords: 
 
@@ -45,5 +45,5 @@ Before you begin using the {{site.data.keyword.bplong}} CLI to deploy {{site.dat
 ## Next steps
 {: #next-steps-cli}
 
-After you've reviewed and completed the prerequisites for setting up the CLI, you are ready to [Create a workspace](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace#before-you-begin-creating-cli).
+After you've reviewed and completed the prerequisites for setting up the CLI, you are ready to [Create a workspace](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace&interface=cli).
 
