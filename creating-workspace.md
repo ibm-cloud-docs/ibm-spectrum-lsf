@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-04-06"
+lastupdated: "2023-04-21"
 
 keywords: 
 
@@ -49,7 +49,7 @@ With {{site.data.keyword.bplong}} workspaces, you can manage the Terraform-based
 {: #next-steps-create-ui}
 {: ui}
 
-After you've successfully created a workspace, you can begin [Generating a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan#generate-plan-ui) to validate all of the configuration properties.
+After you've successfully created a workspace, you can begin [Generating a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan&interface=ui) to validate all of the configuration properties.
 
 ## Before you begin
 {: #before-you-begin-creating-cli}
@@ -120,7 +120,7 @@ To provision or modify {{site.data.keyword.cloud_notm}} resources, you can run t
 {: #next-steps-create-cli}
 {: cli}
 
-After you've successfully created a workspace, you can begin [Generating a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan#generate-plan-cli) to validate all of the configuration properties. 
+After you've successfully created a workspace, you can begin [Generating a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan&interface=cli) to validate all of the configuration properties. 
 
 ## Before you begin
 {: #before-you-begin-creating-api}
@@ -133,7 +133,7 @@ Before you get started, make sure that you've completed the prerequisites found 
 {: api}
 
 1. To create a workspace by using the {{site.data.keyword.bplong_notm}} Python APIs, create a Python file and provide a name of your choice, for example, `schematics_create_workspace.py`.
-2. Copy and paste the [Create a Schematics workspace using Python API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace#example-request-create) example request to your Python file.
+2. Copy and paste the [Create a Schematics workspace using Python API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace&interface=api#example-request-create) example request to your Python file.
 3. Change the following parameters as part of the request:
     * Replace your {{site.data.keyword.cloud_notm}} API key to the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable.
     * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location that you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
@@ -323,4 +323,4 @@ INFO:root:Completed Creating Schematic Workspace
 {: #next-steps-create-api}
 {: api}
 
-After you've successfully created a workspace, you can begin [Generating a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan#generate-plan-api) to validate all of the configuration properties. 
+After you've successfully created a workspace, you can begin [Generating a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan&interface=api) to validate all of the configuration properties. 
