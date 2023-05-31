@@ -20,6 +20,7 @@ toc:
       id: tutorial
       topics: 
       - hpc-cluster-tutorial.md
+      - integrate-openldap-tutorial.md
   - navgroup: 
       id: howto
       topics:
