@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-31"
+lastupdated: "2023-08-09"
 
 keywords:
 content-type: tutorial
@@ -82,7 +82,7 @@ Make sure that you have access to a Linux&reg; system with root privileges.
 1. Install the OpenLDAP server and client packages by running the following command:
 
     ```
-    yum -y install openldap-servers openldap-
+    yum -y install openldap-servers openldap-clients
     ```
     {: codeblock}
 
