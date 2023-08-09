@@ -51,7 +51,7 @@ Integrating OpenLDAP with {{site.data.keyword.spectrum_full_notm}} involves modi
 ## Before you begin
 {: #before-you-begin}
 
-Before you get started, be sure to review the following prerequisties:
+Before you get started, be sure to review the following prerequisites:
 
 ### General prerequisites
 {: #general-prerequisities}
@@ -555,7 +555,7 @@ The specific LDAP command-line tools and commands might vary.
 
 After you log in, you can use the EGO commands to manage the LSF cluster, such as `egosh resource`, `egosh job`, `egosh host`, and so on (as shown in the following example).
 
-To complete the following steps, you need to use an LSF user account with high privileges. Only an account with high privileges can add the users to LSF cluster and then assign roles to them. Howvever, if the newly added user is assigned `CLUSTER_Admin` role, then that user can also complete the following steps for subsequently added users.
+To complete the following steps, you need to use an LSF user account with high privileges. Only an account with high privileges can add the users to LSF cluster and then assign roles to them. However, if the newly added user is assigned `CLUSTER_Admin` role, then that user can also complete the following steps for subsequently added users.
 {: tip}
 
 1. To add the existing user, "user1lsf", that was created in the OLDAP server to the LSF cluster, you need to log in as the cluster administrator, and then run the following commands:
@@ -573,7 +573,7 @@ To complete the following steps, you need to use an LSF user account with high p
     ```
     {: codeblock}
 
-2. Log in with the user that was added in the previous setp to the LSF cluster by running the following commands:
+2. Log in with the user that was added in the previous step to the LSF cluster by running the following commands:
 
     ```
     [root@icgen2host-172-19-1-69 ~]# su user1lsf
