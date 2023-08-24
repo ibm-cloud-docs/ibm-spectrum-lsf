@@ -23,16 +23,6 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.spectrum_full}} that are grouped by date.
 {: shortdesc}
 
-## May 2023
-{: #ibm-spectrum-lsf-may23}
-
-### 31 May 2023
-{: #ibm-spectrum-lsf-may3123}
-{: release-note}
-
-Documentation enhancement: Integrating OpenLDAP with {{site.data.keyword.spectrum_full_notm}}
-:   The newly added [Integrating OpenLDAP with {{site.data.keyword.spectrum_full_notm}}](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-integrate-openldap-spectrum-lsf) tutorial walks you through how to use your existing LDAP infrastructure to provide centralized authentication and directory services.
-
 ## March 2023
 {: #ibm-spectrum-lsf-mar23}
 
