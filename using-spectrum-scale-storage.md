@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-09-29"
+  years: 2022, 2023
+lastupdated: "2023-09-21"
 
 keywords: 
 
@@ -21,7 +21,7 @@ subcollection: ibm-spectrum-lsf
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Using Spectrum Scale storage
+# Using Storage Scale storage
 {: #using-spectrum-scale-storage}
 
 {{site.data.keyword.scale_full}} is a cluster file system that provides simultaneous access to a single file system from multiple compute nodes. In the {{site.data.keyword.spectrum_full_notm}} offering, {{site.data.keyword.scale_short}} applications running in static compute cluster nodes with high-performance access to a shared data space. For more information, see the [{{site.data.keyword.scale_full_notm}}](https://www.ibm.com/docs/en/spectrum-scale/5.1.2){: external} product documentation.
@@ -36,12 +36,12 @@ The {{site.data.keyword.spectrum_full_notm}} offering uses {{site.data.keyword.v
 
 Before you begin, make sure to complete the steps for [Getting started with {{site.data.keyword.spectrum_full_notm}}](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial).
 
-## Configuring Spectrum Scale storage
+## Configuring Storage Scale storage
 {: #configure-scale-storage}
 
 To configure and use {{site.data.keyword.scale_short}} storage, the `spectrum_scale_enabled` [deployment value](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values) must be set to "true". The remaining {{site.data.keyword.scale_short}} storage parameters ("scale_xx") must be set to deploy the wanted storage cluster configuration.
 
-## Checking the Spectrum Scale file system
+## Checking the Storage Scale file system
 {: #check-scale-file-system}
 
 Complete the following steps to check the {{site.data.keyword.scale_short}} file system:

@@ -97,7 +97,7 @@ The Terraform-based templates can be found in this [GitHub repository](https://g
 
 The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external}.
 
-## Which Spectrum LSF and Spectrum Scale versions are used in cluster nodes deployed with this offering?
+## Which Spectrum LSF and Storage Scale versions are used in cluster nodes deployed with this offering?
 {: #versions-used}
 {: faq}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-08-09"
+  years: 2022, 2023
+lastupdated: "2023-09-21"
 
 keywords: 
 
@@ -69,7 +69,7 @@ This solution's automation always uses the same IP addresses, so there might be 
 
     where `STORAGE_NODE_IP_ADDRESS` needs to be replaced with the storage IP address associated with `<prefix>-scale-storage-0`, which you gathered earlier, and `FLOATING_IP_ADDRESS` needs to be replaced with the floating IP address that you identified.
 3. Open a browser on the local machine, and run https://localhost:22443. You will get an SSL self-assigned certificate warning with your browser the first time that you access this URL.
-4. Enter your login credentials that you set up when you created your workspace to access the Spectrum Scale GUI.
+4. Enter your login credentials that you set up when you created your workspace to access the Storage Scale GUI.
 
 ### Accessing the compute cluster
 {: #access-compute-cluster}

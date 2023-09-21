@@ -44,7 +44,7 @@ toc:
           - adding-profile-types.md
       - using-dedicated-hosts.md
       - topicgroup:
-           label: Using IBM Spectrum Scale
+           label: Using IBM Storage Scale
            topics: 
            - using-spectrum-scale-storage.md
            - accessing-gui.md
