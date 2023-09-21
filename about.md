@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-03-24"
+lastupdated: "2023-09-21"
 
 keywords: 
 
@@ -22,7 +22,7 @@ subcollection: ibm-spectrum-lsf
 # About IBM Spectrum LSF
 {: #about-spectrum-lsf}
 
-{{site.data.keyword.spectrum_full}} allows you to deploy high-performance computing (HPC) clusters by using {{site.data.keyword.spectrum_full_notm}} as HPC scheduling software. This offering uses open source Terraform-based automation to provision and configure {{site.data.keyword.cloud_notm}} resources. With simple steps to define configuration properties and use automated deployment, you can build your own HPC clusters in minutes by using your choice of an Intel x86 based [VPC virtual server instance profile type](/docs/vpc?topic=vpc-profiles&interface=ui) for the worker nodes in the cluster. {{site.data.keyword.spectrum_full_notm}} also enables configuration for auto scaling, so {{site.data.keyword.spectrum_full_notm}} clusters can automatically add and remove worker nodes based on workload specifications. This allows you to take full advantage of consumption-based pricing and pay for cloud resources only when they are needed. 
+{{site.data.keyword.spectrum_full}} allows you to deploy high-performance computing (HPC) clusters by using {{site.data.keyword.spectrum_full_notm}} as HPC scheduling software. This offering uses open source Terraform-based automation to provision and configure {{site.data.keyword.cloud_notm}} resources. With simple steps to define configuration properties and use automated deployment, you can build your own HPC clusters in minutes by using your choice of an Intel&reg; x86 based [VPC virtual server instance profile type](/docs/vpc?topic=vpc-profiles&interface=ui) for the worker nodes in the cluster, including profiles that make use of 4th Generation Intel&reg; Xeon&reg; Scalable processors (code named Sapphire Rapids). {{site.data.keyword.spectrum_full_notm}} also enables configuration for auto scaling, so {{site.data.keyword.spectrum_full_notm}} clusters can automatically add and remove worker nodes based on workload specifications. This allows you to take full advantage of consumption-based pricing and pay for cloud resources only when they are needed. 
 {: shortdesc}
 
 {{site.data.keyword.spectrum_full_notm}} offers the option of a public virtual machine, or virtual machines that are deployed on dedicated hosts, for static compute nodes only. The management nodes and dynamic compute nodes use public virtual machines only. The dedicated host option allows you to have machines that are assigned just for your workloads and avoids issues like a noisy neighbor. The deployment properties allow you to either "pack" or "spread". You can pack a dedicated host to full capacity before spilling to another instance or spread the virtual server instances evenly across all dedicated hosts.
