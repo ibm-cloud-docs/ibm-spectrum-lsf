@@ -23,9 +23,11 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.spectrum_full}} that are grouped by date.
 {: shortdesc}
 
+## October 2023
+{: #ibm-spectrum-lsf-oct23}
 
 ## 4 Oct 2023
-{: #ibm-spectrum-lsf-oct23}
+{: #ibm-spectrum-lsf-oct0423}
 {: release-note}
 
 LSF Application Center MariaDB installation bugfix
