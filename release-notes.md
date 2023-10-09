@@ -26,13 +26,22 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 ## October 2023
 {: #ibm-spectrum-lsf-oct23}
 
-## 4 Oct 2023
+### 4 October 2023
 {: #ibm-spectrum-lsf-oct0423}
 {: release-note}
 
 LSF Application Center MariaDB installation bugfix
-
 :   A fix has been implemented to resolve a bug that was preventing successful installation of LSF Application Center MariaDB.
+
+## May 2023
+{: #ibm-spectrum-lsf-may23}
+
+### 31 May 2023
+{: #ibm-spectrum-lsf-may3123}
+{: release-note}
+
+Documentation enhancement: Integrating OpenLDAP with {{site.data.keyword.spectrum_full_notm}}
+:   The newly added [Integrating OpenLDAP with {{site.data.keyword.spectrum_full_notm}}](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-integrate-openldap-spectrum-lsf) tutorial walks you through how to use your existing LDAP infrastructure to provide centralized authentication and directory services.
 
 ## March 2023
 {: #ibm-spectrum-lsf-mar23}
@@ -83,7 +92,7 @@ Intel&reg; MPI Library for Intel&reg; oneAPI support
 {: release-note}
 
 Dedicated hosts and {{site.data.keyword.scale_short}} support
-:   You now have the option to use {{site.data.keyword.scale_short}} for shared storage that's accessible by the Spectrum LSF compute nodes. For more information, see [Using Storage Scale storage](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-using-spectrum-scale-storage). With the latest changes, RHEL 8.4 custom images take the place of RHEL 7.7 and CentOS 7.7 custom images with included optimizations for NFS. And, security group rules have been added to provide more secure access to the cluster by allowing SSH from only specific nodes. In addition, you now have the option to use dedicated hosts for static worker nodes. For more information, see [Using dedicated hosts](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-using-dedicated-hosts).
+:   You now have the option to use {{site.data.keyword.scale_short}} for shared storage that's accessible by the Spectrum LSF compute nodes. For more information, see [Using Spectrum Scale storage](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-using-spectrum-scale-storage). With the latest changes, RHEL 8.4 custom images take the place of RHEL 7.7 and CentOS 7.7 custom images with included optimizations for NFS. And, security group rules have been added to provide more secure access to the cluster by allowing SSH from only specific nodes. In addition, you now have the option to use dedicated hosts for static worker nodes. For more information, see [Using dedicated hosts](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-using-dedicated-hosts).
 
 Bug fixes
 :   Fixes were applied related to an HTTP data source body deprecation and an Ansible version 2.10 upgrade.
