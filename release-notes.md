@@ -26,6 +26,16 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 ## October 2023
 {: #ibm-spectrum-lsf-oct23}
 
+### 16 October 2023
+{: #hpc-spectrum-symphony-oct1623}
+
+LSF daemon restart bug fix
+:   A fix has been implemented to take care of job submission for creating dynamic hosts post LSF daemon restarted.
+
+LSF failover bug fix
+:   A fix has been implemented to take care of the failover case of the management node.
+
+
 ### 4 October 2023
 {: #ibm-spectrum-lsf-oct0423}
 {: release-note}
