@@ -31,7 +31,7 @@ IBM Spectrum LSF Application Center provides standard RESTful web services for a
 1. To access the LSF Application Center REST APIs from your terminal, you need to establish an SSH connection:
 
     ```
-    ssh -L 8080:localhost:8080 -J root@{FLOATING_IP_ADDRESS} lsfadmin@{MANAGEMENT_NODE_IP_ADDRESS}
+    ssh -L 8443:localhost:8443 -J root@{FLOATING_IP_ADDRESS} lsfadmin@{MANAGEMENT_NODE_IP_ADDRESS}
     ```
     {: codeblock}
 
@@ -42,98 +42,118 @@ IBM Spectrum LSF Application Center provides standard RESTful web services for a
 
 1. Open a new terminal from your local device and run the following commands:
 
-    1. Ping the cluster:
+    1. Define or export the following variables:
 
-        ```bash
-        curl -k -X POST -H "Accept: application/json" http://localhost:8080/platform/ws/ping
+        ```text
+        export SSL_INSECURE=1
+        export AC_HOST=localhost
+        export AC_PORT=8443
+        export AC_USER=lsfadmin
+        export AC_PASSWORD=<mynicepassword>
         ```
-        {: pre}
+        {: codeblock}
 
-    2. Log into the cluster:
+    2. Ping the cluster:
 
-        ```bash
-        curl -k -X POST -H "Accept: application/json" -H "Content-Type: application/xml" -d "<User><name>lsfadmin</name> <pass>YourPassword</pass> </User>" http://localhost:8080/platform/ws/logon
+        ```text
+        curl -k -X POST -H "Accept: application/json" https://$AC_HOST:$AC_PORT/platform/ws/ping
         ```
-        {: pre}
+        {: codeblock}
 
-        The output of this command contains the token that you need to run additional commands. The token is only valid for a particular timeframe.
+
+    3. Log in to the cluster:
+
+        ```text
+        curl -k -X POST -H "Accept: application/json" -H "Content-Type: application/xml" -d "<User><name>$AC_USER</name> <pass>$AC_PASSWORD</pass> </User>" https://$AC_HOST:$AC_PORT/platform/ws/logon
+        ```
+        {: codeblock}
+
+        The output of this command contains the token that you need to run commands. The token is only valid for a particular time frame.
         {: note}
 
         **Example output:**
 
-        ```
+        ```text
         {"csrftoken":"dbf6208a-0c01-4cb3-b6e1-9f75390311e5","token":"lsfadmin\"2022-05-25T20:53:12Z\"cn8FS6/FIXiVZc5vMpfPdoob9bosjk85u3lEPseqrWdX+DyWMPYkYgPOC5UJ+a4m87zyjHDq1DhjIZyYx1X47SFGRS4MRzeah94l+EpNBazKilXsG8cVuYyUgtz9M0J6\"PBNNTKLPN3JlyOpnCqI7cg=="}
         ```
-        {: screen}
+        {: codeblock}
 
-    3. After you receive your token, you need to make two changes to it. First, add `"platform_token="` at the beginning of the token, and second, replace the `\"` with `#quote#`. See the following example of an updated token:
+    4. After you receive your token, you need to make two changes to it. First, add `"platform_token="` at the beginning of the token, and second, replace the `\"` with `#quote#`. See the following example of an updated token:
 
-        ```
-        export 
+        ```text
+        export
         MYTOKEN=platform_token=lsfadmin#quote#2022-05-25T20:53:12Z#quote#cn8FS6/FIXiVZc5vMpfPdoob9bosjk85u3lEPseqrWdX+DyWMPYkYgPOC5UJ+a4m87zyjHDq1DhjIZyYx1X47SFGRS4MRzeah94l+EpNBazKilXsG8cVuYyUgtz9M0J6#quote#PBNNTKLPN3JlyOpnCqI7cg==
         ```
-        {: screen}
+        {: codeblock}
 
-    4. Get the cluster info:
+    5. Get cluster information:
 
-        ```bash
-        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'  http://localhost:8080/platform/ws/clusters/local
+        ```text
+        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'  https://$AC_HOST:$AC_PORT/platform/ws/clusters/local
         ```
-        {: pre}
+        {: codeblock}
 
-    5. (Optional) Get the Platform Application Center version:
+    6. (Optional) Get the LSF Application Center version:
 
-        ```bash
-        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'  http://localhost:8080/platform/ws/version
+        ```text
+        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'  https://$AC_HOST:$AC_PORT/platform/ws/version
         ```
-        {: pre}
+        {: codeblock}
+
 
     6. (Optional) List out the users:
 
         ```bash
-        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   http://localhost:8080/platform/ws/users
+        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   https://$AC_HOST:$AC_PORT/platform/ws/users
         ```
-        {: pre}
+        {: codeblock}
 
-    7. (Optional) List out the groups:
+    8. (Optional) List groups:
 
-        ```bash
-        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   http://localhost:8080/platform/ws/usergroups
+        ```text
+        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   https://$AC_HOST:$AC_PORT/platform/ws/usergroups
         ```
-        {: pre}
+        {: codeblock}
 
-    8. (Optional) List out the host details:
 
-        ```bash
-        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   http://localhost:8080/platform/ws/hosts
+    9. (Optional) List host details:
+
+        ```text
+        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   https://$AC_HOST:$AC_PORT/platform/ws/hosts
         ```
-        {: pre}
+        {: codeblock}
 
-    9. List out the existing jobs:
+    10. List existing jobs:
 
-        ```bash
-        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   http://localhost:8080/platform/ws/pacclient/jobs
+        ```text
+        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   https://$AC_HOST:$AC_PORT/platform/ws/pacclient/jobs
         ```
-        {: pre}
+        {: codeblock}
 
-    10. (Optional) Get detailed job information by job ID (GET):
+    11. (Optional) Get detailed job information by job ID (GET):
 
-        ```bash
-        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   http://localhost:8080/platform/ws/jobs/<job ID>
+        ```text
+        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   https://$AC_HOST:$AC_PORT/platform/ws/jobs/<job ID>
         ```
-        {: pre}
+        {: codeblock}
 
-    11. (Optional) Get basic and detailed job information by job attributes (GET):
 
-        ```bash
-        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   http://localhost:8080/platform/ws/jobs/fullinfo
+    12. (Optional) Get basic and detailed job information by job attributes (GET):
+
+        ```text
+        curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   https://$AC_HOST:$AC_PORT/platform/ws/jobs/fullinfo
         ```
-        {: pre}
 
 2. Submit a job:
 
-    ```bash
-    curl -k -X POST -H 'Content-Type: multipart/mixed; boundary=bqJky99mlBWa-ZuqjC53mG6EzbmlxB' -H 'Accept:text/xml,application/xml' -H "Cookie:$MYTOKEN" -H 'Accept-Language:en-us' -d '--bqJky99mlBWa-ZuqjC53mG6EzbmlxB
+    ```curl
+    curl -k -X POST \
+    -H 'Content-Type: multipart/mixed; boundary=bqJky99mlBWa-ZuqjC53mG6EzbmlxB' \
+    -H 'Accept: text/xml, application/xml' \
+    -H "Cookie: $MYTOKEN" \
+    -H 'Accept-Language: en-us' \
+    -d '
+    --bqJky99mlBWa-ZuqjC53mG6EzbmlxB
     Content-Disposition: form-data; name="AppName"
     Content-ID: <AppName>
 
@@ -141,19 +161,19 @@ IBM Spectrum LSF Application Center provides standard RESTful web services for a
     --bqJky99mlBWa-ZuqjC53mG6EzbmlxB
     Content-Disposition: form-data; name="data"
     Content-Type: multipart/mixed; boundary=_Part_1_701508.1145579811786
-    Accept-Language:en-us
+    Accept-Language: en-us
     Content-ID: <data>
 
     --_Part_1_701508.1145579811786
     Content-Disposition: form-data; name="COMMANDTORUN"
     Content-Type: application/xml; charset=UTF-8
     Content-Transfer-Encoding: 8bit
-    Accept-Language:en-us
+    Accept-Language: en-us
 
     <AppParam><id>COMMANDTORUN</id><value>sleep 99</value><type></type></AppParam>
-    --bqJky99mlBWa-ZuqjC53mG6EzbmlxB--
     --_Part_1_701508.1145579811786--
-    ' http://localhost:8080/platform/webservice/pacclient/submitapp
+    --bqJky99mlBWa-ZuqjC53mG6EzbmlxB--
+    ' https://$AC_HOST:$AC_PORT/platform/webservice/pacclient/submitapp
     ```
     {: codeblock}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-24"
+lastupdated: "2023-03-17"
 
 keywords: 
 
@@ -34,7 +34,7 @@ Before you access the LSF Application Center GUI, review the following considera
 * To access the GUI, you must use the same SSH key that was provided for cluster creation.
 * It's recommended to use the Safari browser to access the GUI.
 * If you encounter slowness in loading or accessing the GUI, clear the browser's cache.
-* You can open Application Center GUIs on the 8080 port. 
+* You can open Application Center GUIs on the 8443 port. 
 
 ## Gathering IP addresses
 {: #gathering-ip-addresses}
@@ -56,12 +56,12 @@ Complete the following steps to access the LSF Application Center:
 2. Run the following command to access the LSF Application Center GUI:
 
     ```
-    #ssh -L 8080:localhost:8080 -J root@{FLOATING_IP_ADDRESS} lsfadmin@{MANAGEMENT_NODE_IP_ADDRESS}
+    #ssh -L 8443:localhost:8443 -J root@{FLOATING_IP_ADDRESS} lsfadmin@{MANAGEMENT_NODE_IP_ADDRESS}
     ```
     {: pre}
 
     where `MANAGEMENT_NODE_IP_ADDRESS` needs to be replaced with the management node IP address that is associated with `<cluster_prefix>-management-host-0` and `FLOATING_IP_ADDRESS` needs to be replaced with the login node floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui#gathering-ip-addresses).
 
-3. Open a browser on your local machine and run http://localhost:8080.
+3. Open a browser on your local machine and run https://localhost:8443.
 4. To access the LSF Application Center GUI, enter the default user as `lsfadmin` and enter the password that you configured when you created your workspace.
 

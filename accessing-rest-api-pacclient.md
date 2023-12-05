@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-24"
+lastupdated: "2023-03-20"
 
 keywords: 
 
@@ -25,18 +25,18 @@ subcollection: ibm-spectrum-lsf
 IBM Spectrum LSF Application Center provides standard RESTful web services for application submission, data management, job information query, job actions, and more. The LSF Applicationn Center web service API can be integrated with many languages and methods. This example shows how to access the LSF Application Center REST API calls by using [`pacclient.py`](https://www.ibm.com/docs/en/slac/10.2.0?topic=services-pacclientpy){: external}, which is a Python 3-based client. 
 {: shortdesc}
 
-This example assumes that the LSF Application Center is configured to use the REST APIs through `http`. For more information, see [LSF Application Center Web Services](https://www.ibm.com/docs/en/slac/10.2.0?topic=lsf-application-center-web-services){: external}.
+This example assumes that the LSF Application Center is configured to use the REST APIs through `https`. For more information, see [LSF Application Center Web Services](https://www.ibm.com/docs/en/slac/10.2.0?topic=lsf-application-center-web-services){: external}.
 {: note}
 
 ## Before you begin
 {: #before-you-begin}
 
-Before you can connect to the LSF Application Center with `http`, you need to complete the following steps:
+Before you can connect to the LSF Application Center with `https`, you need to complete the following steps:
 
 1. To access the LSF Application Center REST APIs from your device, you need to set up an SSH connection. You can connect to an LSF management node through a new command-line terminal from your local device. The {{site.data.keyword.bpshort}} log output contains the LSF Application Center information that you need.
 
     ```
-    ssh -L 8080:localhost:8080 -J root@{FLOATING_IP_ADDRESS} lsfadmin@{MANAGEMENT_NODE_IP_ADDRESS}
+    ssh -L 8443:localhost:8443 -J root@{FLOATING_IP_ADDRESS} lsfadmin@{MANAGEMENT_NODE_IP_ADDRESS}
     ```
     {: codeblock}
 
@@ -84,8 +84,18 @@ Before you can connect to the LSF Application Center with `http`, you need to co
     ```
     {: pre}
 
-## Connecting to LSF Application Center with `http`
-{: #connect-lsf-application-center-http}
+4. On your local terminal, define or export the following variables:
+
+    ```
+    export SSL_INSECURE=1
+    export AC_HOST=localhost
+    export AC_PORT=8443
+    export AC_USER=lsfadmin
+    export AC_PASSWORD=<mynicepassword>
+    ```
+
+## Connecting to LSF Application Center with `https`
+{: #connect-lsf-application-center-https}
 
 Open a new command-line terminal and run the following commands:
 
@@ -117,8 +127,8 @@ $ ./pacclient.py help
  help      --- Display command usage
 
  # Login to the LSF Cluster. 
- $ ./pacclient.py logon -l http://localhost:8080 -u lsfadmin -p xxxxxxx
- You have logged on to PAC as: lsfadmin
+$ ./pacclient.py logon -l https://$AC_HOST:$AC_PORT -u $AC_USER -p $AC_PASSWORD
+You have logged on to PAC as: lsfadmin
 
  # Submit a Job in LSF cluster.
  $ ./pacclient.py submit -a generic -p "COMMANDTORUN=sleep 200"
