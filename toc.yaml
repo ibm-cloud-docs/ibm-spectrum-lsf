@@ -82,7 +82,6 @@ toc:
           - install-vpn-hpc-cluster.md
           - direct-link.md
           - setting-up-multi-cluster-job-forwarding.md
-          - data-management.md
   - navgroup:
       id: help
       topics: 
