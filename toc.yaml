@@ -21,6 +21,7 @@ toc:
       topics: 
       - hpc-cluster-tutorial.md
       - integrate-openldap-tutorial.md
+      - integrate-active-directory-tutorial.md
   - navgroup: 
       id: howto
       topics:
