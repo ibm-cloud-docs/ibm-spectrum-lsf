@@ -2,7 +2,7 @@
 
 copyright: 
   years: 2021, 2023
-lastupdated: "2023-03-24"
+lastupdated: "2023-04-20"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -32,10 +32,7 @@ subcollection: ibm-spectrum-lsf
 {: toc-services="virtual-servers, vpc, loadbalancer-service"} 
 {: toc-completion-time="60m"}
 
-## Objectives
-{: #hpc-objectives}
-
-* Deploy an HPC cluster with your choice of configuration properties
+Deploy the HPC cluster with your choice of configuration properties.
 
 ## Architecture overview and NFS file system setup 
 {: #hpc-cluster-architecture-overview}
@@ -46,7 +43,7 @@ The HPC cluster consists of a login node, a storage node where the block storage
 
 * The worker node can be a static resource. In this case, its lifecycle is managed by Schematics. You can request a number of static worker nodes, and these workers remain available in the LSF cluster until a Schematics-destroy action is performed. The LSF resource connector function creates extra workers when there is not enough capacity to run jobs and destroys workers when the demands decrease. The lifecycle of these dynamic workers is managed by the LSF resource connector. Wait until these dynamic resources are returned to the cloud before you destroy the entire VPC cluster through Schematics.
 
-* The storage node is configured as an NFS server and the block storage volume is mounted to `/data`, which is exported to share with LSF cluster nodes. At the NSF client end, the LSF cluster nodes in this case, the remote directory, `/data`, is mounted to `/mnt/data` locally. A soft link, `/home/lsfadmin/shared`, also points to `/mnt/data`. You can use `/home/lsfadmin/shared` as a shared file system for your applications.
+* The IBM Cloud File Storage for VPC is used for file sharing. By default, there are two file share volumes; each is 100 GB. To change this configuration, [set the custom_file_shares deployment value](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-spectrum-lsf-faqs#share).
 
 The HPC cluster solution provides a base custom image, which includes the LSF installation. You can create your own custom image on top of the base image. For more information, see [Create custom image](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial&interface=ui#create-custom-image). The image service on VPC provides a way for doing this. You can then specify the custom image that you want to use in Schematics for LSF management nodes and worker nodes. The image that is used by the login node and the storage node is not configurable at the moment (CentOS 7 by default).
 
@@ -63,7 +60,7 @@ Complete the following steps to create your SSH key:
     ```
     {: pre}
 
-2. Copy and save all of the content from `.ssh/id_rsa.pub`.
+2. Copy and save all the content from `.ssh/id_rsa.pub`.
 
 ## Add SSH key to the VPC infrastructure
 {: #hpc-ssh-key-adding}
@@ -205,7 +202,7 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
 
 You have two options to add software packages in the cluster for your workload. You can install the additional software in the NFS shared file system (for example, `/home/lsfadmin/shared` from the LSF management host), which is visible to all compute nodes. The files that you add to the NSF shared file system are stored in the block storage that is attached to the storage node. The data is lost when the entire HPC cluster is being destroyed. Remember to save the data that you want to keep before you destroy the cluster.
 
-The other option is to build your own custom image on top of the default image used by the HPC cluster solution. The creation of the custom image must be prepared before you create an HPC cluster. When a new custom image is created in VPC, a name is associated with this image. You need to use this name in the `image_name` parameter. For more information, see [Extend base image and create a new custom image](https://github.ibm.com/hybrid-cloud-infrastructure-research/tracker/wiki/Extend-base-image-and-create-a-new-custom-image).
+The other option is to build your own custom image on top of the default image used by the HPC cluster solution. The creation of the custom image must be prepared before you create an HPC cluster. When a new custom image is created in VPC, a name is associated with this image. You need to use this name in the `image_name` parameter. For more information, see [Extend base image and create a new custom image](https://github.ibm.com/hybrid-cloud-infrastructure-research/tracker/wiki/Extend-base-image-and-create-a-new-custom-image){: external}.
 
 ## (Optional) Set up hybrid connectivity
 {: #optional-hybrid-connectivity}
@@ -214,3 +211,28 @@ The other option is to build your own custom image on top of the default image u
 If you want to set up a hybrid connectivity environment by using VPN, see the instructions [Installing a VPN to an HPC cluster](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-install-vpn-hpc-cluster).
 
 If you would like to use Direct Link, see the instructions for [Installing Direct Link to an HPC cluster](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-installing-direct-link-cluster).
+
+## Using OpenLDAP with IBM Spectrum LSF
+{: #using-openladap-spectrum-lsf}
+{: step}
+
+If you want to know more about OpenLDAP with {{site.data.keyword.spectrum_full_notm}}, see  [About OpenLDAP with IBM Spectrum LSF](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-integrate-openldap-spectrum-lsf).
+
+During deployment, you enable OpenLDAP with your {{site.data.keyword.spectrum_full_notm}} cluster by setting the `enable_ldap`,`ldap_basedns`, `ldap_server`, `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password` deployment input values.
+
+If you want to know more about integrating OpenLDAP with your {{site.data.keyword.spectrum_full_notm}} cluster, see [Integrating OpenLDAP with your IBM Spectrum LSF cluster](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-integrating-openldap).
+
+## Create DNS zones and DNS custom resolver
+{: #dns-zones-custom-resolvers}
+{: step}
+
+ If you leave the `dns_instance_id` deployment input value as null, the deployment process creates a new DNS service instance ID in the respective DNS zone. Alternatively, provide an existing [IBM Cloud® DNS Service instance ID](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-dns-custom-resolvers) for the `dns_instance_id` deployment input value.
+
+If you leave the `dns_custom_resolver_id` deployment input value as null, the deployment process creates a new VPC and enables a new custom resolver for your cluster. Alternatively, to create DNS custom resolvers with an existing VPC, provide the resolver ID for the `dns_custom_resolver_id` deployment input value. For more information, see [DNS custom resolvers for your IBM Spectrum LSF cluster](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-dns-custom-resolvers#custom-resolvers).
+
+## Using IBM Key Protect instances to manage data encryption
+{: #key-protect-encryption}
+{: step}
+
+To manage the data encryption to your virtual server instances, use the IBM Key Protect instance through {{site.data.keyword.spectrum_full_notm}} cluster. For more information on Key Protect and encryption keys, see [IBM® Key Protect and encryption keys](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-key-protect).
+

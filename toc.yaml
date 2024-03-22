@@ -15,6 +15,11 @@ toc:
       - about.md
       - considerations-for-HPC-cluster-compute-types.md
       - deployment-values.md
+      - topicgroup:
+          label: Integrating existing infrastructure resources
+          topics:
+          - dns-service-instances.md
+          - key-protect-encrypyption-keys.md
       - release-notes.md
   - navgroup: 
       id: tutorial
@@ -22,6 +27,14 @@ toc:
       - hpc-cluster-tutorial.md
       - integrate-openldap-tutorial.md
       - integrate-active-directory-tutorial.md
+      - topicgroup:
+          label: Using OpenLDAP with the deployed environment
+          topics:
+          - about-ldapp.md
+          - integrate-openldapp.md
+          - check-ldapp-status.md
+          - create-ldapp-user.md
+          - submit-lsf-jobs-ldapp.md
   - navgroup: 
       id: howto
       topics:
@@ -45,20 +58,20 @@ toc:
           - adding-profile-types.md
       - using-dedicated-hosts.md
       - topicgroup:
-           label: Using IBM Storage Scale
-           topics: 
-           - using-spectrum-scale-storage.md
-           - accessing-gui.md
-      - topicgroup:
-           label: Using LSF Application Center
+           label: Using IBM Spectrum Scale
            topics:
-           - using-application-center.md
-           - accessing-lsf-gui.md
-           - topicgroup:
-                label: Accessing REST API calls
-                topics:
-                - accessing-rest-api-pacclient.md
-                - accessing-rest-api-curl.md
+            - using-spectrum-scale-storage.md
+            - accessing-gui.md
+      - topicgroup:
+            label: Using LSF Application Center
+            topics:
+             - using-application-center.md
+             - accessing-lsf-gui.md
+             - topicgroup:
+                  label: Accessing REST API calls
+                  topics:
+                   - accessing-rest-api-pacclient.md
+                   - accessing-rest-api-curl.md
   - navgroup:
       id: reference
       topics:
@@ -83,9 +96,12 @@ toc:
           - install-vpn-hpc-cluster.md
           - direct-link.md
           - setting-up-multi-cluster-job-forwarding.md
+          - data-management.md
+          - ../storage-scale/data-transfer.md
   - navgroup:
       id: help
       topics: 
       - faq.md
       - troubleshooting.md
       - getting-help.md
+      

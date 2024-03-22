@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2022, 2023
+  years: 2022, 2023, 2024
 
 lastupdated: "2023-05-31"
 
@@ -17,11 +17,48 @@ content-type: release-note
 {:external: target="_blank" .external}
 {:release-note: data-hd-content-type='release-note'}
 
-# Release notes for IBM Spectrum LSF
+# Release notes
 {: #release-notes}
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.spectrum_full}} that are grouped by date.
 {: shortdesc}
+
+## March 2024
+{: #ibm-spectrum-lsf-feb24}
+
+### 22 March 2024
+{: #hpc-spectrum-symphony-feb2324}
+
+Existing DNS service instance and Custom resolver
+:   You can now opt to use the existing DNS service instance to create the new DNS zones and also the existing custom resolver that is attached to the VPC.
+
+Dedicated LSF client login node
+:   With a dedicated LSF client login node, you can directly manage and monitor the cluster to submit jobs without accessing the management nodes. If LDAP is enabled, an LDAP user can also access the login node directly to manage the cluster. For additional security, you can use a bastion node as a jump (dedicated secure) host to access the login node.
+
+File Storage for VPC support
+:   {{site.data.keyword.cloud}} File Storage for VPC is a zonal file storage offering that provides NFS-based file storage services. You can create file shares in an availability zone within a region. You can share them with multiple virtual server instances within the same zone or other zones in your region, across multiple VPCs. You can also limit access to a file share to a specific virtual server instance within a VPC and encrypt the data in transit.
+
+Access the LSF Application center using LDAP users
+:   LDAP users can now directly access the LSF Application Centre with only password authentication.
+
+Customer-managed encryption for login/management worker nodes
+:   You can now opt to use customer-managed encryption with your login and management nodes.
+
+OpenLDAP integration for authentication
+:   OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that provides centralized authentication and directory services.
+Once you have deployed your {{site.data.keyword.spectrum_full_notm}} cluster, you can integrate OpenLDAP with {{site.data.keyword.spectrum_full_notm}}. This way, you can use your existing LDAP infrastructure for user authentication, enabling more secure and streamlined user access to LSF.
+
+Accessing LSF Application Center through VNC (remote) consoles
+:   You can now access a remote console in LSF Application Centre by selecting **VNC Consoles** > **Open my console**.
+
+VPC flow logs
+:   Leverage {{site.data.keyword.cloud}} flow logs for VPC to enable the collection, storage, and presentation of information about the IP traffic that travels to and from network interfaces within your VPC. Collecting data for VPC flow logs helps diagnose security group rules and denied flows.
+
+Existing subnet support
+:   You can now use the existing subnets for your management and compute nodes from one existing VPC.
+
+DNS functionality support
+:   Introduced use of DNS custom resolver for name resolution in place of static hostname to IP address mapping.
 
 ## October 2023
 {: #ibm-spectrum-lsf-oct23}
@@ -34,7 +71,6 @@ LSF daemon restart bug fix
 
 LSF failover bug fix
 :   A fix has been implemented to take care of the failover case of the management node.
-
 
 ### 4 October 2023
 {: #ibm-spectrum-lsf-oct0423}

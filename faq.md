@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-03-24"
+  years: 2021, 2023, 2024
+lastupdated: "2024-03-18"
 
 keywords: 
 
@@ -97,7 +97,7 @@ The Terraform-based templates can be found in this [GitHub repository](https://g
 
 The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external}.
 
-## Which Spectrum LSF and Storage Scale versions are used in cluster nodes deployed with this offering?
+## Which Spectrum LSF and Spectrum Scale versions are used in cluster nodes deployed with this offering?
 {: #versions-used}
 {: faq}
 
@@ -126,3 +126,80 @@ If `EGO_DEFINE_NCPUS=threads`, then “ncpus=number of processors x number of co
 If `EGO_DEFINE_NCPUS=cores`, then “ncpus=number of processors x number of cores” and the CPU column value in the LSF Application Center GUI will be half of what you see when running `lscpu` on an LSF worker node.
 
 For more information, see [ncpus calculation in LSF](https://www.ibm.com/support/pages/ncpus-calculation-lsf#:~:text=If%20EGO_DEFINE_NCPUS%3Dthreads%2C%20then%20ncpus,cores%20x%20number%20of%20threads){: external}.
+
+
+
+## What file storage for {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) profiles are supported for the {{site.data.keyword.spectrum_full_notm}} cluster shared storage?
+{: #file-storage-for-vpc-profiles}
+{: faq}
+
+{{site.data.keyword.filestorage_vpc_full_notm}} is a zonal file storage offering that provides NFS-based file storage services. You create file share mounts from a subnet in an availability zone within a region. You can also share them with multiple virtual server instances within the same zone across multiple VPCs. {{site.data.keyword.spectrum_full_notm}} supports the use of [dp2 profiles](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile).
+
+## Can I specify the total IOPS (input or output operations per second) for a file share when deploying an {{site.data.keyword.spectrum_short}} cluster?
+{: #iops}
+{: faq}
+
+Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [choose the required IOPS value appropriate for your file share size](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers).
+
+## How do I share data, packages, or applications with {{site.data.keyword.spectrum_short}} compute nodes?
+{: #share}
+{: faq}
+
+{{site.data.keyword.filestorage_vpc_full_notm}} with two file shares (`/mnt/binaries` or `/mnt/data`), and up to five file shares, is provisioned to be accessible by both {{site.data.keyword.spectrum_short}} management and compute nodes. To copy to a file share, SSH to the {{site.data.keyword.spectrum_short}} management node and use your file copy of choice (such as scp, rsync, or IBM Aspera) to the appropriate file share.
+
+## What are the supported operating systems for dynamic node creation with {{site.data.keyword.spectrum_short}}?
+{: #dynamic-node-creation}
+{: faq}
+
+You can deploy your {{site.data.keyword.spectrum_short}} environment to automatically create Red Hat Enterprise Linux (RHEL) compute nodes. The supported image `hpcaas-lsf10-rhel88-compute-v2` is used for the `compute_image_name` deployment input value, to dynamically create nodes for the applicable operating system.
+
+## As a cluster administrator, how do I best restart the LSF daemon processes?
+{: #restarting_lsf-daemons}
+{: faq}
+
+A cluster administrator can choose to restart all the cluster daemons. In an {{site.data.keyword.spectrum_short}} environment, these daemons are the most used and relevant to LSF:
+* `lim` (on all nodes)
+* `res` (on all nodes)
+* `sbatchd` (on all nodes)
+* `mbatchd` (only on the primary management node)
+* `mbschd` (only on the primary management node)
+
+Other LSF processes exist, but they are started by these main daemons. Choose between two methods for restarting LSF daemon processes: a wrapper to run on each host, or commands to run to affect all hosts in the cluster.
+
+### Restarting LSF daemons on an individual host
+{: #restarting_lsf-daemons-one-host}
+
+To restart the cluster daemons on an individual node, use the `lsf_deamons` script. To stop all the daemons on a node, run `lsf_deamons stop`.
+
+Likewise, to start all the daemons on a node, run `lsf_deamons start`.
+
+Repeat these commands on each node if you want to restart the full cluster. Run the commands on both management and compute nodes that join the cluster.
+
+No daemons are running on the login node, as the login node is used for running particular tasks: to submit {{site.data.keyword.spectrum_short}} jobs; monitor {{site.data.keyword.spectrum_short}} job status; display hosts and their static resource information; display and filter information about LSF jobs; and display the LSF version number,  cluster name, and the management host name.
+{: note}
+
+### Restarting LSF daemons for all hosts in the cluster
+{: #restarting_lsf-daemons-whole-cluster}
+
+You can also restart all the daemons on all the hosts in your cluster, including both management nodes and compute nodes that join your cluster.
+
+To restart all the daemons on all the nodes in your cluster, use the `lsfrestart` command.
+
+To shut down all the daemons on all the nodes in your cluster, use the `lsfshutdown` command.
+
+LSF also provides an `lsfstartup` command, which starts all the daemons on all the management (not compute) nodes in your cluster. If you have compute nodes that joined your cluster and you want to continue to use them (for example, after you run `lsfshutdown` to shut down all daemons on all hosts, which include the compute nodes), then you must SSH to connect to each host and run the `lsf_deamons start` script to bring back the compute nodes. Alternatively, since the compute nodes are within your {{site.data.keyword.spectrum_short}} environment, you can also leave them alone and they are returned to the resource pool in ten minutes (by default). New compute nodes can join upon new job requests.
+
+No daemons are running on the login node, as the login node is used for running particular tasks: to submit {{site.data.keyword.spectrum_short}} jobs; monitor {{site.data.keyword.spectrum_short}} job status; display hosts and their static resource information; display and filter information about LSF jobs; and display the LSF version number,  cluster name, and the management host name.
+{: note}
+
+## How do I secure LSF Application Center connections by importing the cacert.pem certificate into a browser?
+{: #secure-application-center-connection}
+{: faq}
+
+LSF Application Center requires that the `$GUI_CONFDIR/https/cacert.pem` certificate (generated by LSF Application Center) is installed in the browser to secure specific functions, such as remote consoles and HTTPS. [Import this certificate into your browser](https://www.ibm.com/docs/en/slac/10.2.0?topic=center-importing-cacertpem-certificate-into-client-browser){: external} to securely connect with IBM Spectrum LSF Application Center.
+
+## Ubuntu is not supported for this release
+{: #ubuntu-not-supported}
+{: faq}
+
+Due to compatibility issues Ubuntu is not supported for this release, only Red Hat Enterprise Linux (RHEL).
