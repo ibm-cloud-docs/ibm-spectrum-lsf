@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2023, 2024
 
-lastupdated: "2023-05-31"
+lastupdated: "2024-03-22"
 
 keywords: IBM Spectrum LSF release notes
 
