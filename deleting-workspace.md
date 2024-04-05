@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-24"
+lastupdated: "2024-04-05"
 
 keywords: 
 
@@ -63,7 +63,7 @@ You can monitor the log files to view the deletion progress of your workspace.
     * Export your {{site.data.keyword.cloud_notm}} API key by using the following command:
         
         ```
-        export IBMCLOUD_API_KEY =”<ibm-cloud-api-key>” 
+        export IBMCLOUD_API_KEY="<ibm-cloud-api-key>" 
         ```
         {: pre}
 

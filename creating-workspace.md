@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-04-21"
+  years: 2021, 2023, 2024
+lastupdated: "2024-04-05"
 
 keywords: 
 
@@ -139,12 +139,12 @@ Before you get started, make sure that you've completed the prerequisites found 
     * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location that you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
     * Provide environment values that you want to have in the form of a key and value pair, such as [{ 'Environment': 'hpc-dev-cluster' }]
     * Change the folder location variable `template_source_data_request_model['folder']` to the folder name inside your GitHub repository where your Terraform files reside. If the Terraform files exist in the base location of your repository, then set this variable to `template_source_data_request_model['folder'] = ' '`; otherwise, mention the folder name in the `template_source_data_request_model['folder']` variable.
-    * Change the `template_source_data_request_model['type']` variable to the Terraform version that you are using to create {{site.data.keyword.cloud_notm}} resources such as `terraform_v0.13`. Ensure that your Terraform templates are compatible with the version that you are mentioning in this field.
+    * Change the `template_source_data_request_model['type']` variable to the Terraform version that you are using to create {{site.data.keyword.cloud_notm}} resources such as `terraform_v1.5`. Ensure that your Terraform templates are compatible with the version that you are mentioning in this field.
     * Provide your GitHub or GitLab Repository HTTPS URL where your Terraform files reside in the `template_repo_request_model['url']` variable. If you are using the [public repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external} that is provided by {{site.data.keyword.cloud_notm}}, then set this variable as `template_repo_request_model['url'] = 'https://github.com/IBM-Cloud/hpc-cluster-lsf'`; otherwise, set it to the private repository you are using. 
 4. Inside the `schematics_service.create_workspace` function, provide the following parameters:
     * Provide an optional description.
     * Provide a name to identify your {{site.data.keyword.bpshort}} workspace, for example, `terraform-dev-workspace`.
-    * Change the `type` parameter to the Terraform version that you are using to create {{site.data.keyword.cloud_notm}} resources, for example, `terraform_v0.13`.
+    * Change the `type` parameter to the Terraform version that you are using to create {{site.data.keyword.cloud_notm}} resources, for example, `terraform_v1.5`.
     * Change the location to a region where your {{site.data.keyword.bpshort}} workspace needs to be created, for example, `us-south`.
     * Change the resource group to the resource group where your resources should be grouped, for example, `Default` for a default resource group.
     * If you are using a private GitHub repository, provide your personal GitHub access token that you set up in [Setting up the {{site.data.keyword.bplong_notm}}](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-setting-up-api) prerequisites in the `x_github_token= "<github-api-token>"` parameter. If you are using the public repository that is provided by {{site.data.keyword.cloud_notm}}, you do not need to specify this parameter.
@@ -195,7 +195,7 @@ template_source_data_request_model['env_values'] = [
 }
 ]
 template_source_data_request_model['folder'] = ''
-template_source_data_request_model['type'] = 'terraform_v0.14.11'
+template_source_data_request_model['type'] = 'terraform_v1.5'
 template_source_data_request_model['variablestore'] = [
 {
 "name": "ssh_key_name",
@@ -208,6 +208,7 @@ template_source_data_request_model['variablestore'] = [
 
 template_repo_request_model = {}
 template_repo_request_model['url'] = 'https://github.com/IBM-Cloud/hpc-cluster-lsf'
+template_repo_request_model['branch'] = ""
 
 logging.info("Started Creating Schematic Workspace")
 
@@ -216,7 +217,7 @@ description="HPC Cluster schematic workspace using API",
 name="Sample Schematic API workspace",
 template_data=[template_source_data_request_model],
 template_repo=template_repo_request_model,
-type=['terraform_v0.14.11'],
+type=['terraform_v1.5'],
 location="us-south",
 resource_group="Default",
 tags=[""]
@@ -230,7 +231,7 @@ print(json.dumps(workspace_response, indent = 2))
 {: #example-response-create}
 {: api}
 
-The Python response is a generic example. Versioning and deployment values are subject to change due to frequent code updates. 
+The Python response is a generic example. Versioning and deployment values are subject to change due to frequent code updates.
 {: note}
 
 ```python
@@ -245,7 +246,7 @@ INFO:root:Completed Creating Schematic Workspace
 "name": "Sample Schematic API workspace",
 "crn": "crn:v1:bluemix:public:schematics:us-south:a/77efe1030c00b5c89cfd08648d3480bf:6f457fa4-4c59-4a8d-be69-483f16f8f200:workspace:us-south.workspace.Sample-Schematic-API-workspace.341cedd5",
 "type": [
-"terraform_v0.14.11"
+"terraform_v1.5"
 ],
 "description": "HPC Cluster schematic workspace using API",
 "resource_group": "Default",
@@ -276,7 +277,7 @@ INFO:root:Completed Creating Schematic Workspace
 "id": "3e68db7f-0bea-4d",
 "folder": "",
 "compact": false,
-"type": "terraform_v0.14.11",
+"type": "terraform_v1.5",
 "values_url": "https://us.schematics.cloud.ibm.com/v1/workspaces/us-south.workspace.Sample-Schematic-API-workspace.341cedd5/template_data/3e68db7f-0bea-4d/values",
 "values": "",
 "variablestore": [

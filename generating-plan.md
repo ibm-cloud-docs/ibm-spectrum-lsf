@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-04-21"
+  years: 2021, 2023, 2024
+lastupdated: "2024-04-05"
 
 keywords: 
 
@@ -80,7 +80,7 @@ After you've successfully generated a plan, you can begin [Applying a plan](/doc
   * Export your {{site.data.keyword.cloud_notm}} API key by using the following command:
   
     ```
-    export IBMCLOUD_API_KEY =”<ibm-cloud-api-key>”
+    export IBMCLOUD_API_KEY="<ibm-cloud-api-key>"
     ```
     {: pre}
 

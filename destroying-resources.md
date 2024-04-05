@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-08"
+lastupdated: "2024-04-05"
 
 keywords: 
 
@@ -67,7 +67,7 @@ You can monitor the log files to view the deletion progress of all {{site.data.k
   * Export your {{site.data.keyword.cloud_notm}} API key by using the following command:
   
     ```
-    export IBMCLOUD_API_KEY =”<ibm-cloud-api-key>” 
+    export IBMCLOUD_API_KEY="<ibm-cloud-api-key>" 
     ```
     {: pre}
   
