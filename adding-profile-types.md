@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-09-24"
+  years: 2021, 2022
+lastupdated: "2022-03-03"
 
 keywords: 
 
@@ -24,7 +24,7 @@ subcollection: ibm-spectrum-lsf
 
 Complete the following steps to add compute profile types when worker nodes are automatically added by the resource connector.
 
-For users who only need to add multiple profiles, step 1 is sufficient and restart mbatchd is enough, The rest of steps are for submitting a job to a specific by tagging the vm with templateID as a string resource.
+If you need to add multiple profiles, step 1 is sufficient and restart `mbatchd` command is enough. Remaining steps are for submitting a job to a specific by tagging the VM with templateID as a string resource.
 {: note}
 
 1. Add a new template section to the templates list. Review the values for all of the properties to ensure that they map to the correct VPC configuration. Update the file `ibmcloudgen2_templates.json` in `$LSF_ENDIR/resource_connector/ibmcloudgen2/conf`. A typical HPC cluster that is installed on {{site.data.keyword.cloud_notm}} would have this file in `/opt/ibm/lsf/conf/resource_connector/ibmcloudgen2/conf`. See the following sample content for an example:
@@ -58,10 +58,10 @@ For users who only need to add multiple profiles, step 1 is sufficient and resta
     ```
     {: screen}
 
-Please use a valid value for Template ID. A '-' (hypen) cant be used in templateId when using it as a string resource.
-User may see this error:
-Error in select section: Operator "-" cannot be used with type , to get type . Job not submitted.
-{: note}
+    Use a valid value for template ID. A '-' (hyphen) cannot be used in templateId when using it as a string resource or else you might get this error:
+
+    Error in select section: Operator "-" cannot be used with type , to get type . Job not submitted.
+    {: note}
 
 2. When the template is added, you can use the `lsf.shared` file to map the new template to a specific job. The `lsf.shared` file is located in `$LSF_ENVDIR` (same location as `lsf.conf`). In a typical installation, this would be found in the `/opt/ibm/lsf/conf` folder. Add _templateId_ as a resource in the resource section in the `lsf.shared` file. For example, **templateID String () () (template ID for the external hosts)**.
 
@@ -87,13 +87,13 @@ Error in select section: Operator "-" cannot be used with type , to get type . J
     ```
     {: screen}
 
-4. Run the following commands to restart the processes and apply the changes:
+4. Run the following commands to restart the process and apply the changes:
      ```
      $lsadmin reconfig
      $badmin mbdrestart
       ```
 
-5. You can submit the change by using the -R option. See the following example where "Template2" is an example value for Template ID:
+5. You can submit the change by using the `-R` option. In the following, "Template2" is an example value for Template ID:
 
     ```
     bsub -R “templateId=Template2” sleep 1000

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-24"
+lastupdated: "2023-03-16"
 
 keywords: 
 
@@ -49,14 +49,28 @@ After the cluster is created, wait 5 - 10 minutes to complete the installation o
 1. Connect to an LSF management node through SSH. Details are available in the {{site.data.keyword.bpshort}} log output with the following “application_center”.
 
     ```
-    ssh -L 8080:localhost:8080 -J root@149.81.237.236 lsfadmin@10.243.128.41
+    ssh -L 8443:localhost:8443 -J root@149.81.237.236 lsfadmin@10.243.128.41
     ```
     {: codeblock}
 
-2. Verify the application center installation with RPM.
+2. Verify the LSF Application Center installation by using the LSF Application Center ‘pmcadmin‘ command:
 
     ```
-    rpm -qa | grep lsf-appcenter
+    sudo -i
+
+    pmcadmin list
+    ```
+    {: codeblock}
+
+    Example output:
+
+    ```
+    [lsfadmin@icgen2host-10-241-128-23 ~]$ sudo -i
+    [root@icgen2host-10-241-128-23 ~]# pmcadmin list
+    SERVICE        STATUS         PID            PORT           HOST_NAME      
+    WEBGUI         STARTED        8966           8443           icgen2host-10-241-128-23
+    PNC            STARTED        8823           8081           icgen2host-10-241-128-23
+    [root@icgen2host-10-241-128-23 ~]# 
     ```
     {: codeblock}
 

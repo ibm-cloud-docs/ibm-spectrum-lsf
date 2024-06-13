@@ -22,7 +22,7 @@ subcollection: ibm-spectrum-lsf
 # Accessing REST API calls with `pacclient.py`
 {: #access-rest-api-calls-pacclient}
 
-IBM Spectrum LSF Application Center provides standard RESTful web services for application submission, data management, job information query, job actions, and more. The LSF Applicationn Center web service API can be integrated with many languages and methods. This example shows how to access the LSF Application Center REST API calls by using [`pacclient.py`](https://www.ibm.com/docs/en/slac/10.2.0?topic=services-pacclientpy){: external}, which is a Python 3-based client. 
+{{site.data.keyword.spectrum_full_notm}} Application Center provides standard RESTful web services for application submission, data management, job information query, job actions, and more. The LSF Application Center web service API can be integrated with many languages and methods. This example shows how to access the LSF Application Center REST API calls by using [`pacclient.py`](https://www.ibm.com/docs/en/slac/10.2.0?topic=services-pacclientpy){: external}, which is a Python 3-based client. 
 {: shortdesc}
 
 This example assumes that the LSF Application Center is configured to use the REST APIs through `https`. For more information, see [LSF Application Center Web Services](https://www.ibm.com/docs/en/slac/10.2.0?topic=lsf-application-center-web-services){: external}.
@@ -31,7 +31,7 @@ This example assumes that the LSF Application Center is configured to use the RE
 ## Before you begin
 {: #before-you-begin}
 
-Before you can connect to the LSF Application Center with `https`, you need to complete the following steps:
+Before you connect to the LSF Application Center with `https`, you need to complete the following steps:
 
 1. To access the LSF Application Center REST APIs from your device, you need to set up an SSH connection. You can connect to an LSF management node through a new command-line terminal from your local device. The {{site.data.keyword.bpshort}} log output contains the LSF Application Center information that you need.
 
@@ -42,9 +42,9 @@ Before you can connect to the LSF Application Center with `https`, you need to c
 
     where `MANAGEMENT_NODE_IP_ADDRESS` needs to be replaced with the management node IP address that is associated with `<cluster_prefix>-management-host-0`, and `FLOATING_IP_ADDRESS` needs to be replaced with the login node floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui#gathering-ip-addresses).
 
-2. Open a second terminal and download and install Python 3.6 or newer. The following examples are for Linux and MAC systems. If you are using Windows, the installation is different. For more information, see [Python releases for Windows](https://www.python.org/downloads/windows/){: external}.
+2. Open a second terminal, download and install the Python 3.6 version or newer. The following examples are for Linux and MAC systems. If you are using Windows, the installation is different. For more information, see [Python releases for Windows](https://www.python.org/downloads/windows/){: external}.
 
-    Run all of the following commands from this second terminal.
+    Run all the following commands from this second terminal:
     {: important}
 
     1. Install Python 3 (3.6 or newer) and `pip3` by running the following commands:

@@ -22,7 +22,7 @@ subcollection: ibm-spectrum-lsf
 # Accessing REST API calls with `curl`
 {: #access-rest-api-calls-curl}
 
-IBM Spectrum LSF Application Center provides standard RESTful web services for application submission, data management, job information query, job actions, and more. The LSF Applicationn Center web service API can be integrated with many languages and methods. This example shows how to access the LSF Application Center REST API calls by using [`curl`](https://www.ibm.com/docs/en/slac/10.2.0?topic=reference-jobs){: external}.
+{{site.data.keyword.spectrum_full_notm}} Application Center provides standard RESTful web services for application submission, data management, job information query, job actions, and more. The LSF Application Center web service API can be integrated with many languages and methods. This example shows how to access the LSF Application Center REST API calls by using [`curl`](https://www.ibm.com/docs/en/slac/10.2.0?topic=reference-jobs){: external}.
 {: shortdesc}
 
 ## Before you begin
@@ -59,7 +59,6 @@ IBM Spectrum LSF Application Center provides standard RESTful web services for a
         curl -k -X POST -H "Accept: application/json" https://$AC_HOST:$AC_PORT/platform/ws/ping
         ```
         {: codeblock}
-
 
     3. Log in to the cluster:
 
@@ -100,7 +99,6 @@ IBM Spectrum LSF Application Center provides standard RESTful web services for a
         ```
         {: codeblock}
 
-
     6. (Optional) List out the users:
 
         ```bash
@@ -114,7 +112,6 @@ IBM Spectrum LSF Application Center provides standard RESTful web services for a
         curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   https://$AC_HOST:$AC_PORT/platform/ws/usergroups
         ```
         {: codeblock}
-
 
     9. (Optional) List host details:
 
@@ -136,7 +133,6 @@ IBM Spectrum LSF Application Center provides standard RESTful web services for a
         curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   https://$AC_HOST:$AC_PORT/platform/ws/jobs/<job ID>
         ```
         {: codeblock}
-
 
     12. (Optional) Get basic and detailed job information by job attributes (GET):
 

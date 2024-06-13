@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-09-29"
+lastupdated: "2022-09-20"
 
 keywords: 
 
@@ -22,11 +22,19 @@ subcollection: ibm-spectrum-lsf
 # Setting up multi-cluster and job forwarding using Spectrum LSF
 {: #set-up-multi-cluster-job-forwarding}
 
-The following example is a guide on how to set up the multi-cluster and job forwarding using {{site.data.keyword.spectrum_short}}. This example explains common situations where a cluster is on-premises and another is in the cloud.
+The following example is a guide on how to set up the multi-cluster and job forwarding by using {{site.data.keyword.spectrum_short}}. This example explains common situations where a cluster is on-premises and another is in the cloud.
 
 This example assumes that the on-premises cluster labeled with "OnPremiseCluster" uses a subnet `192.168.0.0/24` and its management host uses `192.168.0.4` (on-premise-management). The cloud cluster labeled with "HPCCluster" uses a subnet `10.244.128.0/24` and its management host uses `10.244.128.37` (icgen2host-10-244-128-37). Both of the configuration directories are in `/opt/ibm/lsf/conf`, but you can change the directory depending on your cluster configuration.
 
-1. The following is an example of the `/etc/hosts` file for the cloud cluster. You need to make sure that the host names for the LSF management hosts are DNS-resolveable.
+1. Ensure that the MTU size can enable packets to go through the internet. If you have management host candidates at your cluster, keep a large MTU for the performance and functions of management host communications. The management host and every candidate need to be configured like the following:
+
+    ```
+    $ sudo ip link set mtu 1500 dev eth0
+    $ sudo ip route add {management host candidate/management host IP} dev eth0 mtu 9000 
+    ```
+    {: codeblock}
+
+2. The following is an example of the `/etc/hosts` file for the cloud cluster. You need to make sure that the host names for the LSF management hosts are DNS-resolveable.
 
     ```
     ...
@@ -45,7 +53,7 @@ This example assumes that the on-premises cluster labeled with "OnPremiseCluster
     ```
     {: codeblock}
 
-2. Both clusters need to recognize each other, so you need to modify `/opt/ibm/lsf/conf/lsf.shared`. This configuration file should be identical in both clusters.
+3. Both clusters need to recognize each other, so you need to modify `/opt/ibm/lsf/conf/lsf.shared`. This configuration file should be identical in both clusters.
 
     ```
     ...
@@ -58,7 +66,7 @@ This example assumes that the on-premises cluster labeled with "OnPremiseCluster
     ```
     {: codeblock}
 
-3. The two clusters are configured to have different `lsb.queues` files. In the cloud cluster, you need to append the following lines to `/opt/ibm/lsf/conf/lsbatch/HPCCluster/configdir/lsb.queues` to register a receive queue:
+4. The two clusters are configured to have different `lsb.queues` files. In the cloud cluster, you need to append the following lines to `/opt/ibm/lsf/conf/lsbatch/HPCCluster/configdir/lsb.queues` to register a receive queue:
 
     ```
     ...
@@ -85,14 +93,14 @@ This example assumes that the on-premises cluster labeled with "OnPremiseCluster
     ```
     {: codeblock}
 
-4. Restart both clusters by running the following command:
+5. Restart both clusters by running the following command:
 
     ```
     $ lsfrestart
     ```
     {: codeblock}
 
-5. After you restart both clusters, you can now forward jobs from on-premises to the cloud. At your on-premises cluster, you can test the following job:
+6. After you restart both clusters, you can now forward jobs from on-premises to the cloud. At your on-premises cluster, you can test the following job:
 
     ```
     $ bsub -q send_q sh -c 'echo $HOSTNAME > /home/lsfadmin/shared/mc-test.txt'
@@ -108,7 +116,7 @@ This example assumes that the on-premises cluster labeled with "OnPremiseCluster
 
     ```
     JOBID   USER      STAT   QUEUE    FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
-    304     lsfadmin  DONE   recv_q   on-premise-management@OnPremiseCluster:911 icgen2host-10-244-128-39 sh -c 'echo $HOSTNAME > /home/lsfadmin/shared/mc-test.txt' Jun 17 02:27
+    304     lsfadmin  DONE   recv_q   on-premise-manangement@OnPremiseCluster:911 icgen2host-10-244-128-39 sh -c 'echo $HOSTNAME > /home/lsfadmin/shared/mc-test.txt' Jun 17 02:27
     ```
     {: screen}
 

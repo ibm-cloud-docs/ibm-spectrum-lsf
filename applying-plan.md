@@ -32,7 +32,7 @@ When you apply a plan, the {{site.data.keyword.cloud}} resources are deployed to
 {: #apply-plan-ui}
 {: ui}
 
-1. After you generate a plan in the {{site.data.keyword.cloud_notm}} console, click **Apply plan**. This action generates a new log that can be viewed in the Jobs tab.
+1. After you generate a plan in the {{site.data.keyword.cloud_notm}} console, click **Apply plan**. This action generates a new log that can be viewed in the **Jobs** tab.
 2. Review the log file for any errors, fix the errors, and then click **Apply plan** again.
 3. After you successfully apply a plan, you can review all of the resources that are deployed under this workspace by clicking the _Resources_ tab. 
 
