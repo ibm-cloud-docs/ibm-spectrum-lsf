@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-06-19"
 
 keywords: 
 
@@ -341,3 +341,38 @@ Reset the LDAP password:
       ubuntu@anand-ga-ldap-1:~$
       ```
      {: codeblock}
+
+## Why cannot the `ssh` within the cluster nodes use shortnames?
+{: #troubleshoot-topic-18}
+{: troubleshoot}
+{: support}
+
+You are receiving the following error messages as the NetworkManager is not picking up the domain name:
+
+```console
+[root@user-lsf-test1-mgmt-2 ~]# nslookup user-scale-spectrum-storage-1
+Server: 10.241.0.15
+Address: 10.241.0.15#53
+** server can't find user-scale-spectrum-storage-1: NXDOMAIN
+```
+or
+```console
+[lsfadmin@user-lsf-test1-mgmt-2 ~]$ ssh user-lsf-test1-mgmt-1
+ssh: Could not resolve hostname mani-lsf-basic-login: Name or service not known
+```
+
+{: pre}
+{: tsSymptoms}
+
+The error occurs because after configuring the DNS domains and custom resolver, the RHEL based configuration using NetworkManager is not picking up the domain name under `/etc/resolv.conf` file to resolve the shortname of the host without the domain name. It needs that the NetworkManager is restarted.
+{: tsCauses}
+
+To resolve the issue:
+{: tsResolve}
+
+1. Go as root (sudo su).
+2. Run the `systemctl` command to restart the NetworkManager.
+
+Once the above command is submitted on the `/etc/resolv.conf` file, in the search we must see the provided domain name as mentioned:
+
+`[lsfadmin@user-lsf-test1-mgmt-2 ~]$ cat /etc/resolv.conf`
