@@ -354,9 +354,9 @@ You are receiving the following error messages as the NetworkManager is not pick
 Server: 10.241.0.15
 Address: 10.241.0.15#53
 ** server can't find user-scale-spectrum-storage-1: NXDOMAIN
-```
+
 or
-```console
+
 [lsfadmin@user-lsf-test1-mgmt-2 ~]$ ssh user-lsf-test1-mgmt-1
 ssh: Could not resolve hostname mani-lsf-basic-login: Name or service not known
 ```
