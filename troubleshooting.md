@@ -342,7 +342,7 @@ Reset the LDAP password:
       ```
      {: codeblock}
 
-## Why `ssh` within the cluster nodes cannot use shortnames?
+## Why the ssh connection not established using host shortnames?
 {: #troubleshoot-topic-18}
 {: troubleshoot}
 {: support}
@@ -363,7 +363,7 @@ ssh: Could not resolve hostname mani-lsf-basic-login: Name or service not known
 {: pre}
 {: tsSymptoms}
 
-The error occurs because after configuring the DNS domains and custom resolver, the RHEL based configuration using NetworkManager is not picking up the domain name under `/etc/resolv.conf` file to resolve the shortname of the host without the domain name.
+The error occurs because after configuring the DNS domains and custom resolver, the RHEL based systems uses NetworkManager service to pick up the domain name under search in `/etc/resolv.conf` file to resolve the shortname of the host without depending on the actual domain name.
 {: tsCauses}
 
 To resolve this issue:
@@ -372,7 +372,7 @@ To resolve this issue:
 1. Go as root (sudo su).
 2. Run the `Run systemctl restart NetworkManager` command.
 
-Once the above command is submitted on the `/etc/resolv.conf` file, in the search we must see the provided domain name as mentioned:
+Once the above command is submitted in `/etc/resolv.conf` file, search must be updated with the domain name as mentioned here:
 
 ```
 [lsfadmin@user-lsf-test1-mgmt-2 ~]$ cat /etc/resolv.conf
