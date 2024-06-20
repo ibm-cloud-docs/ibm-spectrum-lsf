@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022, 2024
-lastupdated: "2024-06-19"
+lastupdated: "2024-06-20"
 
 keywords: 
 
@@ -360,14 +360,13 @@ or
 [lsfadmin@user-lsf-test1-mgmt-2 ~]$ ssh user-lsf-test1-mgmt-1
 ssh: Could not resolve hostname mani-lsf-basic-login: Name or service not known
 ```
-
 {: pre}
 {: tsSymptoms}
 
 The error occurs because after configuring the DNS domains and custom resolver, the RHEL based configuration using NetworkManager is not picking up the domain name under `/etc/resolv.conf` file to resolve the shortname of the host without the domain name. It needs that the NetworkManager is restarted.
 {: tsCauses}
 
-To resolve the issue:
+To resolve this issue:
 {: tsResolve}
 
 1. Go as root (sudo su).
