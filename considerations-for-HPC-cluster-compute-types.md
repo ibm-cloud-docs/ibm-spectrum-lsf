@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-04-21"
+lastupdated: "2023-04-20"
 
 keywords: 
 
@@ -24,7 +24,7 @@ subcollection: ibm-spectrum-lsf
 
 HPC workloads have varying requirements in terms of CPU, memory, network, and storage resource requirements.
 
-You start with the following:
+To begin with:
 
 *  core count
 *  memory per core
@@ -33,7 +33,7 @@ You start with the following:
 
 The goal is to pick a compute configuration that returns the best price performance. An HPC workload can be as simple as a single core job or as complex as a job that needs hundreds to thousands of cores. HPC aggregates computing power (clustering) and can deliver much higher performance and solve large problems.
 
-Most of HPC workloads fall below the 1000 core range. There are some workloads that require a  high number of cores up to and including 10k-50k. Execution time for an HPC workload can be simple and last only a few seconds, or it can be complex and take several days. 
+Most of HPC workloads fall below the 1000 core range. There are some workloads that require a high number of cores up to and including 10k-50k. Execution time for an HPC workload can be simple and last only a few seconds, or it can be complex and take several days. 
 
 As an example, EDA (Electronic Design Simulation) workloads have component level simulation jobs that require millions of such jobs ran every day, but each single job requires a single core and approximately 10 seconds. Others such as Optical Proximity Correction can take multiple hours or even days depending on the size of the chip and the size of the HPC cluster. 
 
@@ -56,9 +56,9 @@ By default, hyper-threading is enabled on an {{site.data.keyword.cloud_notm}} vi
 Most HPC applications perform best with one process or thread per physical core.
 {: note}
 
-For communication-intensive workloads that can fit on a single virtual machine, it might be good to pick the best match and go up to 128 core virtual machine instance instead of splitting the workload across multiple virtual machine instances of a smaller core count. This allows the process to take advantage of faster communication through shared memory on a single virtual machine rather than communication across multiple virtual machines over an ethernet network. 
+For communication-intensive workloads that can fit on a single virtual machine, it might be good to pick the best match and go up to 128 core virtual machine instance instead of splitting the workload across multiple virtual machine instances of a smaller core count. This allows the process to take advantage of faster communication through shared memory on a single virtual machine rather than communication across multiple virtual machines over an ethernet network.
 
-To put it in perspective, two processes running on the same virtual machine might be able to communicate in a fraction of a microsecond (for example, 0.3 microseconds) whereas across two virtual machine instances it can take more than 30 microseconds. A factor of 100 times faster communication when it's through shared memory in a single virtual machine. 
+To put it in perspective, two processes running on the same virtual machine might be able to communicate in a fraction of a microsecond (for example, 0.3 microseconds) whereas across two virtual machine instances it can take more than 30 microseconds. A factor of 100 times faster communication when it is through shared memory in a single virtual machine. 
 
 A very cost effective configuration is cx2-128x256, which allows 128 cores and 2 GB memory per core. This can cover a broad range of MPI workloads.
 
@@ -73,14 +73,14 @@ Scalable MPI jobs can be set up that require multiple virtual machines that are 
 
 IBM Systems and IBM Research work in this industry domain and have successfully used {{site.data.keyword.cloud_notm}} for such workloads. The following graph displays a scale test for up to 30 K cores. To showcase how cloud zones can be used as a single data center, we built a large HPC cluster aggregating the resources across three {{site.data.keyword.cloud_notm}} locations. The setup also uses {{site.data.keyword.scale_full_notm}} as a scratch-based, high-performing file system along with {{site.data.keyword.spectrum_full_notm}} for HPC cluster configuration. We have used BX2-48x192 for {{site.data.keyword.spectrum_full_notm}} worker nodes and MX2d-16x128 for storage nodes under the {{site.data.keyword.scale_full_notm}}.
 
-![EDA-diagram](images/Electronic-Design-Automation.png){:caption="Figure 1. EDA diagram}
+![Figure 1. EDA-diagram](images/Electronic-Design-Automation.png "EDA-diagram"){: caption="Figure 1. EDA-diagram" caption-side="bottom"}
 
 ### Weather (WRF Model)
 {: #weather-wrf-model}
 
 {{site.data.keyword.cloud_notm}} shows linear performance, performs favorably, and can scale well into thousands of cores. The virtual machine configuration that is used for this benchmark is bx2-16x64. The WRF model is not sensitive to network latency as it packs many variables into each message, resulting in fairly large messages, and not many small messages.
 
-![EDA-diagram](images/Weather.png){:caption="Figure 2. WRF diagram}
+![Figure 2. EDA-diagram](images/Weather.png "EDA-diagram"){: caption="Figure 1. EDA-diagram" caption-side="bottom"}
 
 The red line represents the HPC environment with the InfiniBand HDR that gives highest bandwidth, lowest latency, and is the best configuration for such workloads. The green line shows {{site.data.keyword.cloud_notm}} with the Lon2 data center for the benchmarking. The blue line is Summit super computer. In summary, any workloads that have characteristics similar to the WRF model should scale well with {{site.data.keyword.cloud_notm}}. As you can see {{site.data.keyword.cloud_notm}} shows reasonable performance against state-of-the-art HPC systems.
 
@@ -91,15 +91,15 @@ SNAP and Quicksilver are two applications that the DoE uses for benchmarking and
 
 The following graphs show results on how {{site.data.keyword.cloud_notm}} compares with the state-of-the-art HPC system. 
 
-On {{site.data.keyword.cloud_notm}}, the benchmarks used two different configurations:
+On {{site.data.keyword.cloud_notm}}, the benchmarks use two different configurations:
 * bx2-8x32
 * bx2-16x64 
 
 As you can see, SNAP results show that bx2-8x32 provides more performance because of higher effective network bandwidth ratio per core; where Quicksilver does well with bx2-16x64 as it has moderate communication requirements and is mostly near-neighbor to track particle motion across the global domain.
 
-![EDA-diagram](images/DoE-Snap-Scaling.png){:caption="Figure 3. SNAP scaling diagram}
+![Figure 3. SNAP scaling diagram](images/DoE-Snap-Scaling.png "SNAP scaling diagram"){: caption="Figure 1. SNAP scaling diagram" caption-side="bottom"}
 
-![EDA-diagram](images/DoE-Cores.png){:caption="Figure 4. Quicksilver scaling diagram}
+![Figure 4. Quicksilver scaling diagram](images/DoE-Cores.png "Quicksilver scaling diagram"){: caption="Figure 1. Quicksilver scaling diagram" caption-side="bottom"}
 
 Even though the scaling is not as good as the weather model, {{site.data.keyword.cloud_notm}} can scale up to thousands of cores reasonably with a linear curve.
 
@@ -120,16 +120,17 @@ You can choose from the following set of virtual machine profiles:
 
 Depending on the memory required per core, you might pick the MX2 configuration, which can support up to 1 TB on the MX2-128x1024 profile. 
 
-If the memory required per core is less than 2 GB, an appropriate CX2 profile might give you the best price and performance. The advantages of faster communication over shared memory help with the performance if the workload can run on a single virtual machine. 
+If the memory required per core is less than 2 GB, an appropriate CX2 profile might give you the best price and performance. The advantages of faster communication over shared memory help with the performance if the workload can run on a single virtual machine.
 
 Some examples of such workloads:
-* Local area weather forecasting, not high resolution, large models but modest in size
 
-* OpenFOAM computational fluid dynamics, size of the problem between 2 million - 10 million grid cells
+* Local area weather forecasting, not high resolution, large models but modest in size.
 
-* Design rule checking (DRC) in Electronic Design Automation (EDA) as part of chip designs
+* OpenFOAM computational fluid dynamics, size of the problem between 2 million - 10 million grid cells.
 
-* EDA single component simulation and verification jobs
+* Design rule checking (DRC) in Electronic Design Automation (EDA) as part of chip designs.
+
+* EDA single component simulation and verification jobs.
 
 ### Scale out use case with multiple virtual machines
 {: #scale-out-multiple-vms}

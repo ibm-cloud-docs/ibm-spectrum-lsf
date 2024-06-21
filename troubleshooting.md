@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-08-09"
+  years: 2021, 2022, 2024
+lastupdated: "2024-06-20"
 
 keywords: 
 
@@ -236,3 +236,149 @@ Terraform could not find the given SSH key names that are provided by you.
 2. While configuring multiple SSH keys, ensure that there is no white space added before or after the SSH key names.
 3. If you are using multiple SSH keys, check whether a comma (,) is used as a delimiter between the SSH keys and that there is no white space added before or after the SSH key.
 {: tsResolve}
+
+## Why do I see a `remote-exec provisioner error` during cluster deployment?
+{: #troubleshoot-topic-14}
+{: troubleshoot}
+{: support}
+
+You encounter an error similar to this:
+{: tsSymptoms}
+
+```console
+2023/10/30 08:09:30 Terraform apply | module.check_cluster_status.null_resource.remote_exec[0] (remote-exec): ls_gethostinfo(): Cannot locate master LIM now, try later
+2023/10/30 08:09:30 Terraform apply | module.check_cluster_status.null_resource.remote_exec[0] (remote-exec): lsid: ls_getentitlementinfo() failed: Cannot locate master LIM now, try later
+2023/10/30 08:09:30 Terraform apply |
+Error: remote-exec provisioner error
+```
+{: pre}
+
+When Schematics deploys the infrastructure resources, there is automatic validation of the health of the cluster nodes to ensure that all required configuration is set appropriately. In rare occasions, LSF is unable to find the LIM configuration and therefore, cannot start the LIM daemon on the management nodes.
+{: tsCauses}
+
+Sometimes the LSF management nodes take time to retrieve LIM status, so wait a while before checking. However, if the issue persists, destroy the cluster from Schematics and reapply.
+{: tsResolve}
+
+## Why do I see an error when I use {{site.data.keyword.cloud}} Secrets Manager during cluster deployment?
+{: #troubleshoot-topic-15}
+{: troubleshoot}
+{: support}
+
+When you use the {{site.data.keyword.cloud}} Secrets Manager for secure deployment input values, you encounter an error similar to this:
+{: tsSymptoms}
+
+```console
+Unable to validate your configuration.
+An error occurred when fetching secret from Secrets Manager. Reason: Error: Cannot find the secret de132a21-7d64-d63f-c77a-c86e9cd50d17 from secrets manager crn:v1:bluemix:public:secrets-manager:us-east:a/ec1b082b25144a52bb1a269c883d5a00:94e42547-ab61-4ce1-b7f1-d96b230a75eb::
+```
+{: pre}
+
+There is a known issue with {{site.data.keyword.cloud}} projects when reading [**user credentials**](/docs/secrets-manager?topic=secrets-manager-user-credentials&interface=ui) type secrets from Secrets Manager.
+{: tsCauses}
+
+Change all user credential type secrets to [**arbitrary**](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui) type secrets in Secret Manager, and retry your deployment.
+{: tsResolve}
+
+## Why is my LDAP user not found?
+{: #troubleshoot-topic-16}
+{: troubleshoot}
+{: support}
+
+When attempting to switch to an LDAP user using the `su` command, you encounter an error stating that the user does not exist. An example of the error message might look like this:
+
+```console
+[lsfadmin@lsfuser05-ubuntu-two-mgmt-1 ~]$ su lsfuser05
+su: user lsfuser05 does not exist
+[lsfadmin@lsfuser05-ubuntu-two-mgmt-1 ~]
+```
+{: pre}
+{: tsSymptoms}
+
+The error occurs because the specified LDAP user (`lsfuser05` in this case) is not found on the LDAP server. The LDAP user might not have been created or is not available in the LDAP directory.
+{: tsCauses}
+
+[Verify that the user exists](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-create-ldap-user) using the `ldapsearch` command. If the user does not exist, [create the user](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-create-ldap-user).
+{: tsResolve}
+
+## Why does my LDAP user authentication fail?
+{: #troubleshoot-topic-17}
+{: troubleshoot}
+{: support}
+
+When attempting to switch to an LDAP user using the `su` command, you encounter an error stating that the system cannot authenticate the user. An example of the error message might look like this:
+
+```console
+[lsfadmin@lsfuser05-ubuntu-two-mgmt-1 ~]$ su lsfuser05
+Password:
+su: Authentication failure
+[lsfadmin@lsfuser05-ubuntu-two-mgmt-1 ~]$
+```
+{: pre}
+{: tsSymptoms}
+
+An authentication failure suggests that the specified LDAP password is not correct.
+{: tsCauses}
+
+Reset the LDAP password:
+{: tsResolve}
+
+1. Connect to your OpenLDAP server through SSH by using the `ssh_to_ldap_node` command from the Schematics log output and switch to root user:
+
+      ```text
+      ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -J vpcuser@<floatingg_IP_address> ubuntu@<LDAP_server_IP>
+      ```
+      {: codeblock}
+
+      where `<floating_IP_address>` is the floating IP address for the bastion node and `<LDAP_server_IP>` is the IP address for the OpenLDAP node.
+
+2. Reset the password using the `ldappasswd` command. This command allows you to set a new password for the specified LDAP user. Ensure to replace the distinguished name (DN) and user details with the correct values for your LDAP setup. Here is an example of resetting the user passoword:
+
+      ```text
+      ubuntu@<LDAP_server_IP>:~$ ldappasswd -x -D "cn=admin,dc=hpcaas,dc=com" -W -S "uid=lsfuser05,ou=People,dc=hpcaas,dc=com"
+      New password:
+      Re-enter new password:
+      Enter LDAP Password:
+      ubuntu@anand-ga-ldap-1:~$
+      ```
+     {: codeblock}
+
+## Why the ssh connection not established using host shortnames?
+{: #troubleshoot-topic-18}
+{: troubleshoot}
+{: support}
+
+You are receiving the following error messages as the NetworkManager is not picking up the domain name:
+
+```console
+[root@user-lsf-test1-mgmt-2 ~]# nslookup user-scale-spectrum-storage-1
+Server: 10.241.0.15
+Address: 10.241.0.15#53
+** server can't find user-scale-spectrum-storage-1: NXDOMAIN
+
+or
+
+[lsfadmin@user-lsf-test1-mgmt-2 ~]$ ssh user-lsf-test1-mgmt-1
+ssh: Could not resolve hostname mani-lsf-basic-login: Name or service not known
+```
+{: pre}
+{: tsSymptoms}
+
+The error occurs because after configuring the DNS domains and custom resolver, the RHEL based systems uses NetworkManager service to pick up the domain name under search in `/etc/resolv.conf` file to resolve the shortname of the host without depending on the actual domain name.
+{: tsCauses}
+
+To resolve this issue:
+{: tsResolve}
+
+1. Go as root (sudo su).
+2. Run the `Run systemctl restart NetworkManager` command.
+
+Once the above command is submitted in `/etc/resolv.conf` file, search must be updated with the domain name as mentioned here:
+
+```
+[lsfadmin@user-lsf-test1-mgmt-2 ~]$ cat /etc/resolv.conf
+
+Generated by NetworkManager
+
+search lsf.com
+nameserver 10.241.0.10
+```

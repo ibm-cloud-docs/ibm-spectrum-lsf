@@ -72,7 +72,7 @@ logging.info("Completed Retrieving the Schematic logs")
 ## Example Python response
 {: #example-response-retrieve-action-logs}
 
-The Python response is a generic example. Versioning and deployment values are subject to change due to frequent code updates.
+The Python response is a generic example. Versioning and deployment values are subject to change due to frequent code updates. 
 {: note}
 
 ```python

@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2022, 2023, 2024
+years: 2022, 2023, 2024
 
-lastupdated: "2024-03-22"
+lastupdated: "2024-06-19"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -23,11 +23,23 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.spectrum_full}} that are grouped by date.
 {: shortdesc}
 
+## June 2024
+{: #ibm-spectrum-lsf-june24}
+
+### 20 June 2024
+{: #hpc-spectrum-symphony-june2024}
+
+IBM Spectrum Scale version upgraded from 5.1.9.0 to 5.1.9.3
+:   New IBM Spectrum Scale custom images are created with 5.1.9.3 version to accomodate the latest scale features.
+
+IBM Spectrum Scale Bug Fix
+:   IBM Spectrum Scale has issue that the required `ssh` keys are not getting copied and now the spectrum scale have the VPC file share mounts being mounted.
+
 ## March 2024
-{: #ibm-spectrum-lsf-feb24}
+{: #ibm-spectrum-lsf-mar24}
 
 ### 22 March 2024
-{: #hpc-spectrum-symphony-feb2324}
+{: #hpc-spectrum-symphony-mar2224}
 
 Existing DNS service instance and Custom resolver
 :   You can now opt to use the existing DNS service instance to create the new DNS zones and also the existing custom resolver that is attached to the VPC.
