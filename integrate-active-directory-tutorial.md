@@ -46,7 +46,7 @@ Before you get started, be sure to review the following prerequisites:
 {: #general-prerequisites}
 
 1. For installing and configuring the Active Directory and DNS server, you need:
-    * A Windows Server 2019 machine with administrative privileges
+    * A Windows Server 2019 system with administrative privileges
     * Basic familiarity with PowerShell commands and Windows Server management
 
 2. For connecting RHEL systems directly to the Active Directory by using Samba Winbind, you need:
@@ -57,7 +57,7 @@ Before you get started, be sure to review the following prerequisites:
 ### Network prerequisites
 {: #network-prerequisites}
 
-1. **Network connectivity**: You need stable and reliable network connectivity between the Windows Server 2019 machine (where Active Directory and DNS are installed) and the RHEL systems that are joined to the domain. Verify that there are no network communication issues or firewalls that are blocking essential ports.
+1. **Network connectivity**: You need stable and reliable network connectivity between the Windows Server 2019 system (where Active Directory and DNS are installed) and the RHEL systems that are joined to the domain. Verify that there are no network communication issues or firewalls that are blocking essential ports.
 
 2. **Firewall rules**: Review and update firewall rules to allow the necessary communication between the Windows Server 2019 machine, RHEL systems, and the domain controllers. Key ports that are used for Active Directory communication include TCP/UDP 53 (DNS), TCP/UDP 88 (Kerberos), TCP 135 (RPC), TCP/UDP 389 (LDAP), TCP/UDP 445 (SMB), and TCP/UDP 636 (LDAPS).
 
