@@ -30,7 +30,7 @@ subcollection: ibm-spectrum-lsf
 {: #integrate-active-directory-spectrum-lsf}
 {: toc-content-type="tutorial"}
 
-This tutorial provides detailed steps for system administrators on how to integrate IBM Spectrum LSF with an Active Directory server as the primary directory service for user authentication. The integration of IBM Spectrum LSF and Active Directory allows for efficient user management and access control. 
+This tutorial provides detailed steps for system administrators on how to integrate {{site.data.keyword.spectrum_full_notm}} with an Active Directory server as the primary directory service for user authentication. The integration of {{site.data.keyword.spectrum_full_notm}} and Active Directory allows for efficient user management and access control. 
 
 In this tutorial, you learn how to:
 
