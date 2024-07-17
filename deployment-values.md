@@ -93,6 +93,6 @@ NOT_SET refers to an empty value in the {{site.data.keyword.cloud_notm}} catalog
 | `is_flow_log_collector_active` | This value indicates whether the collector is active. If false, then this collector is created in inactive mode. | No | None |
 | `cluster_subnet_id` | This is the existing cluster subnet ID under the VPC, where the cluster will be provisioned. | No | None |
 | `login_subnet_id` | This is the existing login subnet ID under the VPC, where the bastion/login will be provisioned. | No | None |
-| `dns_instance_id` | This is the IBM Cloud HPC DNS service resource id. | No | None |
-| `dns_custom_resolver_id` | This is the IBM Cloud DNS custom resolver id. | No | None |
+| `dns_instance_id` | This is the {{site.data.keyword.cloud_notm}} HPC DNS service resource id. | No | None |
+| `dns_custom_resolver_id` | This is the {{site.data.keyword.cloud_notm}} DNS custom resolver id. | No | None |
 {: caption="Table 1. Deployment values" caption-side="top"} 

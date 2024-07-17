@@ -30,12 +30,12 @@ subcollection: ibm-spectrum-lsf
 {: #integrate-active-directory-spectrum-lsf}
 {: toc-content-type="tutorial"}
 
-This tutorial provides detailed steps for system administrators on how to integrate IBM Spectrum LSF with an Active Directory server as the primary directory service for user authentication. The integration of IBM Spectrum LSF and Active Directory allows for efficient user management and access control. 
+This tutorial provides detailed steps for system administrators on how to integrate {{site.data.keyword.spectrum_full_notm}} with an Active Directory server as the primary directory service for user authentication. The integration of {{site.data.keyword.spectrum_full_notm}} and Active Directory allows for efficient user management and access control. 
 
 In this tutorial, you learn how to:
 
 * Install and configure Active Directory and DNS server on a Windows Server 2019 by using PowerShell
-* Connect a RHEL 8.4 OS-based LSF cluster node directly to Active Directory by using Samba Winbind, ensure encryption compatibility, and join the cluster node to an Active Directory domain
+* Connect an RHEL 8.4 OS-based LSF cluster node directly to Active Directory by using Samba Winbind, ensure encryption compatibility, and join the cluster node to an Active Directory domain
 
 ## Before you begin
 {: #before-you-begin}
@@ -46,24 +46,24 @@ Before you get started, be sure to review the following prerequisites:
 {: #general-prerequisites}
 
 1. For installing and configuring the Active Directory and DNS server, you need:
-    * A Windows Server 2019 machine with administrative privileges
+    * A Windows Server 2019 system with administrative privileges
     * Basic familiarity with PowerShell commands and Windows Server management
 
 2. For connecting RHEL systems directly to the Active Directory by using Samba Winbind, you need:
-    * A RHEL system capable of running Samba Winbind
+    * An RHEL system capable of running Samba Winbind
     * Familiarity with RHEL command-line interface and system configuration
     * Access to the Active Directory domain and appropriate permissions to join the domain
 
 ### Network prerequisites
 {: #network-prerequisites}
 
-1. **Network connectivity**: You need stable and reliable network connectivity between the Windows Server 2019 machine (where Active Directory and DNS are installed) and the RHEL systems that are joined to the domain. Verify that there are no network communication issues or firewalls that are blocking essential ports.
+1. **Network connectivity**: You need stable and reliable network connectivity between the Windows Server 2019 system (where Active Directory and DNS are installed) and the RHEL systems that are joined to the domain. Verify that there are no network communication issues or firewalls that are blocking essential ports.
 
 2. **Firewall rules**: Review and update firewall rules to allow the necessary communication between the Windows Server 2019 machine, RHEL systems, and the domain controllers. Key ports that are used for Active Directory communication include TCP/UDP 53 (DNS), TCP/UDP 88 (Kerberos), TCP 135 (RPC), TCP/UDP 389 (LDAP), TCP/UDP 445 (SMB), and TCP/UDP 636 (LDAPS).
 
 3. **Domain controller reachability**: Confirm that the RHEL systems can reach the Active Directory domain controllers without any connectivity issues. Use tools like `ping` or `nslookup` to verify the ability to resolve the domain controller's hostname and IP address from the RHEL systems.
 
-4. **Time synchronization**: Ensure that all systems participating in the Active Directory domain, including the Windows Server 2019 machine and RHEL systems, have their clocks synchronized with a reliable time source. Time synchronization is critical for proper authentication and Kerberos ticket validation.
+4. **Time synchronization**: Ensure that all the systems are participating in the Active Directory domain, including the Windows Server 2019 system and RHEL systems, have their clocks synchronized with a reliable time source. Time synchronization is critical for proper authentication and Kerberos ticket validation.
 
 5. **Domain DNS configuration**: The Active Directory domain must have properly configured DNS settings. Set the domain controller's IP address as the primary DNS server on all systems (including the Windows Server 2019 machine and RHEL systems) that are part of the Active Directory domain.
 
@@ -71,7 +71,7 @@ Before you get started, be sure to review the following prerequisites:
 
 7. **DNS domain name**: Ensure that the DNS domain name of the Active Directory matches the domain name that is used during the configuration process. In this case, the domain name "POCDOMAIN.LOCAL" used for the Active Directory must be consistent throughout the configuration.
 
-8. **Active Directory user account with administrative privileges**: Ensure that an Active Directory user account with administrative privileges is available for use during the configuration process. This account is used to promote the Windows Server 2019 machine as a domain controller and to join the RHEL systems to the Active Directory domain.
+8. **Active Directory user account with administrative privileges**: Ensure that an Active Directory user account with administrative privileges is available for use during the configuration process. This account is used to promote the Windows Server 2019 system as a domain controller and to join the RHEL systems to the Active Directory domain.
 
 ## Install and configure Active Directory and DNS server
 {: #install-configure-active-directory-dns-server}
@@ -116,7 +116,7 @@ To verify the proper configuration of Active Directory and DNS, complete the fol
 1. To verify Active Directory management, open **Server Manager** and in the _Dashboard_ confirm the presence of "Active Directory Users and Computers" and "DNS" listed in the _Tools_ section. This indicates successful installation of the Active Directory and DNS management tools.
 2. To verify user and group management, start **Active Directory Users and Computers** to manage user accounts, groups, and organizational units (OUs) within the domain.
 3. To verify DNS management, access **DNS Manager** to manage DNS zones and records for the domain.
-4. To verify client machine integration, on a client machine within the same network, configure the DNS settings to point to the IP address of the newly promoted domain controller. Then join the client machine to the `POCDOMAIN.LOCAL` domain. A successful connection confirms proper DNS resolution and functional Active Directory domain services.
+4. To verify client system integration, on a client system within the same network, configure the DNS settings to point to the IP address of the newly promoted domain controller. Then join the client system to the `POCDOMAIN.LOCAL` domain. A successful connection confirms proper DNS resolution and functional Active Directory domain services.
 
 You have now successfully installed and configured the Active Directory and DNS server on Windows Server 2019 by using PowerShell. Your new domain controller with integrated DNS is now ready to manage user accounts, computers, and other network resources within the `POCDOMAIN.LOCAL` domain.
 
@@ -150,7 +150,7 @@ Creating user groups and users in the `POCDOMAIN.LOCAL` Active Directory domain 
     2. Click the "LSF-group" user group and select "Properties".
     3. In the "Properties" dialog box, go to the "Members" tab.
     4. Click "Add" and then enter "lsfuser01" in the "Enter the object names to select" field.
-    5. Click "Check Names" to validate the user name.
+    5. Click "Check Names" to validate the username.
     6. Click "OK" to add "lsfuser01" to the "LSF-group" user group.
     7. Click "Apply" and then "OK" to save the changes.
 
@@ -277,7 +277,7 @@ Samba Winbind is an alternative to the System Security Services Daemon (SSSD) fo
     ```
     {: codeblock}
 
-    After you run the command, it updates the crypto policies and asks to restart the machine.
+    After you run the command, it updates the crypto policies and asks to restart the system.
 
 8. You now need to back up the existing `/etc/samba/smb.conf` Samba configuration file:
 
@@ -299,7 +299,7 @@ Samba Winbind is an alternative to the System Security Services Daemon (SSSD) fo
       * Updates the Pluggable Authentication Module (PAM) configuration files in the `/etc/pam.d/` directory 
       * Starts the Winbind service and enables the service to start when the system boots 
 
-10. (Optional) Set an alternative ID mapping back end or customized ID mapping settings in the `/etc/samba/smb.conf` file. For more information, see [Understanding and configuring Samba ID mapping](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/assembly_using-samba-as-a-server_deploying-different-types-of-servers){: external}.
+10. (Optional) Set an alternative ID mapping backend or customized ID mapping settings in the `/etc/samba/smb.conf` file. For more information, see [Understanding and configuring Samba ID mapping](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/assembly_using-samba-as-a-server_deploying-different-types-of-servers){: external}.
 11. Edit the `/etc/krb5.conf` file and add the following section:
 
     ```bash
@@ -460,9 +460,9 @@ Repeat the previous steps on all the cluster nodes to ensure that they all are a
 {: #provide-root-user-privileges}
 {: step}
 
-To provide root user permissions to Active Directory users of the `POCDOMAIN.LOCAL` domain on a Linux&reg; machine, complete the following steps:
+To provide root user permissions to Active Directory users of the `POCDOMAIN.LOCAL` domain on a Linux&reg; system, complete the following steps:
 
-1. Open a terminal or connect to the Linux&reg; machine.
+1. Open a terminal or connect to the Linux&reg; system.
 2. Edit the `sudoers` file by using the `visudo` command:
 
     ```bash
@@ -477,7 +477,7 @@ To provide root user permissions to Active Directory users of the `POCDOMAIN.LOC
     ```
     {: screen}
 
-4. Add the following line after the root user entry to allow Active Directory users in the  `POCDOMAIN\Domain Admins` group to run commands with root privileges: `%POCDOMAIN\\Domain\ Admins ALL=(ALL) ALL`
+4. Add the following line after the root user entry to allow Active Directory users in the `POCDOMAIN\Domain Admins` group to run commands with root privileges: `%POCDOMAIN\\Domain\ Admins ALL=(ALL) ALL`
 
    This line grants root user privileges to all Active Directory users in the group `POCDOMAIN\Domain Admins`. The double backslashes ("") are used to escape special characters.
 

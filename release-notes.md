@@ -23,6 +23,8 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.spectrum_full}} that are grouped by date.
 {: shortdesc}
 
+
+
 ## June 2024
 {: #ibm-spectrum-lsf-june24}
 
