@@ -32,10 +32,10 @@ After the cluster setup is done, you can monitor the resources and status of the
 
 Before you begin accessing the {{site.data.keyword.scale_short}} GUI, review the following considerations and requirements:
 
-* The initial setup must be done from your local machine.
-* Provide the SSH key path from the local machine that's used to configure the compute and storage nodes.
+* The initial setup must be done from your local system.
+* Provide the SSH key path from the local system that is used to configure the compute and storage nodes.
 * It is recommended to use the Safari browser to access the GUI.
-* If you encounter delay in loading or accessing the GUI, clear the browsers cache.
+* If you encounter a delay in loading or accessing the GUI, clear the browsers cache.
 * You cannot open both the compute and storage GUIs on the same port 22443. Use a different port or close one of the GUIs so you can access the other GUI cluster.
 
 ## Gathering IP addresses
@@ -44,7 +44,7 @@ Before you begin accessing the {{site.data.keyword.scale_short}} GUI, review the
 To access the GUI, you need to gather the IP addresses of both the storage and compute nodes and also the floating IP address that is attached to the login node.
 
 1. In the {{site.data.keyword.cloud}} console on the **Schematics > Workspaces** page, select your workspace. 
-2. Click **Resources**, and then in the list of Terraform resources, click the **primary** resource link, which opens a new window with a list of the virtual server instances that were provisioned.
+2. Click **Resources**. In the list of Terraform resources, click the **primary** resource link, which opens a new window with a list of the virtual server instances that were provisioned.
 3. On the _Virtual server instances for VPC_ page, locate the IP address for `<prefix>-scale-storage-0`, which is the storage IP address that you need. Then locate the IP address for `<prefix>-primary-0`, which is the compute IP address that you need.
 4. In addition to these two IP addresses, pick up the floating IP address that is attached to the login node.
 
@@ -59,7 +59,7 @@ This solution's automation always uses the same IP addresses, so there might be 
 ### Accessing the storage cluster
 {: #access-storage-cluster}
 
-1. Open a new command line terminal.
+1. Open a new command-line terminal.
 2. Run the following command to access the storage cluster:
 
     ```
@@ -68,13 +68,13 @@ This solution's automation always uses the same IP addresses, so there might be 
     {: pre}
 
     where `STORAGE_NODE_IP_ADDRESS` needs to be replaced with the storage IP address associated with `<prefix>-scale-storage-0`, which you gathered earlier, and `FLOATING_IP_ADDRESS` needs to be replaced with the floating IP address that you identified.
-3. Open a browser on the local machine, and run https://localhost:22443. You will get an SSL self-assigned certificate warning with your browser the first time you access this URL.
+3. Open a browser on the local system, and run https://localhost:22443. You will get an SSL self-assigned certificate warning with your browser the first time you access this URL.
 4. Enter your login credentials that you set up when you created your workspace to access the Spectrum Scale GUI.
 
 ### Accessing the compute cluster
 {: #access-compute-cluster}
 
-1. Open a new command line terminal.
+1. Open a new command-line terminal.
 2. Run the following command to access the compute cluster:
 
     ```
@@ -83,6 +83,6 @@ This solution's automation always uses the same IP addresses, so there might be 
     {: pre}
 
     where `COMPUTE_NODE_IP_ADDRESS` needs to be replaced with the storage IP address associated with `<prefix>-primary-0`, which you gathered earlier, and `FLOATING_IP_ADDRESS` needs to be replaced with the floating IP address that you identified.
-3. Open a browser on the local machine, and run https://localhost:21443. You will get an SSL self-assigned certificate warning with your browser the first time you access this URL.
+3. Open a browser on the local system, and run https://localhost:21443. You get an SSL self-assigned certificate warning with your browser the first time when you access this URL.
 4. Enter your login credentials that you set up when you created your workspace to access the {{site.data.keyword.scale_short}} GUI.
 
