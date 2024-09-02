@@ -18,6 +18,7 @@ toc:
       - topicgroup:
           label: Integrating existing infrastructure resources
           topics:
+          - vpc-lsf.md
           - dns-service-instances.md
           - key-protect-encrypyption-keys.md
       - release-notes.md

@@ -29,8 +29,8 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 ### 10 September 2024
 {: #hpc-spectrum-symphony-sep2024}
 
-IBM Storage Scale version upgraded from 5.1.9.3 to 5.2.1.0
-:   New IBM Storage Scale custom images are created with 5.2.1.0 version to accomodate the latest scale features.
+IBM Storage Scale version upgraded from 5.1.9.3 to 5.2.0.1
+:   New IBM Storage Scale custom images are created with 5.2.0.1 version to accomodate the latest scale features.
 
 Support for Hyperthreading on login LSF client node
 :   Hyperthreading feature has been added on the LSF login client node to enable the CPU performance.
