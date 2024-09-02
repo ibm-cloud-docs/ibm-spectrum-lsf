@@ -23,11 +23,11 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.spectrum_full}} that are grouped by date.
 {: shortdesc}
 
-## August 2024
-{: #ibm-spectrum-lsf-aug24}
+## September 2024
+{: #ibm-spectrum-lsf-sep24}
 
-### 31 August 2024
-{: #hpc-spectrum-symphony-aug2024}
+### 10 September 2024
+{: #hpc-spectrum-symphony-sep2024}
 
 IBM Spectrum Scale version upgraded from 5.1.9.3 to 5.1.2.0
 :   New IBM Spectrum Scale custom images are created with 5.1.2.0 version to accomodate the latest scale features.
