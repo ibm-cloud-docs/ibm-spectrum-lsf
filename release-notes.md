@@ -1,9 +1,9 @@
 ---
 
 copyright:
-years: 2022, 2023, 2024
+years: 2022, 2024
 
-lastupdated: "2024-06-19"
+lastupdated: "2024-09-02"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -23,7 +23,20 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.spectrum_full}} that are grouped by date.
 {: shortdesc}
 
+## August 2024
+{: #ibm-spectrum-lsf-aug24}
 
+### 31 August 2024
+{: #hpc-spectrum-symphony-aug2024}
+
+IBM Spectrum Scale version upgraded from 5.1.9.3 to 5.1.2.0
+:   New IBM Spectrum Scale custom images are created with 5.1.2.0 version to accomodate the latest scale features.
+
+Support for Hyperthreading on login LSF client node
+:   Hyperthreading feature has been added on the LSF login client node to enable the CPU performance.
+
+Upgraded LSF software version
+:   Upgraded the LSF 10.1 software version to pick all the latest fixes and security patches.
 
 ## June 2024
 {: #ibm-spectrum-lsf-june24}
