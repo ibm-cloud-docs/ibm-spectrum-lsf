@@ -1,25 +1,23 @@
 ---
 
 copyright:
-years:2024
+  years: 2024
 lastupdated: "2024-03-15"
 
-keywords:
+keywords: 
+
 subcollection: ibm-spectrum-lsf
 
 ---
 
-{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
+{:screen: .screen}
+{:external: target="_blank" .external}
+{:pre: .pre}
 {:tip: .tip}
-{:download: .download}
-{:important: .important}
 {:note: .note}
-{:new_window: target="_blank"}
+{:important: .important}
 
 # About OpenLDAP with {{site.data.keyword.spectrum_full_notm}}
 {: #integrate-openldap-spectrum-lsf}
