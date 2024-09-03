@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-04-06"
+  years:  2021, 2024
+lastupdated: "2024-09-03"
 
 keywords: 
 
@@ -53,7 +53,7 @@ Create an SSH key in your {{site.data.keyword.cloud_notm}} account. This is your
 
 The offering provides a default set of images that you can use for the nodes within your HPC cluster. However, if you would prefer to use your own custom images, documentation and scripts are provided to help you create them.
 
-**Worker Image**: The default image that is specified in `image_name` acts as the worker image. This image is used to create the LSF cluster nodes: management, management-candidates, and workers. In addition to the base operating system, the image includes some commonly used software packages:
+**Worker Image**: The default image that is specified in `compute_image_name` acts as the worker image. This image is used to create the LSF worker node. In addition to the base operating system, the image includes some commonly used software packages:
 
 * GNU compilers for C, C++, Fortran (gcc, gcc-c++, gcc-gfortran)
 * Open MPI (openMPI)

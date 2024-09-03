@@ -20,7 +20,7 @@ subcollection: spectrum-lsf
 {:important: .important}
 {:table: .aria-labeledby="caption"}
 
-# Virtual private clouds (VPCs)
+# Virtual Private Clouds (VPCs)
 {: #vpc}
 
 You can choose to complete your {{site.data.keyword.spectrum_full_notm}} deployment with a new VPC or use an existing one with existing subnets on {{site.data.keyword.spectrum_full_notm}}.

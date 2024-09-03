@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2021, 2023, 2024
+  years: 2021, 2024
 lastupdated: "2024-09-02"
 
 keywords: 
@@ -39,7 +39,7 @@ NOT_SET refers to an empty value in the {{site.data.keyword.cloud_notm}} catalog
 | `enable_app_center` | Set to "true" to install and enable the use of {{site.data.keyword.spectrum_full_notm}} Application Center GUI. For more information on system requirements, see [System requirements for {{site.data.keyword.spectrum_full_notm}} Application Center Version 10.2 Fix Pack 13](https://www.ibm.com/docs/en/slac/10.2.0?topic=requirements-system-102-fix-pack-13){: external}. | No | false |
 | `hyperthreading_enabled` | Setting this to true enables hyper-threading in the worker nodes of the cluster (default). Otherwise, hyper-threading is disabled. | No | true |
 | `ibm_customer_number` | Comma-separated list of the IBM Customer Number(s) (ICN) that is used for the Bring Your Own License (BYOL) entitlement check. For more information on how to find your ICN, see [What is my IBM Customer Number (ICN)?](https://www.ibm.com/support/pages/what-my-ibm-customer-number-icn){: external} | Yes | None |
-| `image_name` | Name of the custom image that you want to use to create virtual server instances in your {{site.data.keyword.cloud_notm}} account to deploy the {{site.data.keyword.spectrum_full_notm}} cluster. By default, the automation uses a base image with additional software packages documented [here](/docs/ibm-spectrum-lsf#create-custom-image). If you would like to include your application-specific binary files, follow the instructions in [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images) to create your own custom image and use that to build the {{site.data.keyword.spectrum_full_notm}} cluster through this offering. | No | `hpcc-lsf10-scale5120-rhel88-5-0` |
+| `management_image_name` | Name of the custom image that you want to use to create virtual server instances in your {{site.data.keyword.cloud_notm}} account to deploy the {{site.data.keyword.spectrum_full_notm}} cluster. By default, the automation uses a base image with additional software packages documented [here](/docs/ibm-spectrum-lsf#create-custom-image). If you would like to include your application-specific binary files, follow the instructions in [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images) to create your own custom image and use that to build the {{site.data.keyword.spectrum_full_notm}} cluster through this offering. | No | `hpcc-lsf10-scale5120-rhel88-5-0` |
 | `login_node_instance_type` | Specifies the virtual server instance profile type to be used to create the login node for the {{site.data.keyword.spectrum_short}} cluster. For choices on profile types, see [Instance profiles](/docs/vpc?topic=vpc-profiles). | No | bx2-2x8 |
 | `management_node_count` | Number of management hosts. This is the total number of management hosts and management host candidates. Enter a value in the range 1 - 3. | No | 2 |
 | `management_node_instance_type` | Specify the virtual server instance profile type to be used to create the management hosts for the {{site.data.keyword.spectrum_short}} cluster. For choices on profile types, see [Instance profiles](/docs/vpc?topic=vpc-profiles). | No | bx2-4x16 |
