@@ -27,7 +27,6 @@ toc:
       topics: 
       - hpc-cluster-tutorial.md
       - integrate-openldap-tutorial.md
-      - integrate-active-directory-tutorial.md
       - topicgroup:
           label: Using OpenLDAP with the deployed environment
           topics:
