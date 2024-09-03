@@ -97,6 +97,6 @@ All of the following commands can also be run from the login node.
 4.  Submit an LSF job as the LDAP user:
 
     ```text
-    bsub -n 8 sleep 30
+    $ bsub -n 8 sleep 30
     ```
     {: codeblock}
