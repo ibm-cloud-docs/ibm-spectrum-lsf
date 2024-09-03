@@ -20,7 +20,7 @@ subcollection: ibm-spectrum-lsf
 {:important: .important}
 
 # About OpenLDAP with {{site.data.keyword.spectrum_full_notm}}
-{: #integrate-openldap-spectrum-lsf}
+{: #about-openldap}
 
 OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that provides centralized authentication and directory services.
 
