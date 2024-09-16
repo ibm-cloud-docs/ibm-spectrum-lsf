@@ -1,9 +1,9 @@
 ---
 
 copyright:
-years: 2022, 2023, 2024
+years: 2022, 2024
 
-lastupdated: "2024-06-19"
+lastupdated: "2024-09-16"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -23,7 +23,20 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.spectrum_full}} that are grouped by date.
 {: shortdesc}
 
+## September 2024
+{: #ibm-spectrum-lsf-sep24}
 
+### 16 September 2024
+{: #hpc-spectrum-symphony-sep2024}
+
+IBM Storage Scale version upgraded from 5.1.9.3 to 5.2.0.1
+:   New IBM Storage Scale custom images are created with 5.2.0.1 version to accomodate the latest scale features.
+
+Support for Hyperthreading on login LSF client node
+:   Hyperthreading feature has been added on the LSF login client node to enable the CPU performance.
+
+Upgraded LSF software version
+:   Upgraded the LSF 10.1 software version to pick all the latest ifixes and security patches.
 
 ## June 2024
 {: #ibm-spectrum-lsf-june24}
@@ -31,11 +44,11 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 ### 20 June 2024
 {: #hpc-spectrum-symphony-june2024}
 
-IBM Spectrum Scale version upgraded from 5.1.9.0 to 5.1.9.3
-:   New IBM Spectrum Scale custom images are created with 5.1.9.3 version to accomodate the latest scale features.
+IBM Storage Scale version upgraded from 5.1.9.0 to 5.1.9.3
+:   New IBM Storage Scale custom images are created with 5.1.9.3 version to accomodate the latest scale features.
 
-IBM Spectrum Scale Bug Fix
-:   IBM Spectrum Scale has issue that the required `ssh` keys are not getting copied and now the spectrum scale have the VPC file share mounts being mounted.
+IBM Storage Scale Bug Fix
+:   IBM Storage Scale has issue that the required `ssh` keys are not getting copied and now the spectrum scale have the VPC file share mounts being mounted.
 
 ## March 2024
 {: #ibm-spectrum-lsf-mar24}

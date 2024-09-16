@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-02-22"
+lastupdated: "2024-09-03"
 keywords:
 
 subcollection: ibm-spectrum-lsf
@@ -97,7 +97,6 @@ All of the following commands can also be run from the login node.
 4.  Submit an LSF job as the LDAP user:
 
     ```text
-    [lsfuser05@lsfuser05-ubuntu-two-mgmt-1 lsfadmin]$ bsub -J myjob[1-4] -R "rusage[mem=2G]" sleep 10
-    Job <2> is submitted to default queue <normal>.
+    $ bsub -n 8 sleep 30
     ```
     {: codeblock}

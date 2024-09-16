@@ -21,7 +21,7 @@ subcollection: ibm-spectrum-lsf
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Using Spectrum Scale storage
+# Using IBM Storage Scale
 {: #using-spectrum-scale-storage}
 
 {{site.data.keyword.scale_full}} is a cluster file system that provides simultaneous access to a single file system from multiple compute nodes. In the {{site.data.keyword.spectrum_full_notm}} offering, {{site.data.keyword.scale_short}} applications running in static compute cluster nodes with high-performance access to a shared data space. For more information, see the [{{site.data.keyword.scale_full_notm}}](https://www.ibm.com/docs/en/spectrum-scale/5.1.2){: external} product documentation.
@@ -89,4 +89,3 @@ Complete the following steps to check the {{site.data.keyword.scale_short}} file
     {: codeblock}
 
 7. Create a file on the mount point path, for example, /gpfs/fs1, and verify on the other compute nodes that the file can be accessed.
-

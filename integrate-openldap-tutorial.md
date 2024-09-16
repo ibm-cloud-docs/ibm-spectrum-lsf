@@ -28,7 +28,9 @@ subcollection: ibm-spectrum-lsf
 
 # Integrating OpenLDAP with IBM Spectrum LSF
 {: #integrate-openldap-spectrum-lsf}
-{: toc-content-type="tutorial"}
+{: toc-content-type="tutorial"} 
+{: toc-services="virtual-servers, vpc, loadbalancer-service"} 
+{: toc-completion-time="60m"}
 
 {{site.data.keyword.spectrum_full_notm}} is a workload management platform that provides powerful resource management capabilities to optimize application performance and maximize resource usage. OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that provides centralized authentication and directory services.
 

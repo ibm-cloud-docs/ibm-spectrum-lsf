@@ -18,15 +18,15 @@ toc:
       - topicgroup:
           label: Integrating existing infrastructure resources
           topics:
+          - vpc-lsf.md
           - dns-service-instances.md
           - key-protect-encrypyption-keys.md
       - release-notes.md
   - navgroup: 
       id: tutorial
-      topics: 
-      - hpc-cluster-tutorial.md
+      topics:
       - integrate-openldap-tutorial.md
-      - integrate-active-directory-tutorial.md
+      - hpc-cluster-tutorial.md
       - topicgroup:
           label: Using OpenLDAP with the deployed environment
           topics:
@@ -58,7 +58,7 @@ toc:
           - adding-profile-types.md
       - using-dedicated-hosts.md
       - topicgroup:
-           label: Using IBM Spectrum Scale
+           label: Using IBM Storage Scale
            topics:
             - using-spectrum-scale-storage.md
             - accessing-gui.md

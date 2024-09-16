@@ -2,7 +2,7 @@
 
 copyright: 
   years: 2021, 2023
-lastupdated: "2023-04-20"
+lastupdated: "2024-09-03"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -26,7 +26,7 @@ subcollection: ibm-spectrum-lsf
 {:new_window: target="_blank"}
 {:step: data-tutorial-type='step'}
 
-# Setting up an HPC cluster
+# Setting up an IBM Spectrum LSF cluster
 {: #using-hpc-cluster} 
 {: toc-content-type="tutorial"} 
 {: toc-services="virtual-servers, vpc, loadbalancer-service"} 
@@ -85,7 +85,7 @@ Complete the following steps to create your API key:
 4. Click **Create**.
 5. Then click **Show** to display the API key, **Copy** to copy and save it for later, or click **Download**.
 
-## Create and configure an HPC cluster from the IBM Cloud catalog
+## Create and configure an HPC/LSF cluster from the IBM Cloud catalog
 {: #hpc-cluster-creation}
 {: step}
 
@@ -108,7 +108,8 @@ See the following table for a list of parameters that you can configure for your
 | --------- | ----------- |
 | `cluster_prefix` | The prefix used to name the VPC resources that are provisioned to build the HPC cluster. There are resources where their names must be unique in the same cloud account given a single region. Make sure that the name is unique (for example, add your initials to the name: po-hpc-cluster). |
 | `hyperthreading_enabled` | You can enable hyper-threading in the worker nodes of the cluster by setting this value to true (default). Otherwise, hyper-threading is disabled. |
-| `image_name` | Edit and add the custom image with LSF. You can use the default LSF custom image that is provided by the solution. If you created your own custom image, edit the value to the name of your custom image. |
+| `compute_image_name` | Name of the custom image that you use to create virtual server instances in your {{site.data.keyword.cloud_notm}} account to deploy the IBM Spectrum LSF cluster worker nodes. If you created your own custom image, edit the value to the name of your custom image. |
+| `management_image_name` | Edit and add the custom image with LSF. You can use the default LSF custom image that is provided by the solution. |
 | `management_node_count` | You can have up to three management nodes in the cluster. If you want failover support that is provided by LSF, you need to specify the value to be larger than one. In this case, when the primary management node is down, one of the candidate management nodes become the primary and your cluster remains functional without interruption. |
 | `region` | Edit the region where you want your cluster to be created. To get a full list of regions, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region). |
 | `resource_group` | The resource group name from your {{site.data.keyword.cloud_notm}} account where the VPC resources are deployed. |
@@ -196,14 +197,6 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
 
 5. The difference of nodes that were created by the auto scaling function are destroyed automatically after 10 minutes of not being used.
 
-## Customize your HPC cluster for your workloads
-{: #customize-hpc-cluster-workloads}
-{: step}
-
-You have two options to add software packages in the cluster for your workload. You can install the additional software in the NFS shared file system (for example, `/home/lsfadmin/shared` from the LSF management host), which is visible to all compute nodes. The files that you add to the NSF shared file system are stored in the block storage that is attached to the storage node. The data is lost when the entire HPC cluster is being destroyed. Remember to save the data that you want to keep before you destroy the cluster.
-
-The other option is to build your own custom image on top of the default image used by the HPC cluster solution. The creation of the custom image must be prepared before you create an HPC cluster. When a new custom image is created in VPC, a name is associated with this image. You need to use this name in the `image_name` parameter. For more information, see [Extend base image and create a new custom image](https://github.ibm.com/hybrid-cloud-infrastructure-research/tracker/wiki/Extend-base-image-and-create-a-new-custom-image){: external}.
-
 ## (Optional) Set up hybrid connectivity
 {: #optional-hybrid-connectivity}
 {: step}
@@ -235,4 +228,3 @@ If you leave the `dns_custom_resolver_id` deployment input value as null, the de
 {: step}
 
 To manage the data encryption to your virtual server instances, use the IBM Key Protect instance through {{site.data.keyword.spectrum_full_notm}} cluster. For more information on Key Protect and encryption keys, see [IBM® Key Protect and encryption keys](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-key-protect).
-
