@@ -3,7 +3,7 @@
 copyright:
 years: 2022, 2024
 
-lastupdated: "2024-09-12"
+lastupdated: "2024-09-16"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -26,7 +26,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 ## September 2024
 {: #ibm-spectrum-lsf-sep24}
 
-### 13 September 2024
+### 16 September 2024
 {: #hpc-spectrum-symphony-sep2024}
 
 IBM Storage Scale version upgraded from 5.1.9.3 to 5.2.0.1
