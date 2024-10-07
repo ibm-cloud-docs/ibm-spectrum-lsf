@@ -28,19 +28,19 @@ subcollection: ibm-spectrum-lsf
 ## Before you begin
 {: #before-you-begin}
 
-1. To access the LSF Application Center REST APIs from your terminal, you need to establish an SSH connection:
+1. To access the LSF Application Center REST APIs from your command line, you need to establish an SSH connection:
 
     ```
     ssh -L 8443:localhost:8443 -J root@{FLOATING_IP_ADDRESS} lsfadmin@{MANAGEMENT_NODE_IP_ADDRESS}
     ```
     {: codeblock}
 
-    where `MANAGEMENT_NODE_IP_ADDRESS` needs to be replaced with the management node IP address that is associated with `<cluster_prefix>-management-host-0`, and `FLOATING_IP_ADDRESS` needs to be replaced with the login node floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui#gathering-ip-addresses). The default user is `lsfadmin`.
+    Where `MANAGEMENT_NODE_IP_ADDRESS` needs to be replaced with the management node IP address that is associated with `<cluster_prefix>-management-host-0`, and `FLOATING_IP_ADDRESS` needs to be replaced with the login node-floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui#gathering-ip-addresses). The default user is `lsfadmin`.
 
 ## Connecting to LSF Application Center with `curl`
 {: #connect-lsf-application-center-curl}
 
-1. Open a new terminal from your local device and run the following commands:
+1. Open a new command line from your local device and run the following commands:
 
     1. Define or export the following variables:
 
@@ -70,7 +70,7 @@ subcollection: ibm-spectrum-lsf
         The output of this command contains the token that you need to run commands. The token is only valid for a particular time frame.
         {: note}
 
-        **Example output:**
+        Example output:
 
         ```text
         {"csrftoken":"dbf6208a-0c01-4cb3-b6e1-9f75390311e5","token":"lsfadmin\"2022-05-25T20:53:12Z\"cn8FS6/FIXiVZc5vMpfPdoob9bosjk85u3lEPseqrWdX+DyWMPYkYgPOC5UJ+a4m87zyjHDq1DhjIZyYx1X47SFGRS4MRzeah94l+EpNBazKilXsG8cVuYyUgtz9M0J6\"PBNNTKLPN3JlyOpnCqI7cg=="}
@@ -92,28 +92,28 @@ subcollection: ibm-spectrum-lsf
         ```
         {: codeblock}
 
-    6. (Optional) Get the LSF Application Center version:
+    6. Get the LSF Application Center version (Optional):
 
         ```text
         curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'  https://$AC_HOST:$AC_PORT/platform/ws/version
         ```
         {: codeblock}
 
-    6. (Optional) List out the users:
+    6. List out the users (Optional):
 
         ```bash
         curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   https://$AC_HOST:$AC_PORT/platform/ws/users
         ```
         {: codeblock}
 
-    8. (Optional) List groups:
+    8. List groups (Optional):
 
         ```text
         curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   https://$AC_HOST:$AC_PORT/platform/ws/usergroups
         ```
         {: codeblock}
 
-    9. (Optional) List host details:
+    9. List host details (Optional):
 
         ```text
         curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   https://$AC_HOST:$AC_PORT/platform/ws/hosts
@@ -127,14 +127,14 @@ subcollection: ibm-spectrum-lsf
         ```
         {: codeblock}
 
-    11. (Optional) Get detailed job information by job ID (GET):
+    11. Get detailed job information by job ID (GET) (Optional):
 
         ```text
         curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   https://$AC_HOST:$AC_PORT/platform/ws/jobs/<job ID>
         ```
         {: codeblock}
 
-    12. (Optional) Get basic and detailed job information by job attributes (GET):
+    12. Get basic and detailed job information by job attributes (GET) (Optional):
 
         ```text
         curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   https://$AC_HOST:$AC_PORT/platform/ws/jobs/fullinfo
@@ -172,9 +172,3 @@ subcollection: ibm-spectrum-lsf
     ' https://$AC_HOST:$AC_PORT/platform/webservice/pacclient/submitapp
     ```
     {: codeblock}
-
-
-
-
-
-

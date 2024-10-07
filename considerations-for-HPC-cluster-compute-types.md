@@ -31,7 +31,7 @@ To begin with:
 *  network bandwidth and latency
 *  processor clock speed
 
-The goal is to pick a compute configuration that returns the best price performance. An HPC workload can be as simple as a single core job or as complex as a job that needs hundreds to thousands of cores. HPC aggregates computing power (clustering) and can deliver much higher performance and solve large problems.
+The goal is to pick a compute configuration that returns the best price performance. An HPC workload can be as simple as a single core job or as complex as a job that needs hundreds to thousands of cores. HPC aggregates computing power (clustering) and can deliver higher performance and solve large problems.
 
 Most of HPC workloads fall below the 1000 core range. There are some workloads that require a high number of cores up to and including 10k-50k. Execution time for an HPC workload can be simple and last only a few seconds, or it can be complex and take several days. 
 
@@ -49,7 +49,7 @@ For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles).
 
 For all of the configurations, the range of core count is 2 - 128 per virtual machine. There is a special ultra high memory virtual machine type that might be applicable for workloads that require more memory per core. This type can go up to 200 cores and as high as 28 GB per core. 
 
-The network bandwidth on a single NIC can reach maximum 16 Gbps. If a higher bandwidth is wanted, more NIC configurations that go up to 80 Gbps might be needed. Under these circumstances, 5 NICs would need to be configured for the virtual machine. 
+The network bandwidth on a single NIC can reach a maximum 16 Gbps. If a higher bandwidth is wanted, more NIC configurations that go up to 80 Gbps might be needed. Under these circumstances, 5 NICs would need to be configured for the virtual machine. 
 
 By default, hyper-threading is enabled on an {{site.data.keyword.cloud_notm}} virtual machine, so you get 2 vCPUs per physical core. But this can be disabled easily. 
 
@@ -60,7 +60,7 @@ For communication-intensive workloads that can fit on a single virtual machine, 
 
 To put it in perspective, two processes running on the same virtual machine might be able to communicate in a fraction of a microsecond (for example, 0.3 microseconds) whereas across two virtual machine instances it can take more than 30 microseconds. A factor of 100 times faster communication when it is through shared memory in a single virtual machine. 
 
-A very cost effective configuration is cx2-128x256, which allows 128 cores and 2 GB memory per core. This can cover a broad range of MPI workloads.
+A very cost-effective configuration is cx2-128x256, which allows 128 cores and 2 GB memory per core. This can cover a broad range of MPI workloads.
 
 Scalable MPI jobs can be set up that require multiple virtual machines that are configured at up to 80 Gbps apiece, but that requires multiple NICs and might not be desirable. It is recommended to pick a configuration that provides the best network bandwidth per core with single NIC. bx2-16x64 might be a good starting point for your MPI benchmarking.
 {: note}
@@ -82,12 +82,12 @@ IBM Systems and IBM Research work in this industry domain and have successfully 
 
 ![Figure 2. EDA-diagram](images/Weather.png "EDA-diagram"){: caption="Figure 1. EDA-diagram" caption-side="bottom"}
 
-The red line represents the HPC environment with the InfiniBand HDR that gives highest bandwidth, lowest latency, and is the best configuration for such workloads. The green line shows {{site.data.keyword.cloud_notm}} with the Lon2 data center for the benchmarking. The blue line is Summit super computer. In summary, any workloads that have characteristics similar to the WRF model should scale well with {{site.data.keyword.cloud_notm}}. As you can see {{site.data.keyword.cloud_notm}} shows reasonable performance against state-of-the-art HPC systems.
+The red line represents the HPC environment with the InfiniBand HDR that gives the highest bandwidth, lowest latency, and is the best configuration for such workloads. The green line shows {{site.data.keyword.cloud_notm}} with the Lon2 data center for the benchmarking. The blue line is the Summit super computer. In summary, any workloads that have characteristics similar to the WRF model should scale well with {{site.data.keyword.cloud_notm}}. As you can see {{site.data.keyword.cloud_notm}} shows reasonable performance against state-of-the-art HPC systems.
 
 ### DoE (Department of Energy) benchmarking
 {: #DoE-benchmarking}
 
-SNAP and Quicksilver are two applications that the DoE uses for benchmarking and making decisions on specific commodity technology systems.
+SNAP and Quicksilver are two applications that the DoE uses for benchmarking and deciding the specific commodity technology systems.
 
 The following graphs show results on how {{site.data.keyword.cloud_notm}} compares with the state-of-the-art HPC system. 
 

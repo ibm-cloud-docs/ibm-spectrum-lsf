@@ -24,10 +24,10 @@ subcollection: ibm-spectrum-lsf
 
 Complete the following steps to add compute profile types when worker nodes are automatically added by the resource connector.
 
-If you need to add multiple profiles, step 1 is sufficient and restart `mbatchd` command is enough. Remaining steps are for submitting a job to a specific by tagging the VM with templateID as a string resource.
+If you need to add multiple profiles, step 1 is sufficient and the restart `mbatchd` command is enough. The remaining steps are for submitting a job to a specific by tagging the virtual machine with templateID as a string resource.
 {: note}
 
-1. Add a new template section to the templates list. Review the values for all of the properties to ensure that they map to the correct VPC configuration. Update the file `ibmcloudgen2_templates.json` in `$LSF_ENDIR/resource_connector/ibmcloudgen2/conf`. A typical HPC cluster that is installed on {{site.data.keyword.cloud_notm}} would have this file in `/opt/ibm/lsf/conf/resource_connector/ibmcloudgen2/conf`. See the following sample content for an example:
+1. Add a new template section to the templates list. Review the values for all the properties to ensure that they map to the correct VPC configuration. Update the file `ibmcloudgen2_templates.json` in `$LSF_ENDIR/resource_connector/ibmcloudgen2/conf`. A typical HPC cluster that is installed on {{site.data.keyword.cloud_notm}} have this file in `/opt/ibm/lsf/conf/resource_connector/ibmcloudgen2/conf`. See the following sample content for an example:
 
     ```
     {
@@ -60,12 +60,12 @@ If you need to add multiple profiles, step 1 is sufficient and restart `mbatchd`
 
     Use a valid value for template ID. A '-' (hyphen) cannot be used in templateId when using it as a string resource or else you might get this error:
 
-    Error in select section: Operator "-" cannot be used with type , to get type . Job not submitted.
+    Error in select section: Operator "-" cannot be used with type to get type. Job not submitted.
     {: note}
 
-2. When the template is added, you can use the `lsf.shared` file to map the new template to a specific job. The `lsf.shared` file is located in `$LSF_ENVDIR` (same location as `lsf.conf`). In a typical installation, this would be found in the `/opt/ibm/lsf/conf` folder. Add _templateId_ as a resource in the resource section in the `lsf.shared` file. For example, **templateID String () () (template ID for the external hosts)**.
+2. When the template is added, you can use the `lsf.shared` file to map the new template to a specific job. The `lsf.shared` file is located in `$LSF_ENVDIR` (same location as `lsf.conf`). In a typical installation, this would be found in the `/opt/ibm/lsf/conf` folder. Add _templateId_ as a resource in the resource section in the `lsf.shared` file. For example, templateID String () () (template ID for the external hosts).
 
-3. Add the following section to `user_data.sh` to let the virtual machines add _templateId_ as `LSF_LOCAL_RESOURCES`.
+3. Add the following section to `user_data.sh` to the virtual machines add _templateId_ as `LSF_LOCAL_RESOURCES`.
 
     ```
     if [ -n "$template_id" ]; then
@@ -99,4 +99,3 @@ If you need to add multiple profiles, step 1 is sufficient and restart `mbatchd`
     bsub -R “templateId=Template2” sleep 1000
     ```
     {: pre}
-

@@ -33,16 +33,16 @@ This example assumes that the LSF Application Center is configured to use the RE
 
 Before you connect to the LSF Application Center with `https`, you need to complete the following steps:
 
-1. To access the LSF Application Center REST APIs from your device, you need to set up an SSH connection. You can connect to an LSF management node through a new command-line terminal from your local device. The {{site.data.keyword.bpshort}} log output contains the LSF Application Center information that you need.
+1. To access the LSF Application Center REST APIs from your device, you need to set up an SSH connection. You can connect to an LSF management node through a new command line from your local device. The {{site.data.keyword.bpshort}} log output contains the LSF Application Center information that you need.
 
     ```
     ssh -L 8443:localhost:8443 -J root@{FLOATING_IP_ADDRESS} lsfadmin@{MANAGEMENT_NODE_IP_ADDRESS}
     ```
     {: codeblock}
 
-    where `MANAGEMENT_NODE_IP_ADDRESS` needs to be replaced with the management node IP address that is associated with `<cluster_prefix>-management-host-0`, and `FLOATING_IP_ADDRESS` needs to be replaced with the login node floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui#gathering-ip-addresses).
+    where `MANAGEMENT_NODE_IP_ADDRESS` needs to be replaced with the management node IP address that is associated with `<cluster_prefix>-management-host-0`, and `FLOATING_IP_ADDRESS` needs to be replaced with the login node-floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui#gathering-ip-addresses).
 
-2. Open a second terminal, download and install the Python 3.6 version or newer. The following examples are for Linux and MAC systems. If you are using Windows, the installation is different. For more information, see [Python releases for Windows](https://www.python.org/downloads/windows/){: external}.
+2. Open a second terminal, download, and install the Python 3.6 version or newer. The following examples are for Linux and MAC systems. If you are using Windows, the installation is different. For more information, see [Python releases for Windows](https://www.python.org/downloads/windows/){: external}.
 
     Run all the following commands from this second terminal:
     {: important}
@@ -97,7 +97,7 @@ Before you connect to the LSF Application Center with `https`, you need to compl
 ## Connecting to LSF Application Center with `https`
 {: #connect-lsf-application-center-https}
 
-Open a new command-line terminal and run the following commands:
+Open a new command-line and run the following commands:
 
 ```python
 $ ./pacclient.py help
@@ -156,5 +156,3 @@ You have logged on to PAC as: lsfadmin
  45439     Running   -                      *938772910               sleep 200
 ```
 {: codeblock}
-
-
