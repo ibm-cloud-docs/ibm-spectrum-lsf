@@ -26,13 +26,13 @@ subcollection: ibm-spectrum-lsf
 # Generating a plan
 {: #generate-plan}
 
-After you've created your workspace, you need to generate a plan to validate all of the configuration properties.
+After you have created your workspace, you need to generate a plan to validate all the configuration properties.
 
 ## Generating a plan using the UI
 {: #generate-plan-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud}} console, after the workspace is created, you can review the properties and the variables that are associated with that workspace by using the _Settings_ tab. You can review all the values, make changes if applicable, and click **Generate plan**. 
+1. In the {{site.data.keyword.cloud}} console, after the workspace is created, you can review the properties and the variables that are associated with that workspace by using the _Settings_ tab. You can review all the values, make changes if applicable, and click Generate plan. 
 2. When you click **Generate plan**, a new log is generated that can be viewed in the Jobs tab by clicking **Jobs**. 
 3. Review the log file for any errors, fix the properties, and regenerate the plan by clicking **Generate plan** again.
 
@@ -53,7 +53,7 @@ ibmcloud schematics plan --id <WORKSPACE_ID>
 ```
 {: pre}
 
-You can view the log file to look for errors or confirm that the action was completed successfully. You might need to run this command multiple times to track the outcome of the command until it's completed.
+You can view the log file to look for errors or confirm that the action was completed successfully. You might need to run this command multiple times to track the outcome of the command until it is completed.
 
 ```
 ibmcloud schematics logs --id <WORKSPACE_ID>
@@ -64,7 +64,7 @@ ibmcloud schematics logs --id <WORKSPACE_ID>
 {: #next-steps-generate-plan-cli}
 {: cli}
 
-After you've successfully generated a plan, you can begin [Applying a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan&interface=cli) to deploy your {{site.data.keyword.cloud_notm}} resources to build a {{site.data.keyword.spectrum_short}} cluster instance.
+After you have successfully generated a plan, you can begin [Applying a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan&interface=cli) to deploy your {{site.data.keyword.cloud_notm}} resources to build a {{site.data.keyword.spectrum_short}} cluster instance.
 
 ## Generating a plan using the API
 {: #generate-plan-api}
@@ -152,4 +152,4 @@ INFO:root:Completed Generating Schematic Plan
 {: #next-steps-generate-plan-api}
 {: api}
 
-After you've successfully generated a plan, you can begin [Applying a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan&interface=api) to deploy your {{site.data.keyword.cloud_notm}} resources to build a {{site.data.keyword.spectrum_short}} cluster instance.
+After you have successfully generated a plan, you can begin [Applying a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan&interface=api) to deploy your {{site.data.keyword.cloud_notm}} resources to build a {{site.data.keyword.spectrum_short}} cluster instance.
