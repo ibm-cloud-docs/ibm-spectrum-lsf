@@ -68,12 +68,12 @@ File Storage for VPC support
 Access the LSF Application center using LDAP users
 :   LDAP users can now directly access the LSF Application Center with only password authentication.
 
-Customer-managed encryption for login/management worker nodes
+Customer-managed encryption for login or management worker nodes
 :   You can now opt to use customer-managed encryption with your login and management nodes.
 
 OpenLDAP integration for authentication
 :   OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that provides centralized authentication and directory services.
-Once you have deployed your {{site.data.keyword.spectrum_full_notm}} cluster, you can integrate OpenLDAP with {{site.data.keyword.spectrum_full_notm}}. This way, you can use your existing LDAP infrastructure for user authentication, enabling more secure and streamlined user access to LSF.
+When you deploy your {{site.data.keyword.spectrum_full_notm}} cluster, you can integrate OpenLDAP with {{site.data.keyword.spectrum_full_notm}}. This way, you can use your existing LDAP infrastructure for user authentication, enabling more secure and streamlined user access to LSF.
 
 Accessing LSF Application Center through VNC (remote) consoles
 :   You can now access a remote console in LSF Application Center by selecting **VNC Consoles** > **Open my console**.
@@ -155,7 +155,7 @@ Updated {{site.data.keyword.spectrum_short}} and {{site.data.keyword.scale_short
 {: release-note}
 
 Intel&reg; MPI Library for Intel&reg; oneAPI support
-:   You now have the option to use the Intel&reg; MPI Library for Intel&reg; oneAPI as an alternative to the use of OpenMPI.
+:   You have the option to use the Intel&reg; MPI Library for Intel&reg; oneAPI as an alternative to the use of OpenMPI.
 
 ## August 2022
 {: #ibm-spectrum-lsf-aug22}
@@ -165,7 +165,7 @@ Intel&reg; MPI Library for Intel&reg; oneAPI support
 {: release-note}
 
 Dedicated hosts and {{site.data.keyword.scale_short}} support
-:   You now have the option to use {{site.data.keyword.scale_short}} for shared storage that's accessible by the Spectrum LSF compute nodes. For more information, see [Using Spectrum Scale storage](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-using-spectrum-scale-storage). With the latest changes, RHEL 8.4 custom images take the place of RHEL 7.7 and CentOS 7.7 custom images with included optimizations for NFS. And, security group rules have been added to provide more secure access to the cluster by allowing SSH from only specific nodes. In addition, you now have the option to use dedicated hosts for static worker nodes. For more information, see [Using dedicated hosts](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-using-dedicated-hosts).
+:   You have the option to use {{site.data.keyword.scale_short}} for shared storage that's accessible by the Spectrum LSF compute nodes. For more information, see [Using Spectrum Scale storage](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-using-spectrum-scale-storage). With the latest changes, RHEL 8.4 custom images take the place of RHEL 7.7 and CentOS 7.7 custom images with included optimizations for NFS. And, security group rules have been added to provide more secure access to the cluster by allowing SSH from only specific nodes. In addition, you have the option to use dedicated hosts for static worker nodes. For more information, see [Using dedicated hosts](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-using-dedicated-hosts).
 
 Bug fixes
 :   Fixes were applied related to an HTTP data source body deprecation and an Ansible version 2.10 upgrade.
@@ -211,7 +211,7 @@ Bug fix
 {: release-note}
 
 LSF enhancements and improvements
-:   You can now use an existing VPC. On the back end, Terraform has been updated to version 0.14, hyperthreading is enabled by default, and parallelism is now supported on {{site.data.keyword.bpshort}} `destroy` operations to help overall performance.
+:   You can now use an existing VPC. On the backend, Terraform is updated to version 0.14, hyperthreading is enabled by default, and parallelism is now supported on {{site.data.keyword.bpshort}} `destroy` operations to help overall performance.
 
 ## June 2021
 {: #ibm-spectrum-lsf-jun21}
