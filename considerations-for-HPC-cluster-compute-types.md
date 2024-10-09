@@ -73,14 +73,14 @@ Scalable MPI jobs can be set up that require multiple virtual machines that are 
 
 IBM Systems and IBM Research work in this industry domain and have successfully used {{site.data.keyword.cloud_notm}} for such workloads. The following graph displays a scale test for up to 30 K cores. To showcase how cloud zones can be used as a single data center, we built a large HPC cluster aggregating the resources across three {{site.data.keyword.cloud_notm}} locations. The setup also uses {{site.data.keyword.scale_full_notm}} as a scratch-based, high-performing file system along with {{site.data.keyword.spectrum_full_notm}} for HPC cluster configuration. We have used BX2-48x192 for {{site.data.keyword.spectrum_full_notm}} worker nodes and MX2d-16x128 for storage nodes under the {{site.data.keyword.scale_full_notm}}.
 
-![Figure 1. EDA-diagram](images/Electronic-Design-Automation.png "EDA-diagram"){: caption="Figure 1. EDA-diagram" caption-side="bottom"}
+![Figure 1. EDA-diagram](images/Electronic-Design-Automation.png "EDA-diagram"){: caption="EDA-diagram" caption-side="bottom"}
 
 ### Weather (WRF Model)
 {: #weather-wrf-model}
 
 {{site.data.keyword.cloud_notm}} shows linear performance, performs favorably, and can scale well into thousands of cores. The virtual machine configuration that is used for this benchmark is bx2-16x64. The WRF model is not sensitive to network latency as it packs many variables into each message, resulting in fairly large messages, and not many small messages.
 
-![Figure 2. EDA-diagram](images/Weather.png "EDA-diagram"){: caption="Figure 1. EDA-diagram" caption-side="bottom"}
+![Figure 2. EDA-diagram](images/Weather.png "EDA-diagram"){: caption="EDA-diagram" caption-side="bottom"}
 
 The red line represents the HPC environment with the InfiniBand HDR that gives the highest bandwidth, lowest latency, and is the best configuration for such workloads. The green line shows {{site.data.keyword.cloud_notm}} with the Lon2 data center for the benchmarking. The blue line is the Summit super computer. In summary, any workloads that have characteristics similar to the WRF model should scale well with {{site.data.keyword.cloud_notm}}. As you can see {{site.data.keyword.cloud_notm}} shows reasonable performance against state-of-the-art HPC systems.
 
@@ -97,9 +97,9 @@ On {{site.data.keyword.cloud_notm}}, the benchmarks use two different configurat
 
 As you can see, SNAP results show that bx2-8x32 provides more performance because of higher effective network bandwidth ratio per core; where Quicksilver does well with bx2-16x64 as it has moderate communication requirements and is mostly near-neighbor to track particle motion across the global domain.
 
-![Figure 3. SNAP scaling diagram](images/DoE-Snap-Scaling.png "SNAP scaling diagram"){: caption="Figure 1. SNAP scaling diagram" caption-side="bottom"}
+![Figure 3. SNAP scaling diagram](images/DoE-Snap-Scaling.png "SNAP scaling diagram"){: caption="SNAP scaling diagram" caption-side="bottom"}
 
-![Figure 4. Quicksilver scaling diagram](images/DoE-Cores.png "Quicksilver scaling diagram"){: caption="Figure 1. Quicksilver scaling diagram" caption-side="bottom"}
+![Figure 4. Quicksilver scaling diagram](images/DoE-Cores.png "Quicksilver scaling diagram"){: caption="Quicksilver scaling diagram" caption-side="bottom"}
 
 Even though the scaling is not as good as the weather model, {{site.data.keyword.cloud_notm}} can scale up to thousands of cores reasonably with a linear curve.
 

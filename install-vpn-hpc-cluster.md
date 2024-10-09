@@ -24,7 +24,7 @@ subcollection: ibm-spectrum-lsf
 
 You can enable a VPN gateway to your HPC cluster. The following figure is an example of a VPN deployment.
 
-![Figure 1. Architecture diagram for VPN deployment](images/hpcc_vpn.png "Architecture diagram for VPN deployment"){: caption="Figure 1. Architecture diagram for VPN deployment" caption-side="bottom"}
+![Figure 1. Architecture diagram for VPN deployment](images/hpcc_vpn.png "Architecture diagram for VPN deployment"){: caption="Architecture diagram for VPN deployment" caption-side="bottom"}
 
 This example links a VPN gateway to the subnet for LSF nodes. By doing this, local clients can directly access them with private IP addresses (for example, 192.168.3.236 to 10.244.0.21). This documentation gives a step-by-step guide to create the example deployment.
 
@@ -72,4 +72,3 @@ Typical VPN configurations require a public IP address for the local VPN server,
 {: #next-steps-vpn-environment}
 
 After you've configured your local VPN environment, you are ready to set up the multi-cluster and job forwarding. For more information, see [Setting up multi-cluster and job forwarding using {{site.data.keyword.spectrum_short}}](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-set-up-multi-cluster-job-forwarding).
-

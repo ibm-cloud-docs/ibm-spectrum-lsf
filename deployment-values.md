@@ -95,4 +95,4 @@ NOT_SET refers to an empty value in the {{site.data.keyword.cloud_notm}} catalog
 | `login_subnet_id` | This is the existing login subnet ID under the VPC, where the bastion/login is provisioned. | No | None |
 | `dns_instance_id` | This is the {{site.data.keyword.cloud_notm}} HPC DNS service resource ID. | No | None |
 | `dns_custom_resolver_id` | This is the {{site.data.keyword.cloud_notm}} DNS custom resolver ID. | No | None |
-{: caption="Table 1. Deployment values" caption-side="top"} 
+{: caption="Deployment values" caption-side="top"} 

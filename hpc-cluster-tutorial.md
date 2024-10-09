@@ -119,7 +119,7 @@ See the following table for a list of parameters that you can configure for your
 | `vpn_peer_cidrs` | Comma-separated list of peer CIDRs (for example, 192.168.0.0/24) to which the VPN is connected. |
 | `vpn_preshared_key` | The pre-shared key for the VPN. |
 | `zone` | Edit the zone based on the selected region. To get a full list of zones within a region, see [Get zones by using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region#get-zones-using-the-cli). |
-{: caption="Table 1. Parameter values" caption-side="top"} 
+{: caption="Parameter values" caption-side="top"} 
 
 ### Parameters for auto scaling
 {: #hpc-cluster-auto-scaling-parameters}

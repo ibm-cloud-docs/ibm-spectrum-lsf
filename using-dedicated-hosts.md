@@ -55,10 +55,8 @@ dedicated_host_placement = spread
 ```
 {: screen}
 
-![Figure 1. Dedicated host](images/hpcc_vpn.png "Dedicated host"){: caption="Figure 1. Dedicated host" caption-side="bottom"}
+![Figure 1. Dedicated host](images/hpcc_vpn.png "Dedicated host"){: caption="Dedicated host" caption-side="bottom"}
 
 With these example variables, ten cx2-32x64 instances are provisioned as static compute nodes on three dedicated hosts using the cx2-host-152x304 profile. The dedicated host profile is automatically selected. You can see provisioned dedicated hosts with the {{site.data.keyword.cloud_notm}} CLI or the {{site.data.keyword.cloud_notm}} console.
 
 The `spread` placement policy tries to evenly distribute worker nodes and so lsf-demo-dh-0 consumed 128 vCPUs (32 * 4 virtual server instances) and lsf-demo-dh-1 and lsf-demo-dh2 each consumed 96 vCPUs (32 * 3 virtual server instances). If you use the `pack` placement, it allocates four virtual server instances on two dedicated hosts and two virtual server instances on the third dedicated host.
-
-
