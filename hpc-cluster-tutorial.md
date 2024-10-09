@@ -37,11 +37,11 @@ Deploy the HPC cluster with your choice of configuration properties.
 ## Architecture overview and NFS file system setup 
 {: #hpc-cluster-architecture-overview}
 
-The HPC cluster consists of a login node, a storage node where the block storage volume is attached, 1 - 3 LSF management nodes, and a number of LSF worker nodes.
+The HPC cluster consists of a login node, a storage node where the block storage volume is attached, 1 - 3 LSF management nodes, and some LSF worker nodes.
 
 * The login node is served as a jump host and it is the only node that has the public IP address. Other nodes have only private IP addresses and the only way to reach these nodes is through the login node. You can log in to the primary LSF management host and do most of the operations from the LSF management host. By default, `lsfadmin` is the only user ID created on the cluster. The SSH passwordless setup is configured between the LSF management host and workers. You can reach any other worker node with the `lsfadmin` user ID from the LSF primary.
 
-* The worker node can be a static resource. In this case, its lifecycle is managed by Schematics. You can request a number of static worker nodes, and these workers remain available in the LSF cluster until a Schematics-destroy action is performed. The LSF resource connector function creates extra workers when there is not enough capacity to run jobs and destroys workers when the demands decrease. The lifecycle of these dynamic workers is managed by the LSF resource connector. Wait until these dynamic resources are returned to the cloud before you destroy the entire VPC cluster through Schematics.
+* The worker node can be a static resource. In this case, it is lifecycle managed by Schematics. You can request some static worker nodes, and these workers remain available in the LSF cluster until a Schematics-destroy action is performed. The LSF resource connector function creates extra workers when there is not enough capacity to run jobs and destroys workers when the demands decrease. The lifecycle of these dynamic workers is managed by the LSF resource connector. Wait until these dynamic resources are returned to the cloud before you destroy the entire VPC cluster through Schematics.
 
 * The {{site.data.keyword.cloud_notm}} File Storage for VPC is used for file sharing. By default, there are two file share volumes; each is 100 GB. To change this configuration, [set the custom_file_shares deployment value](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-spectrum-lsf-faqs#share).
 
@@ -68,10 +68,10 @@ Complete the following steps to create your SSH key:
 
 1. Log in to the [{{site.data.keyword.cloud}} console](https://cloud.ibm.com/){: external} by using your unique credentials.
 2. From the dashboard, click **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > SSH keys**.
-3. Click **Create**.
+3. Click Create.
 4. Enter the SSH key name (for example, `po-ibm-ssh-key`), select the default resource group, add tags, and select the region. 
 5. Copy and paste the public key into the _Public key_ field (the contents that you saved from `.ssh/id_rsa.pub`).
-6. Click **Add SSH key**.
+6. Click Add SSH key.
 
 ## Create API key
 {: #hpc-api-key}
@@ -82,8 +82,8 @@ Complete the following steps to create your API key:
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM) > API keys**.
 2. Click **Create an IBM Cloud API key**.
 3. Enter a name and description for your API key.
-4. Click **Create**.
-5. Then click **Show** to display the API key, **Copy** to copy and save it for later, or click **Download**.
+4. Click Create.
+5. Then click Show to display the API key, **Copy** to copy and save it for later, or click Download.
 
 ## Create and configure an HPC/LSF cluster from the IBM Cloud catalog
 {: #hpc-cluster-creation}
@@ -91,13 +91,13 @@ Complete the following steps to create your API key:
 
 Complete the following steps to create and configure an HPC cluster from the {{site.data.keyword.cloud_notm}} catalog:
 
-1. In the {{site.data.keyword.cloud_notm}} catalog, search for _HPC_ or _Spectrum LSF_, and then select **IBM Spectrum LSF**. 
+1. In the {{site.data.keyword.cloud_notm}} catalog, search for _HPC_ or _Spectrum LSF_, and then select IBM Spectrum LSF. 
 
     ![HPC Cluster solution page](images/hpc_catalog.png){: caption="HPC cluster solution page"}
 
 2. In the **Set the deployment values** section, supply the required values: `api_key`, `ibm_customer_number`, `remote_allowed_ips`, `ssh_key_name`, and `zone`. 
 
-3. After you confirm with the license agreement, you can use the default values for other parameters and click **Install**. The HPC cluster is created and completed within 5 minutes with the default configuration.
+3. After you confirm with the license agreement, you can use the default values for other parameters and click Install. The HPC cluster is created and completed within 5 minutes with the default configuration.
 
 ### Parameters for cluster deployment
 {: #hpc-cluster-deployment-parameters}
@@ -128,7 +128,7 @@ You can set the following parameters for auto scaling:
 
 * `worker_node_min_count`: The minimum number of worker nodes that are provisioned at the time the cluster is created and remain running regardless of job demands in the cluster.
 
-* `worker_node_max_count`: The maximum number of worker nodes in your HPC cluster, which limits the number of machines that can be added to HPC cluster. LSF auto scaling scales up the cluster to this number of nodes when needed for your workloads and scales back for keeping only`worker_node_min_count` workers when no job is in the queues.
+* `worker_node_max_count`: The maximum number of worker nodes in your HPC cluster, which limits the number of systems that can be added to an HPC cluster. LSF auto scaling scales up the cluster to this number of nodes when needed for your workloads and scales back for keeping only`worker_node_min_count` workers when no job is in the queues.
 
 ### Parameters for instance profiles
 {: #hpc-cluster-instance-profiles-deployment-parameters}
@@ -138,7 +138,7 @@ You can control the instance profile for each instance type through the `xxx_nod
 ### Parameters for block volumes
 {: #hpc-cluster-block-volume-parameters}
 
-You can configure the storage capacity and throughput by using the `volume_xxx` parameters. The value for the `volume_profile` parameter can be either general purpose or custom. When `general-purpose` is used, IOPS is determined by the cloud infrastructure and the `volume_iops` parameter does not have any effect. If you want to customize the IOPS, you need to use custom for `volume_profiles` and set up the IOPS through `volume_iops` based on the capacity that is specified in `volume_capacity`. For more information, see [Block storage profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui).
+You can configure the storage capacity and throughput by using the `volume_xxx` parameters. The value for the `volume_profile` parameter can be either general purpose or custom. When `general-purpose` is used, IOPS is determined by the cloud infrastructure and the `volume_iops` parameter does not have any affect. If you want to customize the IOPS, you need to use custom for `volume_profiles` and set up the IOPS through `volume_iops` based on the capacity that is specified in `volume_capacity`. For more information, see [Block storage profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui).
 
 ## Accessing the HPC cluster
 {: #hpc-cluster-access}
@@ -146,7 +146,7 @@ You can configure the storage capacity and throughput by using the `volume_xxx` 
 
 To access your HPC cluster, complete the following steps:
 
-1. Go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Activity > Plan applied > View log**.
+1. Go to the **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Activity > Plan applied > View log**.
 
 2. Copy `ssh-command` to access your cluster.
 
@@ -160,7 +160,7 @@ To access your HPC cluster, complete the following steps:
 {: #hpc-cluster-auto-scaling}
 {: step}
 
-You have a minimum number of worker nodes (`worker_node_min_count`). This is the number of worker nodes that are provisioned at the time the cluster is created. However, you can use a maximum number of worker nodes that should be added to the {{site.data.keyword.spectrum_short}} cluster defined by `worker_node_max_count`. This is to limit the number of machines that can be added to {{site.data.keyword.spectrum_short}} cluster when the auto scaling configuration is used. This property can be used to manage the cost associated with {{site.data.keyword.spectrum_short}} cluster instance.
+You have a minimum number of worker nodes (`worker_node_min_count`). This is the number of worker nodes that are provisioned at the time the cluster is created. However, you can use a maximum number of worker nodes that should be added to the {{site.data.keyword.spectrum_short}} cluster defined by `worker_node_max_count`. This is to limit the number of systems that can be added to {{site.data.keyword.spectrum_short}} cluster when the auto scaling configuration is used. This property can be used to manage the cost associated with {{site.data.keyword.spectrum_short}} cluster instance.
 
 The following example shows `worker_node_min_count=2` and `worker_node_max_count=10`.
 
@@ -171,7 +171,7 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
     ```
     {: pre}
 
-    **Example output:**
+    Example output:
 
     ![Two worker nodes](images/original_workernodes.png){: caption="Two worker nodes"}
 
@@ -195,9 +195,9 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
 
     ![Two worker nodes](images/autoscaling.png){: caption="Five worker nodes added"}
 
-5. The difference of nodes that were created by the auto scaling function are destroyed automatically after 10 minutes of not being used.
+5. The difference of nodes created by the auto scaling function are destroyed automatically after 10 minutes of not being used.
 
-## (Optional) Set up hybrid connectivity
+## Set up hybrid connectivity (Optional)
 {: #optional-hybrid-connectivity}
 {: step}
 
@@ -209,7 +209,7 @@ If you would like to use Direct Link, see the instructions for [Installing Direc
 {: #using-openladap-spectrum-lsf}
 {: step}
 
-If you want to know more about OpenLDAP with {{site.data.keyword.spectrum_full_notm}}, see  [About OpenLDAP with IBM Spectrum LSF](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-integrate-openldap-spectrum-lsf).
+If you want to know more about OpenLDAP with {{site.data.keyword.spectrum_full_notm}}, see About OpenLDAP with IBM Spectrum LSF](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-integrate-openldap-spectrum-lsf).
 
 During deployment, you enable OpenLDAP with your {{site.data.keyword.spectrum_full_notm}} cluster by setting the `enable_ldap`,`ldap_basedns`, `ldap_server`, `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password` deployment input values.
 
@@ -221,7 +221,7 @@ If you want to know more about integrating OpenLDAP with your {{site.data.keywor
 
  If you leave the `dns_instance_id` deployment input value as null, the deployment process creates a new DNS service instance ID in the respective DNS zone. Alternatively, provide an existing [IBM Cloud® DNS Service instance ID](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-dns-custom-resolvers) for the `dns_instance_id` deployment input value.
 
-If you leave the `dns_custom_resolver_id` deployment input value as null, the deployment process creates a new VPC and enables a new custom resolver for your cluster. Alternatively, to create DNS custom resolvers with an existing VPC, provide the resolver ID for the `dns_custom_resolver_id` deployment input value. For more information, see [DNS custom resolvers for your IBM Spectrum LSF cluster](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-dns-custom-resolvers#custom-resolvers).
+If you leave the `dns_custom_resolver_id` deployment input value as null, the deployment process creates a new VPC and enables a new custom resolver for your cluster. Alternatively, to create custom DNS resolvers with an existing VPC, provide the resolver ID for the `dns_custom_resolver_id` deployment input value. For more information, see [DNS custom resolvers for your IBM Spectrum LSF cluster](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-dns-custom-resolvers#custom-resolvers).
 
 ## Using IBM Key Protect instances to manage data encryption
 {: #key-protect-encryption}

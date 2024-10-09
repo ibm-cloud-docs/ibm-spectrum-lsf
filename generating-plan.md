@@ -33,14 +33,14 @@ After you have created your workspace, you need to generate a plan to validate a
 {: ui}
 
 1. In the {{site.data.keyword.cloud}} console, after the workspace is created, you can review the properties and the variables that are associated with that workspace by using the _Settings_ tab. You can review all the values, make changes if applicable, and click Generate plan. 
-2. When you click **Generate plan**, a new log is generated that can be viewed in the Jobs tab by clicking **Jobs**. 
+2. When you click **Generate plan**, a new log is generated that can be viewed in the Jobs tab by clicking Jobs. 
 3. Review the log file for any errors, fix the properties, and regenerate the plan by clicking **Generate plan** again.
 
 ## Next steps
 {: #next-steps-generate-ui}
 {: ui}
 
-After you've successfully generated a plan, you can begin [Applying a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan&interface=ui) to deploy your {{site.data.keyword.cloud_notm}} resources to build a {{site.data.keyword.spectrum_short}} cluster instance.
+After you have successfully generated a plan, you can begin [Applying a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan&interface=ui) to deploy your {{site.data.keyword.cloud_notm}} resources to build a {{site.data.keyword.spectrum_short}} cluster instance.
 
 ## Generating a plan using the CLI
 {: #generate-plan-cli}
@@ -74,7 +74,7 @@ After you have successfully generated a plan, you can begin [Applying a plan](/d
 2. Copy and paste the [Generate a plan using {{site.data.keyword.bpshort}} Python API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan&interface=api#example-request-generate) example request to your Python file.
 3. Change the following parameters as part of the request:
   * Replace your {{site.data.keyword.cloud_notm}} API key to the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable.
-  * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
+  * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location that you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
 4. Inside the `schematics_service.plan_workspace_command` function, provide the following parameters:
   * Provide the workspace ID that you created in the [Create a workspace](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace) task or from the {{site.data.keyword.cloud_notm}} console for {{site.data.keyword.bpshort}}, for example, `us-south.workspace.Terraform-Schematics-Python-Workspace.b3bbc9f5`.
   * Export your {{site.data.keyword.cloud_notm}} API key by using the following command:
@@ -93,7 +93,7 @@ After you have successfully generated a plan, you can begin [Applying a plan](/d
 
 5. Make sure to update the following required parameters: `api_key`, `ibm_customer_number`, `remote_allowed_ips`, `ssh_key_name`, and `zone`.
 6. Run the Python script by using `python3 <python-file-name>` to generate a plan in the {{site.data.keyword.cloud_notm}}.
-7. You get an activity ID in the response if the parameters passed as part of the request are valid. You should be able to see the plan generating in the {{site.data.keyword.bpshort}} workspace that you created in the {{site.data.keyword.cloud_notm}} console. If you don’t get a successful response, the error response contains the errors that you need to resolve. Resolve those errors and run the script until you are able to get a valid response and generate a plan.
+7. You get an activity ID in the response if the parameters passed as part of the request are valid. You should be able to see the plan generated in the {{site.data.keyword.bpshort}} workspace that you created in the {{site.data.keyword.cloud_notm}} console. If you don’t get a successful response, the error response contains the errors that you need to resolve. Resolve those errors and run the script until you are able to get a valid response and generate a plan.
 8. If you want to check the logs of the action, see [Retrieving action logs with {{site.data.keyword.bpshort}} API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-retrieve-action-logs) to retrieve the logs. The response contains the status of the action, and it appears in either a `COMPLETED` or `FAILED` state.
 
 ### Example Python request

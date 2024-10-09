@@ -110,7 +110,7 @@ Make sure that you have access to a Linux&reg; system with root privileges.
     ```
     {: codeblock}
 
-    You see output that looks something like the following:
+    You see an output that looks something like the following:
 
     **Example output:**
 
@@ -149,7 +149,7 @@ Make sure that you have access to a Linux&reg; system with root privileges.
     ```
     {: codeblock}
 
-    You see output that looks something like the following:
+    You see an output that looks something like the following:
 
     **Example output:**
 
@@ -270,7 +270,7 @@ Make sure that you have access to a Linux&reg; system with root privileges.
 
 The OpenLDAP server is now configured and ready to use. You can add more users and groups by creating more LDIF files and by using the `ldapadd` command to import them into the directory.
 
-## Create a user group in OLDAP directory
+## Create a user group in the OLDAP directory
 {: #create-user-group}
 {: step}
 
@@ -353,11 +353,11 @@ This output shows that there are two group entries: `LSFadministrators` and `LSF
 
 Later on, you can use the `ldapmodify` command to add exiting users to these groups.  In the previous `ldapsearch` output, two users are seen as the member of each of the groups.
 
-## Configure LDAP authentication on client machines
+## Configure LDAP authentication on client systems
 {: #configure-ldap-authentication}
 {: step}
 
-Next you need to configure LDAP authentication for the client machines that are running RHEL 8 as the OS and OLDAP server as the authentication provider or identity provider. In this case, the OLDAP client is the LSF cluster, so the following steps apply to the LSF cluster nodes that are running on top of RHEL 8 Linux&reg; machines.
+Next you need to configure LDAP authentication for the client systems that are running RHEL 8 as the OS and OLDAP server as the authentication provider or identity provider. In this case, the OLDAP client is the LSF cluster, so the following steps apply to the LSF cluster nodes that are running on top of RHEL 8 Linux&reg; systems.
 
 In the following steps, make sure to replace the domain name in the `"dc=***,dc=***"` section with your own domain name.
 {: important}
