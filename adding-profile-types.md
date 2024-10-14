@@ -22,7 +22,7 @@ subcollection: ibm-spectrum-lsf
 # Adding compute profile types for auto scaling
 {: #add-compute-profile-types}
 
-Complete the following steps to add compute profile types when worker nodes are automatically added by the resource connector.
+Complete the following steps to add compute profile types when worker nodes are added by the resource connector.
 
 If you need to add multiple profiles, step 1 is sufficient and the restart `mbatchd` command is enough. The remaining steps are for submitting a job to a specific by tagging the virtual machine with templateID as a string resource.
 {: note}

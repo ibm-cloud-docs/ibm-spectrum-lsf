@@ -19,7 +19,7 @@ subcollection: ibm-spectrum-lsf
 {:note: .note}
 {:important: .important}
 
-# Updating maximum number of worker nodes
+# Updating the maximum number of worker nodes
 {: #update-max-worker-nodes-count}
 
 Complete the following steps if you want to update the maximum number of worker nodes. 
@@ -67,5 +67,3 @@ Complete the following steps if you want to update the maximum number of worker 
     badmin reconfig
     ```
     {: pre}
-
-
