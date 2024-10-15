@@ -20,7 +20,7 @@ content-type: release-note
 # Release notes
 {: #release-notes}
 
-Use these release notes to learn about the latest updates to {{site.data.keyword.spectrum_full}} that are grouped by date.
+The release notes describe the brief overview of the changes that are made to {{site.data.keyword.spectrum_full}}, feature enhancements or new features, which are known and fixed issues.
 {: shortdesc}
 
 ## September 2024
@@ -33,7 +33,7 @@ IBM Storage Scale version upgraded from 5.1.9.3 to 5.2.0.1
 :   New IBM Storage Scale custom images are created with 5.2.0.1 version to accommodate the latest scale features.
 
 Support for Hyperthreading on login LSF client node
-:   Hyperthreading feature has been added on the LSF login client node to enable the CPU performance.
+:   Hyperthreading feature is added on the LSF login client node to enable the CPU performance.
 
 Upgraded LSF software version
 :   Upgraded the LSF 10.1 software version to pick all the latest ifixes and security patches.
@@ -65,7 +65,7 @@ Dedicated LSF client login node
 File Storage for VPC support
 :   {{site.data.keyword.cloud}} File Storage for VPC is a zonal file storage offering that provides NFS-based file storage services. You can create file shares in an availability zone within a region. You can share them with multiple virtual server instances within the same zone or other zones in your region, across multiple VPCs. You can also limit access to a file share to a specific virtual server instance within a VPC and encrypt the data in transit.
 
-Access the LSF Application center using LDAP users
+Access the LSF Application center by using LDAP users
 :   LDAP users can now directly access the LSF Application Center with only password authentication.
 
 Customer-managed encryption for login or management worker nodes
@@ -94,17 +94,17 @@ DNS functionality support
 {: #hpc-spectrum-symphony-oct1623}
 
 LSF daemon restart bug fix
-:   A fix has been implemented to take care of job submission for creating dynamic hosts post LSF daemon restarted.
+:   A fix is implemented to take care of job submission for creating dynamic hosts post LSF daemon restarted.
 
 LSF failover bug fix
-:   A fix has been implemented to take care of the failover case of the management node.
+:   A fix is implemented to take care of the failover case of the management node.
 
 ### 4 October 2023
 {: #ibm-spectrum-lsf-oct0423}
 {: release-note}
 
 LSF Application Center MariaDB installation bugfix
-:   A fix has been implemented to resolve a bug that was preventing successful installation of LSF Application Center MariaDB.
+:   A fix is implemented to resolve a bug that was preventing successful installation of LSF Application Center MariaDB.
 
 ## May 2023
 {: #ibm-spectrum-lsf-may23}
@@ -201,7 +201,7 @@ Security update
 {: release-note}
 
 Bug fix
-:   A fix has been provided for the error "No image found with name" if the image name is not found in the image-mapping file.
+:   A fix is provided for the error "No image found with name" if the image name is not found in the image-mapping file.
 
 ## September 2021
 {: #ibm-spectrum-lsf-sep21}

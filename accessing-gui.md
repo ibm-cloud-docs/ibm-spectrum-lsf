@@ -24,7 +24,7 @@ subcollection: ibm-spectrum-lsf
 # Accessing the GUI
 {: #accessing-gui}
 
-After the cluster setup is done, you can monitor the resources and status of the service directly from the {{site.data.keyword.scale_full_notm}} GUI for both the compute and storage clusters. For more information about the GUI, see [{{site.data.keyword.scale_full_notm}} GUI](https://www.ibm.com/docs/en/spectrum-scale/5.1.3?topic=reference-spectrum-scale-gui){: external}.
+After the cluster setup is done, you can monitor the resources and status of the service directly from the {{site.data.keyword.scale_full_notm}} GUI for both the compute and storage clusters. For more information about the GUI, see [{{site.data.keyword.scale_full_notm}} GUI](https://www.ibm.com/docs/en/storage-scale/5.2.1?topic=reference-storage-scale-gui){: external}.
 {: shortdesc}
 
 ## Before you begin
@@ -85,4 +85,3 @@ This solution's automation always uses the same IP addresses, so there might be 
     where `COMPUTE_NODE_IP_ADDRESS` needs to be replaced with the storage IP address associated with `<prefix>-primary-0`, which you gathered earlier, and `FLOATING_IP_ADDRESS` needs to be replaced with the floating IP address that you identified.
 3. Open a browser on the local system, and run https://localhost:21443. You get an SSL self-assigned certificate warning with your browser the first time when you access this URL.
 4. Enter your login credentials that you set up when you created your workspace to access the {{site.data.keyword.scale_short}} GUI.
-
