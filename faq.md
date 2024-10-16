@@ -101,7 +101,7 @@ The mappings can be found in the `image-map.tf` file in this [GitHub repository]
 {: #versions-used}
 {: faq}
 
-Cluster nodes that are deployed with this offering include {{site.data.keyword.spectrum_full_notm}} 10.1 Standard Edition plus Data Manager plus License Scheduler. See the following for a brief description of each of those programs: [{{site.data.keyword.spectrum_full_notm}} 10 family of products](https://www.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/4/897/ENUS220-174/index.html&lang=en&request_locale=en){: external}
+Cluster nodes that are deployed with this offering include {{site.data.keyword.spectrum_full_notm}} 10.1 Standard Edition plus Data Manager plus License Scheduler. See the following for a brief description of each of those programs: [{{site.data.keyword.spectrum_full_notm}} 10 family of products](https://www.ibm.com/support/pages/ibm-spectrum-lsf-101-fix-pack-14-101014){: external}
 
 If the cluster uses {{site.data.keyword.scale_short}} storage, the storage nodes include {{site.data.keyword.scale_full_notm}} 5.1.3.1 software. For more information, see the [{{site.data.keyword.scale_full_notm}}](https://www.ibm.com/docs/en/storage-scale/5.2.1){: external} product documentation.
 

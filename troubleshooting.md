@@ -72,27 +72,6 @@ You do not have the required access to create a workspace in any resource groups
 Contact your account administrator and get assigned with the manager role on the Schematics service in at least one resource group.
 {: tsResolve}
 
-## Why is IBM Cloud Schematics not able to provision the cluster and fails with an error message for the `lsf_license_confirmation` variable?
-{: #troubleshoot-topic-4}
-{: troubleshoot}
-{: support}
-
-Schematics is not able to provision the cluster, and you are seeing the following error message: `Error: Invalid value for variable "lsf_license_confirmation"`
-{: tsSymptoms}
-
-You entered a value other than "true" for the property `lsf_license_confirmation`.
-{: tsCauses}
-
-The property `lsf_license_confirmation` accepts "true" as a valid value. A "true" value indicates that you agreed to one of the following conditions:
-
-1. If you are deploying a production cluster, you have confirmed with your business team that you have enough licenses to deploy the {{site.data.keyword.spectrum_full_notm}} on {{site.data.keyword.cloud_notm}} and that these licenses are covered for use under the International Program License Agreement (IPLA).
-2. You are deploying an evaluation cluster with {{site.data.keyword.spectrum_full_notm}} on {{site.data.keyword.cloud_notm}} and agree to abide by the International License Agreement for Evaluation of Program (ILAE).
-
-IBM terms of software use for both IPLA and ILAE can be found [here](https://www-03.ibm.com/software/sla/sladb.nsf/sla/bla){: external}.
-
-After you agree to one of the two conditions, update the property value to "true" and try again.
-{: tsResolve}
-
 ## Why is IBM Cloud Schematics not able to provision the cluster and fails with an authorization error?
 {: #troubleshoot-topic-5}
 {: troubleshoot}

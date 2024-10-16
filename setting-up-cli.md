@@ -33,7 +33,7 @@ Before you begin using the {{site.data.keyword.bplong}} CLI to deploy {{site.dat
     ```
     {: pre}
 
-    If your credentials are rejected, you might be using a federated ID. To log in with a federated ID, use the `--sso` flag. For more information, see [Logging in with a federated ID](/docs/account?topic=account-federated_id).
+    If your credentials are rejected, you might be using a federated ID. To log in with a federated ID, use the `--sso` flag. For more information, see [Logging in with a federated ID](/docs/account?topic=account-federated_id&interface=cli).
     {: tip}
 
 3. Install and set up the [{{site.data.keyword.bplong_notm}} CLI plug-in](/docs/schematics?topic=schematics-setup-cli#install-schematics-plugin).
@@ -46,4 +46,3 @@ Before you begin using the {{site.data.keyword.bplong}} CLI to deploy {{site.dat
 {: #next-steps-cli}
 
 After you've reviewed and completed the prerequisites for setting up the CLI, you are ready to [Create a workspace](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace&interface=cli).
-
