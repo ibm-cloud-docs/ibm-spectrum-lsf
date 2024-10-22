@@ -103,7 +103,7 @@ The mappings can be found in the `image-map.tf` file in this [GitHub repository]
 
 Cluster nodes that are deployed with this offering include {{site.data.keyword.spectrum_full_notm}} 10.1 Standard Edition plus Data Manager plus License Scheduler. See the following for a brief description of each of those programs: [{{site.data.keyword.spectrum_full_notm}} 10 family of products](https://www.ibm.com/support/pages/ibm-spectrum-lsf-101-fix-pack-14-101014){: external}
 
-If the cluster uses {{site.data.keyword.scale_short}} storage, the storage nodes include {{site.data.keyword.scale_full_notm}} 5.1.3.1 software. For more information, see the [{{site.data.keyword.scale_full_notm}}](https://www.ibm.com/docs/en/storage-scale/5.2.1){: external} product documentation.
+If the cluster uses {{site.data.keyword.scale_short}} storage, the storage nodes include {{site.data.keyword.scale_full_notm}} 5.2.0.1 software. For more information, see the [{{site.data.keyword.scale_full_notm}}](https://www.ibm.com/docs/en/storage-scale/5.2.1){: external} product documentation.
 
 ## How many compute worker and storage nodes can you deploy in my Spectrum LSF cluster through this offering when `spectrum_scale` is enabled?
 {: #how-many-nodes-deployed}
