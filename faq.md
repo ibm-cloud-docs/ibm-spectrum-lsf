@@ -200,4 +200,10 @@ LSF Application Center requires that the `$GUI_CONFDIR/https/cacert.pem` certifi
 {: #ubuntu-not-supported}
 {: faq}
 
-Due to compatibility issues Ubuntu is not supported for this release, only Red Hat Enterprise Linux (RHEL).
+As part of dynamic node provisioning, Ubuntu based operating system is not supported.
+
+## Limitation of available profiles for dedicated hosts
+{: #limitations}
+{: faq}
+
+The offering automatically selects instance profiles for dedicated hosts to be the same prefix (for example, bx2 and cx2) as ones for worker instances (`worker_node_instance_type`). However, available instance prefixes can be limited, depending on your target region. If you use dedicated hosts, check `ibmcloud target -r {region_name}` and `ibmcloud is dedicated-host-profiles` to see whether your `worker_node_instance_type` has the available prefix for your target region.

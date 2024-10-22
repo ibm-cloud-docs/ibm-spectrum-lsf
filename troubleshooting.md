@@ -179,13 +179,6 @@ While {{site.data.keyword.bpshort}} deploys the infrastructure resources, it aut
 To fix either issue (resource failing due to authentication error or the timeout error), destroy the resources from the {{site.data.keyword.bpshort}} workspace and retry deploying the resources. 
 {: tsResolve}
 
-## Limitation of available profiles for dedicated hosts
-{: #troubleshoot-topic-12}
-{: troubleshoot}
-{: support}
-
-The offering automatically selects instance profiles for dedicated hosts to be the same prefix (for example, bx2 and cx2) as ones for worker instances (`worker_node_instance_type`). However, available instance prefixes can be limited, depending on your target region. If you use dedicated hosts, check `ibmcloud target -r {region_name}` and `ibmcloud is dedicated-host-profiles` to see whether your `worker_node_instance_type` has the available prefix for your target region.
-
 ## Why does the error occur with the provided `ssh_key_name` value?
 {: #troubleshoot-topic-13}
 {: troubleshoot}
