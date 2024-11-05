@@ -1,0 +1,41 @@
+{
+    "version": 2,
+    "title": "IBM Spectrum LSF",
+    "introduction": "Find useful information to learn about IBM Spectrum LSF.",
+    "product_page": "https://www.ibm.com/products/hpc-workload-management",
+    "section_topics": {
+      "links": [
+        {
+          "title": "Getting started with IBM Spectrum LSF",
+          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial"
+        },
+        {
+          "title": "Deployment values",
+          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values"
+        },
+        {
+          "title": "Integrating OpenLDAP with IBM Spectrum LSF",
+          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-integrate-openldap-spectrum-lsf"
+        },
+        {
+          "title": "Integrating OpenLDAP with your IBM Spectrum LSF cluster",
+          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-integrating-openldap"
+        },
+        {
+          "title": "FAQs",
+          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-spectrum-lsf-faqs"
+        }
+      ]
+    },
+    "section_highlights": [
+      {
+        "title": "IBM Spectrum LSF",
+        "description": "IBM® Spectrum LSF allows you to deploy high-performance computing (HPC) clusters by using IBM Spectrum LSF as HPC scheduling software.",
+        "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-about-spectrum-lsf",
+        "type": "doc"
+      }
+    ],
+    "section_updates": {
+      "view_more": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-release-notes"
+    }
+  }

@@ -28,6 +28,7 @@ The release notes describe the brief overview of the changes that are made to {{
 
 ### 16 September 2024
 {: #hpc-spectrum-symphony-sep2024}
+{: release-note}
 
 IBM Storage Scale version upgraded from 5.1.9.3 to 5.2.0.1
 :   New IBM Storage Scale custom images are created with 5.2.0.1 version to accommodate the latest scale features.
@@ -43,6 +44,7 @@ Upgraded LSF software version
 
 ### 20 June 2024
 {: #hpc-spectrum-symphony-june2024}
+{: release-note}
 
 IBM Storage Scale version upgraded from 5.1.9.0 to 5.1.9.3
 :   New IBM Storage Scale custom images are created with 5.1.9.3 version to accommodate the latest scale features.
@@ -55,6 +57,7 @@ IBM Storage Scale Bug Fix
 
 ### 22 March 2024
 {: #hpc-spectrum-symphony-mar2224}
+{: release-note}
 
 Existing DNS service instance and Custom resolver
 :   You can now opt to use the existing DNS service instance to create the new DNS zones and also the existing custom resolver that is attached to the VPC.
@@ -92,6 +95,7 @@ DNS functionality support
 
 ### 16 October 2023
 {: #hpc-spectrum-symphony-oct1623}
+{: release-note}
 
 LSF daemon restart bug fix
 :   A fix is implemented to take care of job submission for creating dynamic hosts post LSF daemon restarted.
