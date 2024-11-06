@@ -31,8 +31,8 @@
       {
         "title": "IBM Spectrum LSF",
         "description": "IBM Spectrum LSF allows you to deploy high-performance computing (HPC) clusters by using IBM Spectrum LSF as HPC scheduling software.",
-        "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-about-spectrum-lsf",
-        "type": "doc"
+        "href": "https://cloud.ibm.com/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-about-spectrum-lsf",
+        "type": "training"
       }
     ],
     "section_updates": {
