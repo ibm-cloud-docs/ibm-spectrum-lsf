@@ -14,12 +14,16 @@
           "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values"
         },
         {
-          "title": "Integrating OpenLDAP with IBM Spectrum LSF",
-          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-integrate-openldap-spectrum-lsf"
+          "title": "Using IBM Storage Scale",
+          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-using-spectrum-scale-storage"
         },
         {
-          "title": "Integrating OpenLDAP with your IBM Spectrum LSF cluster",
-          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-integrating-openldap"
+          "title": "Configuring the LSF Application Center",
+          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-configuring-lsf-application-center"
+        },
+        {
+          "title": "Virtual Private Clouds (VPCs)",
+          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-vpc"
         },
         {
           "title": "FAQs",
