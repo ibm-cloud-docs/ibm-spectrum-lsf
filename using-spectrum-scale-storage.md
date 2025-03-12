@@ -29,7 +29,7 @@ subcollection: ibm-spectrum-lsf
 
 The {{site.data.keyword.spectrum_full_notm}} offering uses {{site.data.keyword.vpc_short}} virtual server instance profiles that are provisioned with [instance storage](/docs/vpc?topic=vpc-instance-storage) for the {{site.data.keyword.scale_short}} storage nodes. By virtue of being on instance storage, this storage option can be used for scratch data use cases. When a storage node virtual server instance is rebooted, the data is preserved. However, when the instance is deleted, the instance storage data is lost. There is no automatic replication to persistent storage, for example, {{site.data.keyword.cos_full_notm}}, that is provided in the current implementation, but you can add it on your own if required.
 
-![Architecture diagram](images/hpccluster_lsf_scale_architecture.svg){:caption="Figure 1. Architecture diagram of an {{site.data.keyword.spectrum_full_notm}} cluster using {{site.data.keyword.scale_short}} storage on {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
+![Architecture diagram](images/hpccluster_lsf_scale_architecture.svg){:caption="Architecture diagram of an {{site.data.keyword.spectrum_full_notm}} cluster using {{site.data.keyword.scale_short}} storage on {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
 ## Before you begin
 {: #before-you-begin}

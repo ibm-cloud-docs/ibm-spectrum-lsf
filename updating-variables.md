@@ -53,7 +53,7 @@ subcollection: ibm-spectrum-lsf
 ## Example Python request for `schematics_variables_update.py` file
 {: #example-request-update-variables}
 
-The following Python example request is for the example file, `schematics_variables_update.py`.
+The following Python example request is for the example file `schematics_variables_update.py`.
 
 ```python
 import logging, os, json
@@ -139,4 +139,3 @@ DEBUG:urllib3.connectionpool:https://us.schematics.cloud.ibm.com:443 "PUT /v1/wo
 INFO:root:Schematic Variable Update Completed
 ```
 {: screen}
-

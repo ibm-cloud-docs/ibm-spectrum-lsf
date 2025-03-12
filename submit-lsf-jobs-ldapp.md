@@ -22,12 +22,12 @@ subcollection: ibm-spectrum-lsf
 # Best practices for using {{site.data.keyword.spectrum_full_notm}} through an LDAP user
 {: #submit-jobs-lsf-ldap}
 
-After you have integrated OpenLDAP with your {{site.data.keyword.spectrum_short}} cluster, refer to the following guidance for best practices when running LSF commands and submitting LSF jobs as an LDAP user.
+After you integrate OpenLDAP with your {{site.data.keyword.spectrum_short}} cluster, refer to the following guidance for best practices when running LSF commands and submitting LSF jobs as an LDAP user.
 
-All of the following commands can also be run from the login node.
+All the following commands can also be run from the login node.
 {: note}
 
-1. Log into the management node using the `ssh_to_management_node` value as shown as part of output section of {{site.data.keyword.bpshort}} job log:
+1. Log in to the management node by using the `ssh_to_management_node` value as shown as part of output section of {{site.data.keyword.bpshort}} job log:
 
     * Primary management node:
 
@@ -36,7 +36,7 @@ All of the following commands can also be run from the login node.
     ```
     {: codeblock}
 
-    where `<floating_IP_address>` is the floating IP address for the bastion node and `<management_node_IP_address>` is the IP address for the management node.
+    Where `<floating_IP_address>` is the floating IP address for the bastion node and `<management_node_IP_address>` is the IP address for the management node.
 
     * Login node:
 
@@ -45,9 +45,9 @@ All of the following commands can also be run from the login node.
     ```
     {: codeblock}
 
-    where `<floating_IP_address>` is the floating IP address for the bastion node and `<login_node_IP_address>` is the IP address for the login node.
+    Where `<floating_IP_address>` is the floating IP address for the bastion node and `<login_node_IP_address>` is the IP address for the login node.
 
-2. Switch to the LDAP user (for example, switch to **lsfuser05**):
+2. Switch to the LDAP user (for example, switch to lsfuser05):
 
     ```text
     $ [lsfadmin@lsfuser05-ubuntu-two-mgmt-1 ~]$ su lsfuser05
@@ -56,7 +56,7 @@ All of the following commands can also be run from the login node.
     ```
     {: codeblock}
 
-3. Run LSF commands as the the LDAP user:
+3. Run LSF commands as the LDAP user:
 
     ```text
     $ [lsfuser05@lsfuser05-ubuntu-two-mgmt-1 lsfadmin]$ lshosts -w

@@ -33,7 +33,7 @@ Before you begin, make sure to complete the steps in [Getting started with {{sit
 ## Configuring LSF Application Center
 {: #configuring-application-center}
 
-To configure and use the LSF Application Center, the `enable_app_center` deployment value must be set to "true". The remaining LSF Application Center ("app_center_xx") parameters should be configured to deploy the wanted LSF Application Center cluster configuration. Use `lsfadmin` as the default user for the LSF Application Center.
+To configure and use the LSF Application Center, the `enable_app_center` deployment value must be set to "true". The remaining LSF Application Center ("app_center_xx") parameters must be configured to deploy the wanted LSF Application Center cluster configuration. Use `lsfadmin` as the default user for the LSF Application Center.
 
 See the following example deployment values:
 
@@ -74,6 +74,5 @@ After the cluster is created, wait 5 - 10 minutes to complete the installation o
     ```
     {: codeblock}
 
-In this example, the LSF Application Center installation is set up on the Spectrum LSF management node, `<cluster_prefix>-management-host-0`. If this management node fails, then your LSF Application Center will be down.
+In this example, the LSF Application Center installation is set up on the Spectrum LSF management node, `<cluster_prefix>-management-host-0`. If this management node fails, then your LSF Application Center is down.
 {: note}
-

@@ -33,29 +33,29 @@ With {{site.data.keyword.bplong}} workspaces, you can manage the Terraform-based
 {: #create-workspace-ui}
 {: ui}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials.
-2. In the _Software_ section, select **Compute** and then select the **{{site.data.keyword.spectrum_full_notm}}** tile. 
-3. In the _Configure your workspace_ section:
-    * Specify the **Name** for your {{site.data.keyword.bpshort}} workspace
-    * Select a **Resource group**
-    * Define any **Tags** that you want to associate with the resources provisioned through the offering. The tags can later be used to query the resources in the {{site.data.keyword.cloud_notm}} console.
+1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your credentials.
+2. In the Software section, select Compute and then select the **{{site.data.keyword.spectrum_full_notm}}** tile. 
+3. In the Configure your workspace section:
+    * Specify the Name for your {{site.data.keyword.bpshort}} workspace
+    * Select a Resource group.
+    * Define any Tags that you want to associate with the resources provisioned through the offering. The tags can later be used to query the resources in the {{site.data.keyword.cloud_notm}} console.
 4. In the _Set the deployment values_ section, specify the values for the required properties: `api_key`, `ibm_customer_number`, `remote_allowed_ips`, `ssh_key_name`, and `zone`.
 5. Expand the _Parameters with default values_ section, and review it to determine whether you need to override any of the default values provided for the configuration properties.
 6. Review and accept the **{{site.data.keyword.spectrum_full_notm}}** license terms and conditions in the order summary.
-7. Click **Install**. The {{site.data.keyword.bpshort}} workspace is created with the name you specified. You can see the list of workspaces in _View the existing installations_. If the workspace creation is successful, the _Apply Plan_ action is started to trigger the deployment of the respective {{site.data.keyword.vpc_short}} resources in your {{site.data.keyword.cloud_notm}} account that are linked with the `api_key`. 
+7. Click Install. The {{site.data.keyword.bpshort}} workspace is created with the name that you specified. You can see the list of workspaces in _View the existing installations_. If the workspace creation is successful, the _Apply Plan_ action is started to trigger the deployment of the respective {{site.data.keyword.vpc_short}} resources in your {{site.data.keyword.cloud_notm}} account that are linked with the `api_key`. 
 8. You can also review the status of your deployment process by identifying the workspace name in the _View the existing installations_ section. When you click a record in _View the existing installations_ section, you are taken to the {{site.data.keyword.bpshort}} workspace view. 
 
 ## Next steps
 {: #next-steps-create-ui}
 {: ui}
 
-After you've successfully created a workspace, you can begin [Generating a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan&interface=ui) to validate all of the configuration properties.
+After you have successfully created a workspace, you can begin [Generating a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan&interface=ui) to validate all of the configuration properties.
 
 ## Before you begin
 {: #before-you-begin-creating-cli}
 {: cli}
 
-Before you get started, make sure that you've completed the prerequisites found in [Setting up the {{site.data.keyword.bplong_notm}} CLI](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-setting-up-cli). 
+Before you get started, make sure that you have completed the prerequisites found in [Setting up the {{site.data.keyword.bplong_notm}} CLI](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-setting-up-cli). 
 
 ## Creating a workspace using the CLI
 {: #create-workspace-cli}
@@ -70,7 +70,7 @@ ibmcloud schematics workspace new -f hpc_workspace_config.json --github-token GI
 ```
 {: pre}
 
-The `--github-token` parameter is optional and only needed if you are using a private git repository. If you are using the [{{site.data.keyword.cloud_notm}} public GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external}, you do not need to provide it.
+The `--github-token` parameter is optional and only needed if you are using a private Git repository. If you are using the [{{site.data.keyword.cloud_notm}} public GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external}, you do not need to provide it.
 {: note}
 
 ### Listing available workspaces
@@ -114,19 +114,19 @@ ibmcloud schematics workspace update --id WORKSPACE_ID --file FILE_NAME [--githu
 ```
 {: pre}
 
-To provision or modify {{site.data.keyword.cloud_notm}} resources, you can run the command `ibmcloud schematics plan` command. For more information, see the [{{site.data.keyword.bplong_notm}} CLI](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-schematics-cli-reference#schematics-plan) reference.
+To provision or modify {{site.data.keyword.cloud_notm}} resources, you can run the command `ibmcloud schematics plan` command. For more information, see the [{{site.data.keyword.bplong_notm}} CLI](/docs/schematics?topic=schematics-schematics-cli-reference) reference.
 
 ## Next steps
 {: #next-steps-create-cli}
 {: cli}
 
-After you've successfully created a workspace, you can begin [Generating a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan&interface=cli) to validate all of the configuration properties. 
+After you have successfully created a workspace, you can begin [Generating a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan&interface=cli) to validate all the configuration properties. 
 
 ## Before you begin
 {: #before-you-begin-creating-api}
 {: api}
 
-Before you get started, make sure that you've completed the prerequisites found in [Setting up the {{site.data.keyword.bplong_notm}} API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-setting-up-api).
+Before you get started, make sure that you have completed the prerequisites found in [Setting up the {{site.data.keyword.bplong_notm}} API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-setting-up-api).
 
 ## Creating a workspace using the API
 {: #create-workspace-api}
@@ -143,7 +143,7 @@ Before you get started, make sure that you've completed the prerequisites found 
     * Provide your GitHub or GitLab Repository HTTPS URL where your Terraform files reside in the `template_repo_request_model['url']` variable. If you are using the [public repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external} that is provided by {{site.data.keyword.cloud_notm}}, then set this variable as `template_repo_request_model['url'] = 'https://github.com/IBM-Cloud/hpc-cluster-lsf'`; otherwise, set it to the private repository you are using. 
 4. Inside the `schematics_service.create_workspace` function, provide the following parameters:
     * Provide an optional description.
-    * Provide a name to identify your {{site.data.keyword.bpshort}} workspace, for example, `terraform-dev-workspace`.
+    * Provide a name to identify your {{site.data.keyword.bpshort}} workspace, for example `terraform-dev-workspace`.
     * Change the `type` parameter to the Terraform version that you are using to create {{site.data.keyword.cloud_notm}} resources, for example, `terraform_v1.5`.
     * Change the location to a region where your {{site.data.keyword.bpshort}} workspace needs to be created, for example, `us-south`.
     * Change the resource group to the resource group where your resources should be grouped, for example, `Default` for a default resource group.
@@ -324,4 +324,4 @@ INFO:root:Completed Creating Schematic Workspace
 {: #next-steps-create-api}
 {: api}
 
-After you've successfully created a workspace, you can begin [Generating a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan&interface=api) to validate all of the configuration properties. 
+After you have successfully created a workspace, you can begin [Generating a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-generate-plan&interface=api) to validate all the configuration properties. 

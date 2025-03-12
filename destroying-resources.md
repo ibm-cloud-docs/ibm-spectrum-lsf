@@ -35,9 +35,9 @@ Before you perform the actions to destroy the resources, you must first ensure t
 {: #destroy-resources-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console on the **Schematics > Workspaces** page, select **Actions > Destroy** to delete all of the related VPC resources that were deployed as part of that workspace.
+1. In the {{site.data.keyword.cloud_notm}} console on the Schematics > Workspaces page, select Actions > Destroy to delete all the related VPC resources that were deployed as part of that workspace.
 2. If you select the option to destroy resources, decide whether you want to destroy all of them. This action cannot be undone. 
-3. Confirm the action by entering the workspace name in the text box and click **Destroy**.
+3. Confirm the action by entering the workspace name in the text box and click Destroy.
 
 ## Destroying resources using the CLI
 {: #deleting-resources-cli}
@@ -63,7 +63,7 @@ You can monitor the log files to view the deletion progress of all {{site.data.k
   * Replace your {{site.data.keyword.cloud_notm}} key to the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable.
   * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location that you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
 4. Inside the `schematics_service.destroy_workspace_command` function, provide the following parameters:
-  * Provide the workspace ID that you generated in the [Creating a workspace](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace) task, for example, `us-south.workspace.Terraform-Schematics-Python-Workspace.b3bbc9f5`.
+  * Provide the workspace ID that you generated in the [Creating a workspace](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace) task, for example `us-south.workspace.Terraform-Schematics-Python-Workspace.b3bbc9f5`.
   * Export your {{site.data.keyword.cloud_notm}} API key by using the following command:
   
     ```
@@ -134,4 +134,3 @@ DEBUG:urllib3.connectionpool:https://us.schematics.cloud.ibm.com:443 "PUT /v1/wo
 INFO:root:Completed Deletion of Schematic Resources
 ```
 {: screen}
-

@@ -30,14 +30,14 @@ When you work with HPC workloads in a cloud environment, a critical challenge to
 
 If your setup is using a VPN or direct link to connect the on-premises {{site.data.keyword.spectrum_short}} environment to the {{site.data.keyword.spectrum_short}} cluster on {{site.data.keyword.cloud_notm}}, you can configure the LSF multicluster capability and use the {{site.data.keyword.spectrum_short}} Data Manager component to stage the data from on-premises to your {{site.data.keyword.spectrum_short}} cluster on {{site.data.keyword.cloud_notm}}. 
 
-With an on-premises cluster, data typically resides on one or more file systems that are mounted onto every compute node. In general, you don't need to consider data location or locality (certain workloads do benefit from being "closer" to the filer and {{site.data.keyword.spectrum_full_notm}} does have a number of capabilities that allow you to consider data locality).   
+With an on-premises cluster, data typically resides on one or more file systems that are mounted onto every compute node. In general, you don't need to consider data location or locality (certain workloads do benefit from being "closer" to the filer and {{site.data.keyword.spectrum_full_notm}} does have few capabilities that allow you to consider data locality).   
 
 In a hybrid setup, where work can run on-premises and in the cloud, how and when data is moved to and from the cloud is important. Unfortunately, there is not a one-size-fits-all solution for this, and your data movement strategy depends on multiple factors:
 
 * Frequency and volume of workload being sent to the cloud - are you sending a handful of jobs or thousands?
 * Frequency of change of that data - is the data set static or constantly changing? 
 * Size of the data - how much needs to be moved?
-* Uniqueness of data per job - does every job requires unique data inputs or are most of the jobs reusing or sharing common data?
+* Uniqueness of data per job - does every job require unique data inputs or are most of the jobs reusing or sharing common data?
 * Runtime of the workload - if the ratio of compute time to time taken to get the data to the cloud is low, it is probably not cost-effective to run that workload on the cloud
 
 For data requirements that are static or that have small incremental changes, mirroring the data set between on-premises and the cloud can be cost-effective by using solutions such as IBM Aspera. Data can be moved in bulk when the cluster is created and resynced on a schedule or a per-job-basis to ensure that the latest changes are available.  
@@ -66,4 +66,3 @@ With a dedicated or stand-alone cluster on the cloud, your data is resident in t
 * For more information on how to use the IBM Aspera plug-in with {{site.data.keyword.spectrum_short}}, see [Configuring IBM Aspera as a data transfer tool](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=transfer-configuring-aspera-as-data-tool){: external}.
 * For more information about using {{site.data.keyword.cos_full_notm}}, see [Getting started with {{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
 * For more information on how to use `s3fs` interface with {{site.data.keyword.cos_full_notm}}, see [Mounting a bucket using `s3fs`](/docs/cloud-object-storage?topic=cloud-object-storage-s3fs). 
-

@@ -38,7 +38,7 @@ Schematics isn't able to clone the private GitHub repository, and you are seeing
 You didn't provide the correct GitHub token, or you didn't provide a GitHub token altogether.
 {: tsCauses}
 
-Provide a [GitHub token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token){: external} and check to see whether the correct GitHub token has been provided in the `github_token` parameter in the create workspace API.
+Provide a [GitHub token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token){: external} and check to see whether the correct GitHub token is provided in the `github_token` parameter in the created workspace API.
 {: tsResolve}
 
 ## Why is IBM Cloud Schematics not able to clone the public GitHub repo?
@@ -52,7 +52,7 @@ Schematics isn't able to clone the public GitHub repository, and you are seeing 
 * `Template error: Failed to clone git repository, authentication required (or the git url is incorrect)`
 {: tsSymptoms}
 
-You didn't provide the correct GitHub URL, or you provided a GitHub token, which is not required to clone a public repo. A GitHub access token is only required to access a private repo.
+You did not provide the correct GitHub URL, or you provided a GitHub token, which is not required to clone a public repo. A GitHub access token is only required to access a private repo.
 {: tsCauses}
 
 Do not provide a GitHub token, and check to see whether the GitHub token was provided in the `github_token` parameter while creating a workspace by using the public repo.
@@ -63,34 +63,13 @@ Do not provide a GitHub token, and check to see whether the GitHub token was pro
 {: troubleshoot}
 {: support}
 
-Schematics isn't able to create a workspace, and you are seeing the following error message: `You don't have the required to create a workspace in any resource groups. You must be assigned the manager role on the Schematics service in at least one resource group. Contact your account administrator for access.`
+Schematics is not able to create a workspace, and you are seeing the following error message: `You don't have the required to create a workspace in any resource groups. You must be assigned the manager role on the Schematics service in at least one resource group. Contact your account administrator for access.`
 {: tsSymptoms}
 
-You don't have the required access to create a workspace in any resource groups. You must be assigned the manager role on the Schematics service in at least one resource group.
+You do not have the required access to create a workspace in any resource groups. You must be assigned the manager role on the Schematics service in at least one resource group.
 {: tsCauses}
 
 Contact your account administrator and get assigned with the manager role on the Schematics service in at least one resource group.
-{: tsResolve}
-
-## Why is IBM Cloud Schematics not able to provision the cluster and fails with an error message for the `lsf_license_confirmation` variable?
-{: #troubleshoot-topic-4}
-{: troubleshoot}
-{: support}
-
-Schematics isn't able to provision the cluster, and you are seeing the following error message: `Error: Invalid value for variable "lsf_license_confirmation"`
-{: tsSymptoms}
-
-You entered a value other than "true" for the property `lsf_license_confirmation`.
-{: tsCauses}
-
-The property `lsf_license_confirmation` only accepts "true" as a valid value. A "true" value indicates that you have agreed to one of the following two conditions:
-
-1. If you are deploying a production cluster, you have confirmed with your business team that you have enough licenses to deploy the {{site.data.keyword.spectrum_full_notm}} on {{site.data.keyword.cloud_notm}} and that these licenses are covered for use under the International Program License Agreement (IPLA).
-2. You are deploying an evaluation cluster with {{site.data.keyword.spectrum_full_notm}} on {{site.data.keyword.cloud_notm}} and agree to abide by the International License Agreement for Evaluation of Program (ILAE).
-
-IBM terms of software use for both IPLA and ILAE can be found [here](https://www-03.ibm.com/software/sla/sladb.nsf/sla/bla){: external}.
-
-After you agree to one of the two conditions, update the property value to "true" and try again.
 {: tsResolve}
 
 ## Why is IBM Cloud Schematics not able to provision the cluster and fails with an authorization error?
@@ -98,13 +77,13 @@ After you agree to one of the two conditions, update the property value to "true
 {: troubleshoot}
 {: support}
 
-Schematics isn't able to provision the cluster, and you are seeing the following error message: `Request is not authorized. Check your user permissions and authorizations and try again.`
+Schematics is not able to provision the cluster, and you are seeing the following error message: `Request is not authorized. Check your user permissions and authorizations and try again.`
 {: tsSymptoms}
 
 You don't have the required access to get any VPC resources provisioned. 
 {: tsCauses}
 
-Contact your account administrator and get all of the required accesses. For more information, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+Contact your account administrator and get all the required accesses. For more information, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
 {: tsResolve}
 
 ## Why is IBM Cloud Schematics not able to provision the cluster and fails with an error that the provided name is not unique? 
@@ -143,27 +122,13 @@ While using a custom image, Schematics isn't able to provision the cluster, and 
 * `Unknown variable. There is no variable named "image_id".`
 {: tsSymptoms}
 
-The custom image that is used for one of the virtual server instances isn't present in the target region and zone or it is not accessible by the account and API key that is used to provision the cluster.
+The custom image that is used for one of the virtual server instances is not present in the target region and zone or it is not accessible by the account and API key that is used to provision the cluster.
 {: tsCauses}
 
 If you are using a custom image for any of your virtual server instances, ensure that the custom image is available in the target region and zone and is accessible by the account and API key that is used to provision the cluster.
 {: tsResolve}
 
-## Why am I receiving an error for my refresh token?
-{: #troubleshoot-topic-8}
-{: troubleshoot}
-{: support}
-
-You are receiving a refresh token error in the **generate a plan**, **apply a plan**, and **destroy resources** requests: `Error: The provided Refresh Token is invalid. Please provide a proper refresh token for Terraform to run the configuration. Code: 400`
-{: tsSymptoms}
-
-You didn't provide the correct refresh token, or you didn't provide a refresh token altogether.
-{: tsCauses}
-
-Check to see whether the refresh token that was generated by using the curl command is correct; otherwise, regenerate the refresh token.
-{: tsResolve}
-
-## Why am I receiving an error when I apply a change to my workspace?
+## Why the error occur when applying a change to the workspace?
 {: #troubleshoot-topic-9}
 {: troubleshoot}
 {: support}
@@ -174,7 +139,7 @@ You are receiving the following error when you try to apply a change to your wor
 After reconfiguring the volume profile, capacity, or IOPS, your workspace needs to be cleaned up before applying the change. 
 {: tsCauses}
 
-You need to destroy your existing resources and try applying the change again. Your data on the storage node will be deleted if you destroy your existing resources.
+You need to destroy your existing resources and try applying the change again. Your data on the storage node is deleted if you destroy your existing resources.
 {: tsResolve}
 
 ## Why does cluster creation fail with SSH issues?
@@ -193,11 +158,11 @@ While {{site.data.keyword.bpshort}} deploys the infrastructure resources, the au
 
 To fix the issue, you can:
 1. Try to destroy the resources from the workspace and deploy again.
-2. If this issue is observed on all of the deployments, raise a support issue with the {{site.data.keyword.cloud_notm}} support team to investigate if there is an infrastructure issue. 
+2. If this issue is observed on all the deployments, raise a support issue with the {{site.data.keyword.cloud_notm}} support team to investigate if there is an infrastructure issue. 
 3. If there are no issues with the infrastructure, report this issue to the automation team who can investigate further.
 {: tsResolve}
 
-## Why do I see resource errors due to authentication or timeout issues?
+## Why do resource errors occur due to authentication or timeout issues?
 {: #troubleshoot-topic-11}
 {: troubleshoot}
 {: support}
@@ -208,20 +173,13 @@ You are receiving the following error messages during the creation of any specif
 * `Error: timeout while waiting for state to become 'done, ' (last state: 'provisioning', timeout: 10m0s)`
 {: tsSymptoms}
 
-While {{site.data.keyword.bpshort}} deploys the infrastructure resources, it authenticates with {{site.data.keyword.cloud_notm}} through API calls. If there are too many requests through the API to the cloud environment, {{site.data.keyword.bpshort}} won't be able to authenticate and could error out with the authentication error.
+While {{site.data.keyword.bpshort}} deploys the infrastructure resources, it authenticates with {{site.data.keyword.cloud_notm}} through API calls. If there are too many requests through the API to the cloud environment, {{site.data.keyword.bpshort}} won't be able to authenticate and might error out with the authentication error.
 {: tsCauses}
 
 To fix either issue (resource failing due to authentication error or the timeout error), destroy the resources from the {{site.data.keyword.bpshort}} workspace and retry deploying the resources. 
 {: tsResolve}
 
-## Limitation of available profiles for dedicated hosts
-{: #troubleshoot-topic-12}
-{: troubleshoot}
-{: support}
-
-The offering automatically selects instance profiles for dedicated hosts to be the same prefix (for example, bx2 and cx2) as ones for worker instances (`worker_node_instance_type`). However, available instance prefixes can be limited, depending on your target region. If you use dedicated hosts, check `ibmcloud target -r {region_name}` and `ibmcloud is dedicated-host-profiles` to see whether your `worker_node_instance_type` has the available prefix for your target region.
-
-## Why am I receiving an error with the provided `ssh_key_name` value?
+## Why does the error occur with the provided `ssh_key_name` value?
 {: #troubleshoot-topic-13}
 {: troubleshoot}
 {: support}
@@ -229,20 +187,20 @@ The offering automatically selects instance profiles for dedicated hosts to be t
 You are receiving the following error when you try to generate or apply a plan on {{site.data.keyword.bpshort}} workspace: `failed due to "Error: No SSH Key found with name <KEY_NAME>".`
 {: tsSymptoms}
 
-Terraform could not find the given SSH key names that are provided by you.
+Terraform might not find the given SSH key names that are provided by you.
 {: tsCauses}
 
 1. Check whether the given SSH key is present in the current region where the cluster is being provisioned. If the given SSH key is not present, create the SSH key in the current region.
 2. While configuring multiple SSH keys, ensure that there is no white space added before or after the SSH key names.
-3. If you are using multiple SSH keys, check whether a comma (,) is used as a delimiter between the SSH keys and that there is no white space added before or after the SSH key.
+3. If you are using multiple SSH keys, check whether a comma is used as a delimiter between the SSH keys and that there is no white space added before or after the SSH key.
 {: tsResolve}
 
-## Why do I see a `remote-exec provisioner error` during cluster deployment?
+## Why does `remote-exec provisioner error` occur during cluster deployment?
 {: #troubleshoot-topic-14}
 {: troubleshoot}
 {: support}
 
-You encounter an error similar to this:
+You encounter an error similar to the following:
 {: tsSymptoms}
 
 ```console
@@ -253,13 +211,13 @@ Error: remote-exec provisioner error
 ```
 {: pre}
 
-When Schematics deploys the infrastructure resources, there is automatic validation of the health of the cluster nodes to ensure that all required configuration is set appropriately. In rare occasions, LSF is unable to find the LIM configuration and therefore, cannot start the LIM daemon on the management nodes.
+When Schematics deploys the infrastructure resources, there is automatic validation of the health of the cluster nodes to ensure that all required configuration is set correct. Therefore, in rare occasions, LSF is unable to find the LIM configuration and cannot start the LIM daemon on the management nodes.
 {: tsCauses}
 
 Sometimes the LSF management nodes take time to retrieve LIM status, so wait a while before checking. However, if the issue persists, destroy the cluster from Schematics and reapply.
 {: tsResolve}
 
-## Why do I see an error when I use {{site.data.keyword.cloud}} Secrets Manager during cluster deployment?
+## Why do you see an error when using the {{site.data.keyword.cloud}} Secrets Manager during cluster deployment?
 {: #troubleshoot-topic-15}
 {: troubleshoot}
 {: support}
@@ -279,12 +237,12 @@ There is a known issue with {{site.data.keyword.cloud}} projects when reading [*
 Change all user credential type secrets to [**arbitrary**](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui) type secrets in Secret Manager, and retry your deployment.
 {: tsResolve}
 
-## Why is my LDAP user not found?
+## Why does the LDAP user not found error occur?
 {: #troubleshoot-topic-16}
 {: troubleshoot}
 {: support}
 
-When attempting to switch to an LDAP user using the `su` command, you encounter an error stating that the user does not exist. An example of the error message might look like this:
+When attempting to switch to an LDAP user by using the `su` command, you encounter an error that the user does not exist. An example of the error message might look like this:
 
 ```console
 [lsfadmin@lsfuser05-ubuntu-two-mgmt-1 ~]$ su lsfuser05
@@ -294,18 +252,18 @@ su: user lsfuser05 does not exist
 {: pre}
 {: tsSymptoms}
 
-The error occurs because the specified LDAP user (`lsfuser05` in this case) is not found on the LDAP server. The LDAP user might not have been created or is not available in the LDAP directory.
+The error occurs because the specified LDAP user (`lsfuser05` in this case) is not found on the LDAP server. The LDAP user might not be created or is not available in the LDAP directory.
 {: tsCauses}
 
-[Verify that the user exists](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-create-ldap-user) using the `ldapsearch` command. If the user does not exist, [create the user](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-create-ldap-user).
+[Verify that the user exists](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-create-ldap-user) by using the `ldapsearch` command. If the user does not exist, [create the user](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-create-ldap-user).
 {: tsResolve}
 
-## Why does my LDAP user authentication fail?
+## Why does the LDAP user authentication fail?
 {: #troubleshoot-topic-17}
 {: troubleshoot}
 {: support}
 
-When attempting to switch to an LDAP user using the `su` command, you encounter an error stating that the system cannot authenticate the user. An example of the error message might look like this:
+When attempting to switch to an LDAP user by using the `su` command, you encounter an error that the system cannot authenticate the user. An example of the error message might look like this:
 
 ```console
 [lsfadmin@lsfuser05-ubuntu-two-mgmt-1 ~]$ su lsfuser05
@@ -329,9 +287,9 @@ Reset the LDAP password:
       ```
       {: codeblock}
 
-      where `<floating_IP_address>` is the floating IP address for the bastion node and `<LDAP_server_IP>` is the IP address for the OpenLDAP node.
+      Where `<floating_IP_address>` is the floating IP address for the bastion node and `<LDAP_server_IP>` is the IP address for the OpenLDAP node.
 
-2. Reset the password using the `ldappasswd` command. This command allows you to set a new password for the specified LDAP user. Ensure to replace the distinguished name (DN) and user details with the correct values for your LDAP setup. Here is an example of resetting the user passoword:
+2. Reset the password by using the `ldappasswd` command. This command allows you to set a new password for the specified LDAP user. Ensure to replace the distinguished name (DN) and user details with the correct values for your LDAP setup. An example of resetting the user password:
 
       ```text
       ubuntu@<LDAP_server_IP>:~$ ldappasswd -x -D "cn=admin,dc=hpcaas,dc=com" -W -S "uid=lsfuser05,ou=People,dc=hpcaas,dc=com"
@@ -342,7 +300,7 @@ Reset the LDAP password:
       ```
      {: codeblock}
 
-## Why the ssh connection not established using host shortnames?
+## Why the ssh connection not established by using host shortnames?
 {: #troubleshoot-topic-18}
 {: troubleshoot}
 {: support}
@@ -363,7 +321,7 @@ ssh: Could not resolve hostname mani-lsf-basic-login: Name or service not known
 {: pre}
 {: tsSymptoms}
 
-The error occurs because after configuring the DNS domains and custom resolver, the RHEL based systems uses NetworkManager service to pick up the domain name under search in `/etc/resolv.conf` file to resolve the shortname of the host without depending on the actual domain name.
+The error occurs because after configuring the DNS domains and custom resolver, the RHEL-based systems uses NetworkManager service to pick up the domain name under search in `/etc/resolv.conf` file to resolve the shortname of the host without depending on the actual domain name.
 {: tsCauses}
 
 To resolve this issue:
@@ -372,7 +330,7 @@ To resolve this issue:
 1. Go as root (sudo su).
 2. Run the `Run systemctl restart NetworkManager` command.
 
-Once the above command is submitted in `/etc/resolv.conf` file, search must be updated with the domain name as mentioned here:
+Once the preceding command is submitted in `/etc/resolv.conf` file, the search must be updated with the domain name as mentioned here:
 
 ```
 [lsfadmin@user-lsf-test1-mgmt-2 ~]$ cat /etc/resolv.conf

@@ -1,0 +1,45 @@
+{
+    "version": 2,
+    "title": "IBM Spectrum LSF",
+    "introduction": "Find useful information to learn about IBM Spectrum LSF.",
+    "product_page": "https://www.ibm.com/products/hpc-workload-management",
+    "section_topics": {
+      "links": [
+        {
+          "title": "Getting started with IBM Spectrum LSF",
+          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial"
+        },
+        {
+          "title": "Deployment values",
+          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values"
+        },
+        {
+          "title": "Using IBM Storage Scale",
+          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-using-spectrum-scale-storage"
+        },
+        {
+          "title": "Configuring the LSF Application Center",
+          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-configuring-lsf-application-center"
+        },
+        {
+          "title": "Virtual Private Clouds (VPCs)",
+          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-vpc"
+        },
+        {
+          "title": "FAQs",
+          "href": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-spectrum-lsf-faqs"
+        }
+      ]
+    },
+    "section_highlights": [
+      {
+        "title": "IBM Spectrum LSF",
+        "description": "IBM Spectrum LSF allows you to deploy high-performance computing (HPC) clusters by using IBM Spectrum LSF as HPC scheduling software.",
+        "href": "https://cloud.ibm.com/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-about-spectrum-lsf",
+        "type": "training"
+      }
+    ],
+    "section_updates": {
+      "view_more": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-release-notes"
+    }
+  }

@@ -38,7 +38,7 @@ The following {{site.data.keyword.spectrum_short}} programs are included:
 
 Available regions and zones for deploying VPC resources, and a mapping of those to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations).
 
-## What permissions do I need in order to create a cluster using the offering?
+## What permissions do you need to create a cluster using the offering?
 {: #permissions-cluster-offering}
 {: faq}
 
@@ -48,7 +48,7 @@ Instructions for setting the appropriate permissions for {{site.data.keyword.clo
 {: #ssh-among-nodes}
 {: faq}
 
-All of the nodes in the HPC cluster have the same public key that you register at your cluster creation. You can use ssh-agent forwarding, which is a common technique to access remote nodes that have the same public key. It automates to securely forward private keys to remote nodes. Forwarded keys are deleted immediately after a session is closed.
+All the nodes in the HPC cluster have the same public key that you register at your cluster creation. You can use ssh-agent forwarding, which is a common technique to access remote nodes that have the same public key. It automates to securely forward private keys to remote nodes. Forwarded keys are deleted immediately after a session is closed.
 
 To securely forward private keys to remote nodes, you need to do `ssh-add` and `ssh -A`.
 
@@ -71,19 +71,19 @@ Host *
 
 You can even remove `-A` by adding "ForwardAgent yes" to `.ssh/config`.
 
-## How many worker nodes can I deploy in my Spectrum LSF cluster through this offering?
+## How many worker nodes can you deploy in the Spectrum LSF cluster through this offering?
 {: #worker-nodes}
 {: faq}
 
 Before deploying a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
 
-The maximum number of worker nodes that are supported for the deployment value `worker_node_max_count` is 500 (see [Deployment values](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values)). The `worker_node_min_count` variable specifies the number of worker nodes that are provisioned at the time the cluster is created, which will exist throughout the life of the cluster. The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it's recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it's recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster.
+The maximum number of worker nodes that are supported for the deployment value `worker_node_max_count` is 500 (see [Deployment values](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values)). The `worker_node_min_count` variable specifies the number of worker nodes that are provisioned at the time the cluster is created, which exist throughout the life of the cluster. The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it is recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it is recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster.
 
 ## Why are there two different resource group parameters that can be specified in the IBM Cloud catalog tile?
 {: #resource-group-parameters}
 {: faq}
 
-The first resource group parameter entry in the **Configure your workspace** section in the {{site.data.keyword.cloud_notm}} catalog applies to the resource group where the {{site.data.keyword.bpshort}} workspace is provisioned on your {{site.data.keyword.cloud_notm}} account. The value for this parameter can be different than the one used for the second entry in the **Parameters with default values** section in the catalog. The second entry applies to the resource group where VPC resources are provisioned. As specified in the description for this second `resource_group` parameter, note that only the default resource group is supported for use of the LSF Resource Connector auto-scaling feature.
+The first resource group parameter entry in the Configure your workspace section in the {{site.data.keyword.cloud_notm}} catalog applies to the resource group where the {{site.data.keyword.bpshort}} workspace is provisioned on your {{site.data.keyword.cloud_notm}} account. The value for this parameter can be different than the one used for the second entry in the Parameters with default values section in the catalog. The second entry applies to the resource group where VPC resources are provisioned. As specified in the description for this second `resource_group` parameter. Only the default resource group is supported for use of the LSF Resource Connector auto-scaling feature.
 
 ## Where are the Terraform files used by the IBM Spectrum LSF tile located?
 {: #terraform-file-location}
@@ -91,7 +91,7 @@ The first resource group parameter entry in the **Configure your workspace** sec
 
 The Terraform-based templates can be found in this [GitHub repository](https://github.com/IBM-Cloud/hpc-cluster-lsf){: external}.
 
-## Where can I find the custom image name to image ID mappings for each cloud region?
+## Where can you find the custom image name to image ID mappings for each cloud region?
 {: #custom-image-mappings}
 {: faq}
 
@@ -101,11 +101,11 @@ The mappings can be found in the `image-map.tf` file in this [GitHub repository]
 {: #versions-used}
 {: faq}
 
-Cluster nodes that are deployed with this offering include {{site.data.keyword.spectrum_full_notm}} 10.1 Standard Edition plus Data Manager plus License Scheduler. See the following for a brief description of each of those programs: [{{site.data.keyword.spectrum_full_notm}} 10 family of products](https://www.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/4/897/ENUS220-174/index.html&lang=en&request_locale=en){: external}
+Cluster nodes that are deployed with this offering include {{site.data.keyword.spectrum_full_notm}} 10.1 Standard Edition plus Data Manager plus License Scheduler. See the following for a brief description of each of those programs: [{{site.data.keyword.spectrum_full_notm}} 10 family of products](https://www.ibm.com/support/pages/ibm-spectrum-lsf-101-fix-pack-14-101014){: external}
 
-If the cluster uses {{site.data.keyword.scale_short}} storage, the storage nodes include {{site.data.keyword.scale_full_notm}} 5.1.3.1 software. For more information, see the [{{site.data.keyword.scale_full_notm}}](https://www.ibm.com/docs/en/spectrum-scale/5.1.3){: external} product documentation.
+If the cluster uses {{site.data.keyword.scale_short}} storage, the storage nodes include {{site.data.keyword.scale_full_notm}} 5.2.0.1 software. For more information, see the [{{site.data.keyword.scale_full_notm}}](https://www.ibm.com/docs/en/storage-scale/5.2.1){: external} product documentation.
 
-## How many compute worker and storage nodes can I deploy in my Spectrum LSF cluster through this offering when `spectrum_scale` is enabled?
+## How many compute worker and storage nodes can you deploy in my Spectrum LSF cluster through this offering when `spectrum_scale` is enabled?
 {: #how-many-nodes-deployed}
 {: faq}
 
@@ -127,21 +127,19 @@ If `EGO_DEFINE_NCPUS=cores`, then “ncpus=number of processors x number of core
 
 For more information, see [ncpus calculation in LSF](https://www.ibm.com/support/pages/ncpus-calculation-lsf#:~:text=If%20EGO_DEFINE_NCPUS%3Dthreads%2C%20then%20ncpus,cores%20x%20number%20of%20threads){: external}.
 
-
-
 ## What file storage for {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) profiles are supported for the {{site.data.keyword.spectrum_full_notm}} cluster shared storage?
 {: #file-storage-for-vpc-profiles}
 {: faq}
 
 {{site.data.keyword.filestorage_vpc_full_notm}} is a zonal file storage offering that provides NFS-based file storage services. You create file share mounts from a subnet in an availability zone within a region. You can also share them with multiple virtual server instances within the same zone across multiple VPCs. {{site.data.keyword.spectrum_full_notm}} supports the use of [dp2 profiles](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile).
 
-## Can I specify the total IOPS (input or output operations per second) for a file share when deploying an {{site.data.keyword.spectrum_short}} cluster?
+## Can you specify the total IOPS (input or output operations per second) for a file share when deploying an {{site.data.keyword.spectrum_short}} cluster?
 {: #iops}
 {: faq}
 
 Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [choose the required IOPS value appropriate for your file share size](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers).
 
-## How do I share data, packages, or applications with {{site.data.keyword.spectrum_short}} compute nodes?
+## How to share data, packages, or applications with {{site.data.keyword.spectrum_short}} compute nodes?
 {: #share}
 {: faq}
 
@@ -175,7 +173,7 @@ Likewise, to start all the daemons on a node, run `lsf_deamons start`.
 
 Repeat these commands on each node if you want to restart the full cluster. Run the commands on both management and compute nodes that join the cluster.
 
-No daemons are running on the login node, as the login node is used for running particular tasks: to submit {{site.data.keyword.spectrum_short}} jobs; monitor {{site.data.keyword.spectrum_short}} job status; display hosts and their static resource information; display and filter information about LSF jobs; and display the LSF version number,  cluster name, and the management host name.
+No daemons are run on the login node, as the login node is used for running particular tasks: to submit {{site.data.keyword.spectrum_short}} jobs; monitor {{site.data.keyword.spectrum_short}} job status; display hosts and their static resource information; display and filter information about LSF jobs; and display the LSF version number, cluster name, and the management hostname.
 {: note}
 
 ### Restarting LSF daemons for all hosts in the cluster
@@ -189,7 +187,7 @@ To shut down all the daemons on all the nodes in your cluster, use the `lsfshutd
 
 LSF also provides an `lsfstartup` command, which starts all the daemons on all the management (not compute) nodes in your cluster. If you have compute nodes that joined your cluster and you want to continue to use them (for example, after you run `lsfshutdown` to shut down all daemons on all hosts, which include the compute nodes), then you must SSH to connect to each host and run the `lsf_deamons start` script to bring back the compute nodes. Alternatively, since the compute nodes are within your {{site.data.keyword.spectrum_short}} environment, you can also leave them alone and they are returned to the resource pool in ten minutes (by default). New compute nodes can join upon new job requests.
 
-No daemons are running on the login node, as the login node is used for running particular tasks: to submit {{site.data.keyword.spectrum_short}} jobs; monitor {{site.data.keyword.spectrum_short}} job status; display hosts and their static resource information; display and filter information about LSF jobs; and display the LSF version number,  cluster name, and the management host name.
+No daemons are run on the login node, as the login node is used for running particular tasks: to submit {{site.data.keyword.spectrum_short}} jobs; monitor {{site.data.keyword.spectrum_short}} job status; display hosts and their static resource information; display and filter information about LSF jobs; and display the LSF version number, cluster name, and the management hostname.
 {: note}
 
 ## How do I secure LSF Application Center connections by importing the cacert.pem certificate into a browser?
@@ -202,4 +200,10 @@ LSF Application Center requires that the `$GUI_CONFDIR/https/cacert.pem` certifi
 {: #ubuntu-not-supported}
 {: faq}
 
-Due to compatibility issues Ubuntu is not supported for this release, only Red Hat Enterprise Linux (RHEL).
+As part of dynamic node provisioning, Ubuntu based operating system is not supported.
+
+## Limitation of available profiles for dedicated hosts
+{: #limitations}
+{: faq}
+
+The offering automatically selects instance profiles for dedicated hosts to be the same prefix (for example, bx2 and cx2) as ones for worker instances (`worker_node_instance_type`). However, available instance prefixes can be limited, depending on your target region. If you use dedicated hosts, check `ibmcloud target -r {region_name}` and `ibmcloud is dedicated-host-profiles` to see whether your `worker_node_instance_type` has the available prefix for your target region.
