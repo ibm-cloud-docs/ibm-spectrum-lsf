@@ -1,6 +1,7 @@
 toc:
   properties:
     subcollection: ibm-spectrum-lsf
+    category: compute
     audience: software
     href: /docs/ibm-spectrum-lsf
     console-page: /catalog/content/ibm-spectrum-lsf
