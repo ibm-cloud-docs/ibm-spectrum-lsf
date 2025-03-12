@@ -1,14 +1,13 @@
 toc:
   properties:
     subcollection: ibm-spectrum-lsf
-    category: compute
     audience: software
     href: /docs/ibm-spectrum-lsf
     console-page: /catalog/content/ibm-spectrum-lsf
     path: ibm-spectrum-lsf
     label: IBM Spectrum LSF
-  entries: 
-  - navgroup: 
+  entries:
+  - navgroup:
       id: learn
       topics:
       - getting-started.md
@@ -22,7 +21,7 @@ toc:
           - dns-service-instances.md
           - key-protect-encrypyption-keys.md
       - release-notes.md
-  - navgroup: 
+  - navgroup:
       id: tutorial
       topics:
       - integrate-openldap-tutorial.md
@@ -35,12 +34,12 @@ toc:
           - check-ldapp-status.md
           - create-ldapp-user.md
           - submit-lsf-jobs-ldapp.md
-  - navgroup: 
+  - navgroup:
       id: howto
       topics:
-      - topicgroup: 
+      - topicgroup:
           label: Setting up the CLI and API
-          topics: 
+          topics:
           - setting-up-cli.md
           - setting-up-api.md
       - creating-workspace.md
@@ -88,22 +87,22 @@ toc:
           label: IBM Cloud Schematics API
           href: https://cloud.ibm.com/apidocs/schematics
       - include: ../schematics/schematics-sdk.md
-      - link: 
+      - link:
           label: Best practices for IBM Spectrum LSF
           href: https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=best-practices-tips
       - link:
           label: Configuring auto scaling or resource connector for IBM Cloud
           href: https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=providers-configuring-cloud-gen-2-lsf-resource-connector
       - topicgroup:
-          label: Hybrid connectivity 
-          topics: 
+          label: Hybrid connectivity
+          topics:
           - install-vpn-hpc-cluster.md
           - direct-link.md
           - setting-up-multi-cluster-job-forwarding.md
           - data-management.md
   - navgroup:
       id: help
-      topics: 
+      topics:
       - faq.md
       - troubleshooting.md
       - getting-help.md
